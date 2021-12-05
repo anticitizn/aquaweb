@@ -18,9 +18,9 @@
             <div class="collapse navbar-collapse" id="navbarSupportedContent">
                 <div class="navbar-nav">
                     <a class="nav-link active" href="#">Home</a>
-                    <a class="nav-link" href="projects.html">My aquarium</a>
-                    <a class="nav-link" href="photography.html">Statistics</a>
-                    <a class="nav-link" href="blog.html">Shop</a>
+                    <a class="nav-link" href="aquarium.php">My aquarium</a>
+                    <a class="nav-link" href="statistics.php">Statistics</a>
+                    <a class="nav-link" href="shop.php">Shop</a>
                 </div>
             </div>
         </div>
