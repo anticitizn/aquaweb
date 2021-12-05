@@ -8,7 +8,7 @@
                 <div class="navbar-nav">
                     <a class="nav-link active" href="#">Home</a>
                     <a class="nav-link" href="aquarium.php">My aquarium</a>
-                    <a class="nav-link" href="statistics.php">Statistics</a>
+                    <a class="nav-link" href="php/templates/statistics.php">Statistics</a>
                     <a class="nav-link" href="shop.php">Shop</a>
                 </div>
             </div>
