@@ -4,8 +4,16 @@ a:link{color: black;}
 a:visited{color: black;}
 
 footer{
-    clear: both;
+    bottom: 0;
+    position: fixed;
+    width: 100%;
+}
+
+#page-container{
     position: relative;
-    height: 200px;
-    margin-top: -200px;
+    min-height: 100vh;
+}
+
+#content-wrap{
+    padding-bottom: 2.5rem;
 }

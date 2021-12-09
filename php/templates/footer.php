@@ -5,9 +5,9 @@
         <!-- Section for our GitHub-->
         <section class="mb-4">
             <!-- Github -->
-            <a class="btn btn-outline-light btn-floating m-1" href="https://github.com/kreug/aquaweb" role="button"
-            ><i class="fab fa-github"></i
-                ></a>
+            <a class="btn btn-outline-dark btn-floating m-1" href="https://github.com/kreug/aquaweb" role="button">
+                <i class="bi-github" role="img" aria-label="GitHub"></i>
+            </a>
         </section>
         <!-- Section for our GitHub -->
 
