@@ -29,10 +29,10 @@
 
                     <ul class="list-unstyled mb-0">
                         <li>
-                            <a class="nav-link" href="php/impressum.php">Impressum</a>
+                            <a class="nav-link" href="/tinf20-aquaweb/php/impressum.php">Impressum</a>
                         </li>
                         <li>
-                            <a class="nav-link" href="php/datenschutz.php">Datenschutz</a>
+                            <a class="nav-link" href="/tinf20-aquaweb/php/datenschutz.php">Datenschutz</a>
                         </li>
                     </ul>
                 </div>

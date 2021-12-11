@@ -10,7 +10,7 @@
             <div class="collapse navbar-collapse" id="navbarResponsive">
                 <ul class="navbar-nav ms-auto">
                     <li class="nav-item active">
-                        <a class="nav-link active" href="#">Home</a>
+                        <a class="nav-link active" href="/tinf20-aquaweb/">Home</a>
                     </li>
                     <li class="nav-item">
                         <a class="nav-link" href="/tinf20-aquaweb/php/aquarium.php">My aquarium</a>
