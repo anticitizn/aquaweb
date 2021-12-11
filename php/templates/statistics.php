@@ -1,5 +1,5 @@
 <?php
-require_once("php/database/connection.php");
+include("php/database/connection.php");
 $abfrage = "SELECT * FROM fish";
 
 $result = mysql_query($abfrage);
