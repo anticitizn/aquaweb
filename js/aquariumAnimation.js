@@ -8,8 +8,8 @@ $(document).ready(function() {
 });
 
 function getNewPos() {
-    var h = $('#aquariumContainer').height() - 50; // compensate for the size of the fish divs since position is upper left corner
-    var w = $('#aquariumContainer').width() - 50; // then compensate some more cuz they're going out of bounds for no reason
+    var h = $('#aquariumContainer').height() - 50 - parseInt($('#aquariumContainer').offset().top);
+    var w = $('#aquariumContainer').width() - 50 - parseInt($('#aquariumContainer').offset().left);
     
     console.log($('#aquariumContainer').offset().top);
 

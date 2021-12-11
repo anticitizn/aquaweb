@@ -5,11 +5,11 @@ error_reporting(E_ALL);
 
 // Zum Aufbau der Verbindung zur Datenbank
 // die Daten erhalten Sie von Ihrem Provider
-define ( 'MYSQL_HOST',      'localhost' );
+define ( 'MYSQL_HOST',      '51.15.100.196' );
 
 // bei XAMPP ist der MYSQL_Benutzer: root
-define ( 'MYSQL_BENUTZER',  'root' );
-define ( 'MYSQL_KENNWORT',  '' );
+define ( 'MYSQL_BENUTZER',  'aquaweb' );
+define ( 'MYSQL_KENNWORT',  'webaqua123' );
 
 //Unsere Datenbank aquaweb
 define ( 'MYSQL_DATENBANK', 'aquaweb' );
