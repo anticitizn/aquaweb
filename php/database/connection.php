@@ -18,7 +18,7 @@ define ( 'MYSQL_DATENBANK', 'aquaweb' );
 
 $db_connect= mysqli_connect (MYSQL_HOST, MYSQL_BENUTZER,  MYSQL_KENNWORT,  MYSQL_DATENBANK);
 
-if ( $db_connect)
+/*if ( $db_connect)
 {
     echo 'Verbindung erfolgreich: '."<br>";
     
@@ -34,7 +34,7 @@ if ( $db_connect)
         "";
     }
   
-}
+}*/
 
 
 ?>
