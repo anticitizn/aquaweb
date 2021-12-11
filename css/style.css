@@ -1,19 +1,44 @@
-body {background-color: royalblue;}
+body {
+    background-color: #032236;
+}
 
-a:link{color: black;}
-a:visited{color: black;}
+p {
+    color: whitesmoke;
+}
 
-footer{
+a:link {
+    color: black; 
+}
+
+a:visited {
+    color: black; 
+}
+
+footer {
     bottom: 0;
     position: fixed;
     width: 100%;
 }
 
-#page-container{
+#page-container {
     position: relative;
     min-height: 100vh;
 }
 
-#content-wrap{
+#content-wrap {
     padding-bottom: 2.5rem;
+}
+
+#aquariumContainer {
+    background-color: #708FA3;
+    margin: 3rem;
+    width: 60vw;
+    height: 80vh;
+}
+
+div.fish {
+    width: 40px;
+    height: 40px;
+    background-color:coral;
+    position: fixed;
 }
