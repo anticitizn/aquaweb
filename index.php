@@ -15,6 +15,7 @@
 <?php include('php/templates/header.php');?>
 
 <p>Hello AquaWeb</p>
+
 <div id="aquariumContainer">
     <div class="fish">
         <?php include('assets/images/fish.svg');?>
