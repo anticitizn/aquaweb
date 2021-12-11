@@ -1,8 +1,8 @@
 $(document).ready(function() {
     
-    $('.fish').each(function() {
+    $('.fish svg').each(function() {
         var randomColor = "#" + Math.floor(Math.random()*16777215).toString(16); // sweet mother of god
-        $(this).css('color', randomColor);
+        $(this).css('fill', randomColor);
     })
     animateFish();
 });
