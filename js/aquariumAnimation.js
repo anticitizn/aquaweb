@@ -8,13 +8,13 @@ $(document).ready(function() {
 });
 
 function getNewPos() {
-    var h = $('#aquariumContainer').height() - 50 - parseInt($('#aquariumContainer').offset().top);
-    var w = $('#aquariumContainer').width() - 50 - parseInt($('#aquariumContainer').offset().left);
+    var h = $('#aquariumContainer').height() - 50;
+    var w = $('#aquariumContainer').width() - 50;
     
     console.log($('#aquariumContainer').offset().top);
 
-    nh = Math.floor(Math.random() * h) + parseInt($('#aquariumContainer').offset().top);
-    nw = Math.floor(Math.random() * w) + parseInt($('#aquariumContainer').offset().left);
+    nh = Math.floor(Math.random() * h);
+    nw = Math.floor(Math.random() * w);
     
     return [nh,nw];
 }

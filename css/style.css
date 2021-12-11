@@ -29,6 +29,7 @@ footer {
 }
 
 #aquariumContainer {
+    position: relative;
     background-color: #708FA3;
     margin: 3rem;
     width: 85vw;
