@@ -8,13 +8,13 @@ $(document).ready(function() {
 });
 
 function getNewPos() {
-    var h = $('#aquariumContainer').height() - 100; // compensate for the size of the fish divs since position is upper left corner
-    var w = $('#aquariumContainer').width() - 100; // then compensate some more cuz they're going out of bounds for no reason
+    var h = $('#aquariumContainer').height() - 50; // compensate for the size of the fish divs since position is upper left corner
+    var w = $('#aquariumContainer').width() - 50; // then compensate some more cuz they're going out of bounds for no reason
     
     console.log($('#aquariumContainer').offset().top);
 
-    nh = Math.floor(Math.random() * h);
-    nw = Math.floor(Math.random() * w);
+    nh = Math.floor(Math.random() * h) + parseInt($('#aquariumContainer').offset().top);
+    nw = Math.floor(Math.random() * w) + parseInt($('#aquariumContainer').offset().left);
     
     return [nh,nw];
 }
