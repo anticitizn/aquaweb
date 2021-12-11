@@ -36,7 +36,7 @@
    
 
 
-    $sortingOption = $_POST["sortingOption"];
+    $sortingOption = $_POST["sortingOption"]??"";
 
 
     switch($sortingOption){

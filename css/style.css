@@ -2,8 +2,12 @@ body {
     background-color: #032236;
 }
 
-p {
+h1,p {
     color: whitesmoke;
+}
+
+h1 {
+    padding: 2vh 1vw 2vh 1vw;
 }
 
 a:link {
@@ -12,6 +16,10 @@ a:link {
 
 a:visited {
     color: black; 
+}
+
+header {
+    height: 56px;
 }
 
 footer {
@@ -49,7 +57,7 @@ footer {
 }
 
 *.carousel-item {
-    height: 100vh;
+    height: 94vh;
     min-height: 350px;
     background: no-repeat center center scroll;
     -webkit-background-size: cover;
