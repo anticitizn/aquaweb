@@ -17,15 +17,15 @@
 <p>Hello AquaWeb</p>
 <div id="aquariumContainer">
     <div class="fish">
-        <?php include('/assets/images/fish.svg');?>
+        <?php include('assets/images/fish.svg');?>
     </div>
 
     <div class="fish">
-        <?php include('/assets/images/fish.svg');?>
+        <?php include('assets/images/fish.svg');?>
     </div>
     
     <div class="fish">
-        <?php include('/assets/images/fish.svg');?>
+        <?php include('assets/images/fish.svg');?>
     </div>
 </div>
 
