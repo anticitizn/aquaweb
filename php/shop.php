@@ -14,8 +14,29 @@
 <body>
 <?php include('templates/header.php');?>
 
-<p>Hello AquaWeb</p>
+<p>shop</p>
 
+<div id="aquariumContainer">
+    <div class="fish">
+        <?php include('assets/images/fish.svg');?>
+    </div>
+
+    <div class="fish">
+        <?php include('assets/images/fish.svg');?>
+    </div>
+    
+    <div class="fish">
+        <?php include('assets/images/fish.svg');?>
+    </div>
+
+    <div class="fish">
+        <?php include('assets/images/fish.svg');?>
+    </div>
+
+    <div class="fish">
+        <?php include('assets/images/fish.svg');?>
+    </div>
+</div>
 
 <?php include('templates/footer.php');?>
     
