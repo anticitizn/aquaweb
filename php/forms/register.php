@@ -1,8 +1,8 @@
 <?php
-/*
+
 session_start();
-$pdo = new PDO('mysql:host=localhost;dbname=test', 'root', '');
-*/
+$pdo = new PDO('mysql:host=51.15.100.196;dbname=aquaweb', 'aquaweb', 'webaqua123');
+
 ?>
 
 <!DOCTYPE html>
@@ -12,87 +12,99 @@ $pdo = new PDO('mysql:host=localhost;dbname=test', 'root', '');
 	<title>AquaWeb</title>
 	<meta http-equiv="content-type" content="text/html;charset=utf-8" />
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
-    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="../../css/style.css">
+    <link rel="stylesheet" href="../../css/register-login.css">
     <link rel="icon" type="image/vnd.microsoft.icon" href="http://test.anticitizen.space/favicon.ico">
     <meta name="viewport" content="width=device-width, initial-scale=1">
 </head>
 
 <body>
-<?php include('../templates/header.php');?>
+    <?php include('../templates/header.php');?>
+    <main>
+        <h1>Registrierung</h1>
 
-<?php
-$showFormular = true; //Variable ob das Registrierungsformular anezeigt werden soll
- 
-if(isset($_GET['register'])) {
-    $error = false;
-    $email = $_POST['email'];
-    $passwort = $_POST['passwort'];
-    $passwort2 = $_POST['passwort2'];
-  
-    if(!filter_var($email, FILTER_VALIDATE_EMAIL)) {
-        echo 'Bitte eine gültige E-Mail-Adresse eingeben<br>';
-        $error = true;
-    }     
-    if(strlen($passwort) == 0) {
-        echo 'Bitte ein Passwort angeben<br>';
-        $error = true;
-    }
-    if($passwort != $passwort2) {
-        echo 'Die Passwörter müssen übereinstimmen<br>';
-        $error = true;
-    }
-    
-    //Überprüfe, dass die E-Mail-Adresse noch nicht registriert wurde
-    if(!$error) { 
-        $statement = $pdo->prepare("SELECT * FROM users WHERE email = :email");
-        $result = $statement->execute(array('email' => $email));
-        $user = $statement->fetch();
-        
-        if($user !== false) {
-            echo 'Diese E-Mail-Adresse ist bereits vergeben<br>';
-            $error = true;
-        }    
-    }
-    
-    //Keine Fehler, wir können den Nutzer registrieren
-    if(!$error) {    
-        $passwort_hash = password_hash($passwort, PASSWORD_DEFAULT);
-        
-        $statement = $pdo->prepare("INSERT INTO users (email, passwort) VALUES (:email, :passwort)");
-        $result = $statement->execute(array('email' => $email, 'passwort' => $passwort_hash));
-        
-        if($result) {        
-            echo 'Du wurdest erfolgreich registriert. <a href="login.php">Zum Login</a>';
-            $showFormular = false;
-        } else {
-            echo 'Beim Abspeichern ist leider ein Fehler aufgetreten<br>';
-        }
-    } 
-}
- 
-if($showFormular) {
-?>
- 
-<form action="?register=1" method="post">
-E-Mail:<br>
-<input type="email" size="40" maxlength="250" name="email"><br><br>
- 
-Dein Passwort:<br>
-<input type="password" size="40"  maxlength="250" name="passwort"><br>
- 
-Passwort wiederholen:<br>
-<input type="password" size="40" maxlength="250" name="passwort2"><br><br>
- 
-<input type="submit" value="Abschicken">
-</form>
- 
-<?php
-} //Ende von if($showFormular)
-?>
+        <?php
+            $showFormular = true; //Variable ob das Registrierungsformular anezeigt werden soll
 
-<?php include('../templates/footer.php');?>
+            if(isset($_GET['register'])) {
+                $error = false;
+                $username = $_POST["username"];
+                $password = $_POST["password"];
+                $password2 = $_POST["password2"];
+
+                if(strlen($password) == 0) {
+                    echo '<p>Bitte ein Passwort angeben</p>';
+                    $error = true;
+                }
+                if(($password != $password2) && (strlen($password2) == 0)){
+                    echo 'Die Passwörter müssen übereinstimmen<br>';
+                    $error = true;
+                }
+
+                //check if username is allready registered
+                if(!$error) { 
+                    $statement = $pdo->prepare("SELECT * FROM users WHERE username = :username");
+                    $result = $statement->execute(array('username' => $username));
+                    $user = $statement->fetch();
+
+                    if($user !== false) {
+                        echo '<p>Diese Benutzername ist bereits vergeben ist bereits vergeben</p>';
+                        $error = true;
+                    }
+                }
+
+                //no errors -> user will be registered
+                if(!$error) {    
+                    $password_hash = password_hash($password, PASSWORD_DEFAULT);
+
+                    $statement = $pdo->prepare("INSERT INTO users (username, password) VALUES (:username, :password)");
+                    $result = $statement->execute(array('username' => $username, 'password' => $password_hash));
+
+                    if($result) {        
+                        echo '<p>Du wurdest erfolgreich registriert. <a href="login.php">Zum Login</a></p>';
+                        $showFormular = false;
+                    } else {
+                        echo '<p>Beim Abspeichern ist leider ein Fehler aufgetreten</p>';
+                    }
+                } 
+            }
+
+            if($showFormular) {
+        ?>
+        <div class="form">
+            <form action="?register=1" method="post">
+                <p>Benutzername:</p>
+                <input type="text" size="40" maxlength="250" name="username"><br><br>
+                <p>Dein Passwort:</p>
+                <input type="password" size="40"  maxlength="250" name="password"><br>
+                <p>Passwort wiederholen:</p>
+                <input type="password" size="40" maxlength="250" name="password2"><br><br>
+                <input type="submit" value="Registrieren">
+            </form>
+        </div>
+        <?php
+            }
+        ?>
+    </main>
+    <?php include('../templates/footer.php');?>
     
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p" crossorigin="anonymous"></script>
 </body>
 
 </html>
+
+<!--
+
+	
+<?php ?>
+/*
+session_start();
+if(!isset($_SESSION['userid'])) {
+    die('Bitte zuerst <a href="login.php">einloggen</a>');
+}
+ 
+//Abfrage der Nutzer ID vom Login
+$userid = $_SESSION['userid'];
+ 
+?>
+-->

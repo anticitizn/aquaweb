@@ -13,7 +13,7 @@ div.fishdescription {
     display: inline-block;
 }
 
-div.main {
+main {
     display: table;
     width: 100vw;
 }

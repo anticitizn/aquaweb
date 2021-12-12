@@ -1,4 +1,5 @@
 <?php
+session_start();
 ini_set('display_errors', 1);
 ini_set('display_startup_errors', 1);
 error_reporting(E_ALL);
@@ -36,12 +37,12 @@ $db_connect= mysqli_connect (MYSQL_HOST, MYSQL_BENUTZER,  MYSQL_KENNWORT,  MYSQL
 <body>
 <?php include('templates/header.php');?>
 
-<div class="main">
+<main>
     <h1>Shop</h1>
     
     <div class="filter">
         <p>Filter</p>
-<!--
+    <!--
         <form class="sql_filter" method="post" action="<?=$_SERVER['PHP_SELF']?>">
             <label for="sort1">Sort by Name</label><input type="text" id="namefilter"  name="namefilter" value="sortByPrice"><br>
             <input type="radio" id="sort2"  name="sortingOption" value="sortByPrice">
@@ -50,7 +51,7 @@ $db_connect= mysqli_connect (MYSQL_HOST, MYSQL_BENUTZER,  MYSQL_KENNWORT,  MYSQL
             <label for="sort1">Sort by Amount</label><br>
             <input type="submit" value="sort">
         </form>
--->
+    -->
     </div>
     
     <div class="articles">
@@ -86,9 +87,9 @@ $db_connect= mysqli_connect (MYSQL_HOST, MYSQL_BENUTZER,  MYSQL_KENNWORT,  MYSQL
         <p>balance and Cart</p>
     </aside>
 
-</div>
+</main>
 
-<?php include('templates/footer.php');?>
+    <?php include('templates/footer.php');?>
     
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p" crossorigin="anonymous"></script>
 <script src="js/aquariumAnimation.js"></script>

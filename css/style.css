@@ -1,9 +1,10 @@
 body {
     background-color: #032236;
+    color: whitesmoke;
 }
 
-h1,p {
-    color: whitesmoke;
+main {
+    min-height: 59vh;
 }
 
 h1 {
