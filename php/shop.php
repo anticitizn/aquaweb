@@ -1,24 +1,3 @@
-<?php
-session_start();
-ini_set('display_errors', 1);
-ini_set('display_startup_errors', 1);
-error_reporting(E_ALL);
-
-// Zum Aufbau der Verbindung zur Datenbank
-
-// Zum Aufbau der Verbindung zur Datenbank
-// die Daten erhalten Sie von Ihrem Provider
-define('MYSQL_HOST',      '51.15.100.196');
-
-// bei XAMPP ist der MYSQL_Benutzer: root
-define('MYSQL_BENUTZER',  'aquaweb');
-define('MYSQL_KENNWORT',  'webaqua123');
-
-//Unsere Datenbank aquaweb
-define('MYSQL_DATENBANK', 'aquaweb');
-
-$db_connect = mysqli_connect(MYSQL_HOST, MYSQL_BENUTZER,  MYSQL_KENNWORT,  MYSQL_DATENBANK);
-?>
 
 <!DOCTYPE html>
 <html xml:lang="en" lang="en">
@@ -37,10 +16,10 @@ $db_connect = mysqli_connect(MYSQL_HOST, MYSQL_BENUTZER,  MYSQL_KENNWORT,  MYSQL
 
 <body>
     <?php include('templates/header.php'); ?>
-
+    
     <main>
         <h1>Shop</h1>
-
+        <?php include('database/connection.php'); ?>
         <div class="filter">
             <p>Filter</p>
             <!--
@@ -72,8 +51,10 @@ $db_connect = mysqli_connect(MYSQL_HOST, MYSQL_BENUTZER,  MYSQL_KENNWORT,  MYSQL
                                                 <td><p>' . $row["name"] . '</p></td>
                                             </tr>
                                             <tr>
-                                            <td><p>' . $row["price"] . '</p>
-                                            <form action="/action_page.php">
+                                            <td>
+                                            <form action="./shopping_cart.php" method="post" >
+                                                <label for="price">Price:</label>
+                                                <input type="number" id="price" name ="price" value=' . $row["price"] . ' readonly><br>
                                                 <label for="quantity">Amount:</label>
                                                 <input type="number" id="quantity" name="quantity" min="1">
                                                 <input type="submit" value ="Add to cart">

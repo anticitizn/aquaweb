@@ -33,7 +33,7 @@
                         <a class="nav-link" href="/tinf20-aquaweb/php/aquarium.php">My aquarium</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="/tinf20-aquaweb/php/templates/statistics.php">Statistics</a>
+                        <a class="nav-link" href="/tinf20-aquaweb/php/statistics.php">Statistics</a>
                     </li>
                     <li class="nav-item">
                         <a class="nav-link" href="/tinf20-aquaweb/php/shop.php">Shop</a>
