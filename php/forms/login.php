@@ -1,8 +1,7 @@
 <?php 
-
 session_start();
 $pdo = new PDO('mysql:host=51.15.100.196;dbname=aquaweb', 'aquaweb', 'webaqua123');
-
+$indexphp = '../';
 $user;
 $password;
 

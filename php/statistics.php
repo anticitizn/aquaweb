@@ -1,5 +1,6 @@
 <?php
 session_start();
+$indexphp = '';
 ?>
 <!DOCTYPE html>
 <html xml:lang="en" lang="en">
@@ -21,8 +22,6 @@ session_start();
 
     <?php include('templates/header.php'); ?>
     <main>
-
-    <?php include('database/connection.php'); ?>
  
     <!-- die relative position ist auch unnötig style="position: relative;" -->
     <div class="headline" ><?php echo "<h1>Your aquarium statistics </h1>";?></div>
