@@ -15,6 +15,7 @@ $indexphp = '';
     <link rel="icon" type="image/vnd.microsoft.icon" href="http://test.anticitizen.space/favicon.ico">
     <!--Favicon wird aktuell von Daniels Test-Server gezogen-->
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="../js/shop.js"></script>
     <meta name="viewport" content="width=device-width, initial-scale=1">
 </head>
 
@@ -23,7 +24,6 @@ $indexphp = '';
     
     <main>
         <h1>Shop</h1>
-        <?php include('database/connection.php'); ?>
         <div class="filter">
             <p>Filter</p>
             <!--
@@ -43,32 +43,39 @@ $indexphp = '';
                 <?php if ($db_connect) {
                     $request = "SELECT * FROM fish";
                     $result = mysqli_query($db_connect, $request);
+                    $i = 0;
                     while ($row = mysqli_fetch_assoc($result)) {
                         echo '<tr>
                                 <td>
                                     <div class="fishimg">';
                         include('../assets/images/fish.svg');
-                        echo '</div>
+                        ?>
+                        </div>
                                     <div class="fishdescription">
+                                    <form id=<?php echo "formaddcartfish-".$i; ?> action="#" method="post" >
                                         <table>
                                             <tr>
-                                                <td><p>' . $row["name"] . '</p></td>
+                                                <td class="label-column"><label for="name">Name:</label></td>
+                                                <td><input type="name" id=<?php echo "name-".$i; ?> name ="name" value=<?php echo $row["name"]?> readonly></td>
                                             </tr>
                                             <tr>
-                                            <td>
-                                            <form action="./shopping_cart.php" method="post" >
-                                                <label for="price">Price:</label>
-                                                <input type="number" id="price" name ="price" value=' . $row["price"] . ' readonly><br>
-                                                <label for="quantity">Amount:</label>
-                                                <input type="number" id="quantity" name="quantity" min="1">
-                                                <input type="submit" value ="Add to cart">
-                                                </form>
-                                                </td>
+                                                <td class="label-column"><label for="price">Price:</label></td>
+                                                <td><input type="number" id=<?php echo "price-".$i; ?> name ="price" value=<?php echo $row["price"]?> readonly></td>
+                                            </tr>
+                                            <tr>
+                                                <td class="label-column"><label for="quantity">Amount:</label></td>
+                                                <td><input type="number" id=<?php echo "quantity-".$i; ?> name="quantity" min="1"></td>
+                                            </tr>
+                                            <tr>
+                                                <td class="label-column"></td>
+                                                <td><button type="button" id=<?php echo "add-".$i; ?> class="add-button" onclick="start(this)">Add to cart!</button> 
                                             </tr>
                                         </table>
+                                        </form>
                                     </div>
                                 </td>
-                            </tr>';
+                            </tr>
+                    <?php $i +=1;
                     }
                 }
                 ?>
@@ -76,7 +83,21 @@ $indexphp = '';
         </div>
 
         <aside class="balance-cart">
-            <p>balance and Cart</p>
+            <?php 
+                $request = "SELECT * FROM users WHERE id =" . $_SESSION['userid'] ."";
+                $result = mysqli_query($db_connect,$request);
+                $row = mysqli_fetch_assoc($result);
+                $balance = $row['balance'];
+            ?>
+            <h3>balance and Cart</h3>
+            <table id="balancetable">
+                <tr>
+                    <td>Guthaben:</td>
+                    <td id="balance" ><?php echo $balance; ?></td>
+                </tr>
+            </table>
+            <table id="shoppingcart" style.display = "none">
+            </table>
         </aside>
 
     </main>

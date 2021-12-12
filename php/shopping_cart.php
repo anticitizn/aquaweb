@@ -1,4 +1,7 @@
-
+<?php
+session_start();
+$indexphp = '';
+?>
 <!DOCTYPE html>
 <html xml:lang="en" lang="en">
 
@@ -19,7 +22,6 @@
     
     <main>
         <h1>Your shopping cart</h1>
-        <?php include('database/connection.php'); ?>
        <?php $quantity=$_POST["quantity"]; ?>
        <?php $price=$_POST["price"]; ?>
 

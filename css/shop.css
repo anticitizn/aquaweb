@@ -36,3 +36,14 @@ div.balance-cart {
     width: 25%;
     float: right;
 }
+
+td.label-column{
+    width: 5rem;
+}
+
+td#balance {
+    text-align: right;
+    /*
+    funktioniert noch nciht ganz
+    */
+}
