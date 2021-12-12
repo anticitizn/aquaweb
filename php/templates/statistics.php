@@ -18,9 +18,9 @@ session_start();
 
 
 <body>
-    <main>
-    
+
     <?php include('../templates/header.php'); ?>
+    <main>
 
     <?php include('../database/connection.php'); ?>
  
