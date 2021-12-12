@@ -1,12 +1,15 @@
+<?php
+session_start();
+?>
 <!DOCTYPE html>
 <html xml:lang="en" lang="en">
 
 <head>
     <title>AquaWeb</title>
     <meta http-equiv="content-type" content="text/html;charset=utf-8" />
-    <link rel="stylesheet" href="css/style.css">
-    <link rel="stylesheet" href="css/style_statistics.css">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
+    <link rel="stylesheet" href="../../css/style.css">
+    <!-- <link rel="stylesheet" href="../../css/style_statistics.css"> -->
     <link rel="icon" type="image/vnd.microsoft.icon" href="http://test.anticitizen.space/favicon.ico">
     <!--Favicon wird aktuell von Daniels Test-Server gezogen-->
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
@@ -15,12 +18,14 @@
 
 
 <body>
+    <main>
     
     <?php include('../templates/header.php'); ?>
 
     <?php include('../database/connection.php'); ?>
  
-    <div class="headline" style="position: relative;"><?php echo "<h1>Your aquarium statistics </h1>";?></div>
+    <!-- die relative position ist auch unnötig style="position: relative;" -->
+    <div class="headline" ><?php echo "<h1>Your aquarium statistics </h1>";?></div>
 
     <form class="sql_sort" method="post" action="<?=$_SERVER['PHP_SELF']?>">
         <input type="radio" id="sort1" name="sortingOption" value="sortByName">
@@ -36,7 +41,7 @@
    
 
 
-    $sortingOption = $_POST["sortingOption"];
+    $sortingOption = $_POST["sortingOption"]??"";
 
 
     switch($sortingOption){
@@ -93,7 +98,7 @@
     echo "</table>";
     ?>
 
-
+    </main>
 
     <?php include('../templates/footer.php'); ?>
 </body>

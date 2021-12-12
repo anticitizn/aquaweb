@@ -1,0 +1,38 @@
+div.fishimg {
+    max-width: 400px;
+    max-height: 400px;
+    display: inline-block;
+}
+
+div.fishimg svg {
+    width: 80%;
+    margin: 0 auto;
+}
+
+div.fishdescription {
+    display: inline-block;
+}
+
+main {
+    display: table;
+    width: 100vw;
+}
+
+div.filter {
+    margin-left: 2vw;
+    width: 15%;
+    float: left;
+}
+
+div.articles {
+    margin: 0vw 1vw 0vw 1vw;
+    width: 60%;
+    float: left;
+    display: table-row;
+}
+
+div.balance-cart {
+    margin-right: 2vw;
+    width: 25%;
+    float: right;
+}
