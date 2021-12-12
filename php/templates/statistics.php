@@ -42,31 +42,36 @@ session_start();
 
 
     $sortingOption = $_POST["sortingOption"]??"";
+    $userid = $_SESSION['userid'];
 
 
     switch($sortingOption){
         case "sortByName": 
-            $abfrage = "SELECT fish.id, fish.name, fish.price, account_fish.amount, account_fish.day_of_Purchase, account_fish.lastFed 
-            FROM account_fish
-            INNER JOIN fish ON fish.id = account_fish.fish_id
+            $abfrage = "SELECT fish.id, fish.name, fish.price, users_fish.amount, users_fish.day_of_Purchase, users_fish.lastFed 
+            FROM users_fish
+            INNER JOIN fish ON fish.id = users_fish.fish_id
+            WHERE users_fish.users_id = $userid
             ORDER BY fish.name";
             break;
         case "sortByPrice":
-            $abfrage = "SELECT fish.id, fish.name, fish.price, account_fish.amount, account_fish.day_of_Purchase, account_fish.lastFed 
-            FROM account_fish
-            INNER JOIN fish ON fish.id = account_fish.fish_id
+            $abfrage = "SELECT fish.id, fish.name, fish.price, users_fish.amount, users_fish.day_of_Purchase, users_fish.lastFed 
+            FROM users_fish
+            INNER JOIN fish ON fish.id = users_fish.fish_id
+            WHERE users_fish.users_id = $userid
             ORDER BY fish.price";
             break;
         case "sortByAmount":
-            $abfrage = "SELECT fish.id, fish.name, fish.price, account_fish.amount, account_fish.day_of_Purchase, account_fish.lastFed 
-            FROM account_fish
-            INNER JOIN fish ON fish.id = account_fish.fish_id
-            ORDER BY account_fish.amount";
+            $abfrage = "SELECT fish.id, fish.name, fish.price, users_fish.amount, users_fish.day_of_Purchase, users_fish.lastFed 
+            FROM users_fish
+            INNER JOIN fish ON fish.id = users_fish.fish_id
+            WHERE users_fish.users_id = $userid
+            ORDER BY users_fish.amount";
             break;
         default:
-            $abfrage = "SELECT fish.id, fish.name, fish.price, account_fish.amount, account_fish.day_of_Purchase, account_fish.lastFed 
-            FROM account_fish
-            INNER JOIN fish ON fish.id = account_fish.fish_id";
+            $abfrage = "SELECT fish.id, fish.name, fish.price, users_fish.amount, users_fish.day_of_Purchase, users_fish.lastFed 
+            FROM users_fish
+            INNER JOIN fish ON fish.id = users_fish.fish_id
+            WHERE users_fish.users_id = $userid";
             break;
     }
 
