@@ -86,7 +86,7 @@
         echo "<td>" . $row["price"] . "</td>";
         echo "<td>" . $row["amount"] . "</td>";
         echo "<td>" . $row["day_of_Purchase"] . "</td>";
-        echo "<td>" . $row["lastFed "] . "</td>";
+        echo "<td>" . $row["lastFed"] . "</td>";
         echo "</tr>";
     }
     echo "</tbody>";
