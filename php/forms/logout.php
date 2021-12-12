@@ -1,5 +1,6 @@
 <?php
     session_start();
+    $indexphp = '';
     $showform = true;
     if(isset($_GET['login'])){
         $showform = false;

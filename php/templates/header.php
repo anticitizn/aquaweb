@@ -1,3 +1,14 @@
+<?php
+$connectionpath = $indexphp . 'database/connection.php';
+include($connectionpath); 
+if ($db_connect && (isset($_SESSION['userid']))) {
+    $request = "SELECT * FROM users WHERE id =" . $_SESSION['userid'] ."";
+    $result = mysqli_query($db_connect,$request);
+    $row = mysqli_fetch_assoc($result);
+    $displayedusername = $row['username'];
+}
+?>
+
 <!--Header-->
 <header>
     <!-- Navigation -->
@@ -33,13 +44,16 @@
                         <a class="nav-link" href="/tinf20-aquaweb/php/aquarium.php">My aquarium</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="/tinf20-aquaweb/php/templates/statistics.php">Statistics</a>
+                        <a class="nav-link" href="/tinf20-aquaweb/php/statistics.php">Statistics</a>
                     </li>
                     <li class="nav-item">
                         <a class="nav-link" href="/tinf20-aquaweb/php/shop.php">Shop</a>
                     </li>
                     <li class="nav-item">
                         <a class="nav-link" href="/tinf20-aquaweb/php/forms/logout.php">Log out</a>
+                    </li>
+                    <li class="nav-item">
+                        <span class="nav-link"> <?php echo $displayedusername; ?></span>
                     </li>
                     <?php } ?>
 

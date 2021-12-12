@@ -1,23 +1,6 @@
 <?php
 session_start();
-ini_set('display_errors', 1);
-ini_set('display_startup_errors', 1);
-error_reporting(E_ALL);
-
-// Zum Aufbau der Verbindung zur Datenbank
-
-// Zum Aufbau der Verbindung zur Datenbank
-// die Daten erhalten Sie von Ihrem Provider
-define ( 'MYSQL_HOST',      '51.15.100.196' );
-
-// bei XAMPP ist der MYSQL_Benutzer: root
-define ( 'MYSQL_BENUTZER',  'aquaweb' );
-define ( 'MYSQL_KENNWORT',  'webaqua123' );
-
-//Unsere Datenbank aquaweb
-define ( 'MYSQL_DATENBANK', 'aquaweb' );
-
-$db_connect= mysqli_connect (MYSQL_HOST, MYSQL_BENUTZER,  MYSQL_KENNWORT,  MYSQL_DATENBANK);
+$indexphp = '';
 ?>
 
 <!DOCTYPE html>
@@ -92,7 +75,6 @@ $db_connect= mysqli_connect (MYSQL_HOST, MYSQL_BENUTZER,  MYSQL_KENNWORT,  MYSQL
     <?php include('templates/footer.php');?>
     
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p" crossorigin="anonymous"></script>
-<script src="js/aquariumAnimation.js"></script>
 
 </body>
 </html>

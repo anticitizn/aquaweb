@@ -1,5 +1,6 @@
 <?php
 session_start();
+$indexphp = '';
 ?>
 <!DOCTYPE html>
 <html xml:lang="en" lang="en">
@@ -8,7 +9,7 @@ session_start();
     <title>AquaWeb</title>
     <meta http-equiv="content-type" content="text/html;charset=utf-8" />
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
-    <link rel="stylesheet" href="../../css/style.css">
+    <link rel="stylesheet" href="../css/style.css">
     <!-- <link rel="stylesheet" href="../../css/style_statistics.css"> -->
     <link rel="icon" type="image/vnd.microsoft.icon" href="http://test.anticitizen.space/favicon.ico">
     <!--Favicon wird aktuell von Daniels Test-Server gezogen-->
@@ -19,10 +20,8 @@ session_start();
 
 <body>
 
-    <?php include('../templates/header.php'); ?>
+    <?php include('templates/header.php'); ?>
     <main>
-
-    <?php include('../database/connection.php'); ?>
  
     <!-- die relative position ist auch unnötig style="position: relative;" -->
     <div class="headline" ><?php echo "<h1>Your aquarium statistics </h1>";?></div>
@@ -105,7 +104,7 @@ session_start();
 
     </main>
 
-    <?php include('../templates/footer.php'); ?>
+    <?php include('templates/footer.php'); ?>
 </body>
 
 </html>

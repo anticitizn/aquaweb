@@ -1,5 +1,6 @@
 <?php
 session_start();
+$indexphp = 'php/';
 ?>
 <!DOCTYPE html>
 <html xml:lang="en" lang="en">
