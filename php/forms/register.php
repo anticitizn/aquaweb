@@ -20,8 +20,6 @@ $pdo = new PDO('mysql:host=51.15.100.196;dbname=aquaweb', 'aquaweb', 'webaqua123
 <body>
     <?php include('../templates/header.php');?>
     <main>
-        <h1>Registrierung</h1>
-
         <?php
             $showFormular = true; //Variable ob das Registrierungsformular anezeigt werden soll
 
@@ -70,17 +68,17 @@ $pdo = new PDO('mysql:host=51.15.100.196;dbname=aquaweb', 'aquaweb', 'webaqua123
 
             if($showFormular) {
         ?>
-        <div class="form">
-            <form action="?register=1" method="post">
-                <p>Benutzername:</p>
-                <input type="text" size="40" maxlength="250" name="username"><br><br>
-                <p>Dein Passwort:</p>
-                <input type="password" size="40"  maxlength="250" name="password"><br>
-                <p>Passwort wiederholen:</p>
-                <input type="password" size="40" maxlength="250" name="password2"><br><br>
-                <input type="submit" value="Registrieren">
-            </form>
-        </div>
+                <div class="loginBox">
+                    <h3>Register</h3>
+                    <form action="?register=1" method="post">
+                        <div class="inputBox">
+                            <label for="userName"></label><input id="userName" type="text" name="username" placeholder="Username" />
+                            <label for="password"><input id="password" type="password" name="password" placeholder="Password" />
+                            <label for="password"></label><input id="password" type="password" name="password2" placeholder="Repeat password" />
+                        </div>
+                        <input type="submit" value="Register">
+                    </form>
+                </div>
         <?php
             }
         ?>

@@ -2,8 +2,8 @@
 session_start();
 $pdo = new PDO('mysql:host=51.15.100.196;dbname=aquaweb', 'aquaweb', 'webaqua123');
 $indexphp = '../';
-$user;
-$password;
+$user = null;
+$password = null;
 
 if(isset($_GET['login'])) {
     $username = $_POST['username'];
@@ -37,8 +37,6 @@ if(isset($_GET['login'])) {
 
 
     <main>
-        <h1>Login</h1>
-
         <?php 
             if(isset($errorMessage)) {
                 echo $errorMessage;
@@ -52,16 +50,18 @@ if(isset($_GET['login'])) {
                 }
             }
         ?>
-
+        <div class="loginBox">
+            <h3>Sign In</h3>
             <form action="?login=1" method="post">
-                <p>Benutzername:</p>
-                <input type="text" size="40" maxlength="250" name="username"><br><br>
-
-                <p>Dein Passwort:</p>
-                <input type="password" size="40"  maxlength="250" name="password"><br>
-                <br>
-                <input type="submit" value="Anmelden">
+                <div class="inputBox">
+                    <label for="userName"></label><input id="userName" type="text" name="username" placeholder="Username" />
+                    <label for="password"></label><input id="password" type="password" name="password" placeholder="Password" />
+                </div>
+                <input type="submit" value="Login">
             </form>
+            <div class="text-center">
+                <a href="register.php">Sign-Up</a>
+            </div>
         </div>
     </main>
 
