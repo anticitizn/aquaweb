@@ -1,6 +1,6 @@
 <?php
 session_start();
-$indexphp = '';
+$indexphp = '../';
 $pdo = new PDO('mysql:host=51.15.100.196;dbname=aquaweb', 'aquaweb', 'webaqua123');
 ?>
 

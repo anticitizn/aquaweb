@@ -26,16 +26,6 @@ $indexphp = '';
         <h1>Shop</h1>
         <div class="filter">
             <p>Filter</p>
-            <!--
-        <form class="sql_filter" method="post" action="<?= $_SERVER['PHP_SELF'] ?>">
-            <label for="sort1">Sort by Name</label><input type="text" id="namefilter"  name="namefilter" value="sortByPrice"><br>
-            <input type="radio" id="sort2"  name="sortingOption" value="sortByPrice">
-            <label for="sort1">Sort by Price</label><br>
-            <input type="radio" id="sort3" name="sortingOption" value="sortByAmount">
-            <label for="sort1">Sort by Amount</label><br>
-            <input type="submit" value="sort">
-        </form>
-    -->
         </div>
 
         <div class="articles">
@@ -43,39 +33,41 @@ $indexphp = '';
                 <?php if ($db_connect) {
                     $request = "SELECT * FROM fish";
                     $result = mysqli_query($db_connect, $request);
-                    $i = 0;
-                    while ($row = mysqli_fetch_assoc($result)) {
-                        echo '<tr>
-                                <td>
-                                    <div class="fishimg">';
-                        include('../assets/images/fish.svg');
-                        ?>
-                        </div>
-                                    <div class="fishdescription">
-                                    <form id=<?php echo "formaddcartfish-".$i; ?> action="#" method="post" >
+                    while ($row = mysqli_fetch_assoc($result)) { ?>
+                        <tr>
+                            <td>
+                                <div class="fishimg">
+                                <?php include('../assets/images/fish.svg'); ?>
+                                </div>
+                                <div class="fishdescription">
+                                    <form id=<?php echo $row["id"] . "-formaddcartfish-article"; ?> action="#" method="post" >
                                         <table>
+                                            <tr hidden>
+                                                <td class="label-column" hidden><label for="id" hidden>ID:</label></td>
+                                                <td hidden><input type="id" id=<?php echo $row["id"] . "-id-article"; ?> name ="id" value=<?php echo $row["id"]?> readonly hidden></td>
+                                            </tr>
                                             <tr>
                                                 <td class="label-column"><label for="name">Name:</label></td>
-                                                <td><input type="name" id=<?php echo "name-".$i; ?> name ="name" value=<?php echo $row["name"]?> readonly></td>
+                                                <td><input type="name" id=<?php echo $row["id"] . "-name-article"; ?> name ="name" value=<?php echo $row["name"]?> readonly></td>
                                             </tr>
                                             <tr>
                                                 <td class="label-column"><label for="price">Price:</label></td>
-                                                <td><input type="number" id=<?php echo "price-".$i; ?> name ="price" value=<?php echo $row["price"]?> readonly></td>
+                                                <td><input type="number" id=<?php echo $row["id"] . "-price-article"; ?> name ="price" value=<?php echo $row["price"]?> readonly></td>
                                             </tr>
                                             <tr>
-                                                <td class="label-column"><label for="quantity">Amount:</label></td>
-                                                <td><input type="number" id=<?php echo "quantity-".$i; ?> name="quantity" min="1"></td>
+                                                <td class="label-column"><label for="amount">Amount:</label></td>
+                                                <td><input type="number" id=<?php echo $row["id"] . "-amount-article"; ?> name="amount" min="1"></td>
                                             </tr>
                                             <tr>
                                                 <td class="label-column"></td>
-                                                <td><button type="button" id=<?php echo "add-".$i; ?> class="add-button" onclick="start(this)">Add to cart!</button> 
+                                                <td><button type="button" id=<?php echo $row["id"] . "-add-article"; ?> class="add-button" onclick="start(this, function() {printCart()})">Add to cart!</button> 
                                             </tr>
                                         </table>
-                                        </form>
-                                    </div>
-                                </td>
-                            </tr>
-                    <?php $i +=1;
+                                    </form>
+                                </div>
+                            </td>
+                        </tr>
+                    <?php
                     }
                 }
                 ?>
@@ -96,7 +88,23 @@ $indexphp = '';
                     <td id="balance" ><?php echo $balance; ?></td>
                 </tr>
             </table>
-            <table id="shoppingcart" style.display = "none">
+            <table class="shoppingcart">
+                <thead class="shoppingcart">
+                    <th class="shoppingcart" hidden>id</th>
+                    <th class="shoppingcart">Name</th>
+                    <th class="shoppingcart">Menge</th>
+                    <th class="shoppingcart">Preis</th>
+                    <th class="shoppingcart">Betrag</th>
+                </thhead>
+                <tbody class="shoppingcart" id="cart-table">
+                </tbody>
+                <tfoot>
+                    <tf class="shoppingcart" hidden></th>
+                    <tf class="shoppingcart"></tf>
+                    <tf class="shoppingcart"></tf>
+                    <tf class="shoppingcart"></tf>
+                    <tf class="shoppingcart" id="shoppingcart-totalamount"></tf>
+                </tfoor>
             </table>
         </aside>
 
