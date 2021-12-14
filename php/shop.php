@@ -8,7 +8,7 @@ $indexphp = '';
 
 <head>
     <title>AquaWeb</title>
-    <meta http-equiv="content-type" content="text/html;charset=utf-8" />
+    <meta http-equiv="content-type" content="text/html;charset=utd-8" />
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
     <link rel="stylesheet" href="../css/style.css">
     <link rel="stylesheet" href="../css/shop.css">
@@ -40,7 +40,7 @@ $indexphp = '';
                                 <?php include('../assets/images/fish.svg'); ?>
                                 </div>
                                 <div class="fishdescription">
-                                    <form id=<?php echo $row["id"] . "-formaddcartfish-article"; ?> action="#" method="post" >
+                                    <form id=<?php echo $row["id"] . "-formaddcartdish-article"; ?> action="#" method="post" >
                                         <table>
                                             <tr hidden>
                                                 <td class="label-column" hidden><label for="id" hidden>ID:</label></td>
@@ -84,28 +84,34 @@ $indexphp = '';
             <h3>balance and Cart</h3>
             <table id="balancetable">
                 <tr>
-                    <td>Guthaben:</td>
+                    <td>balance:</td>
                     <td id="balance" ><?php echo $balance; ?></td>
                 </tr>
             </table>
-            <table class="shoppingcart">
+            <table class="shoppingcart" id="shoppingcart" style='display:none;'>
                 <thead class="shoppingcart">
-                    <th class="shoppingcart" hidden>id</th>
-                    <th class="shoppingcart">Name</th>
-                    <th class="shoppingcart">Menge</th>
-                    <th class="shoppingcart">Preis</th>
-                    <th class="shoppingcart">Betrag</th>
+                    <tr class="shoppingcart">
+                        <th class="shoppingcart" hidden>id</th>
+                        <th class="shoppingcart">Name</th>
+                        <th class="shoppingcart">Amount</th>
+                        <th class="shoppingcart">Price</th>
+                        <th class="shoppingcart">Total</th>
+                    </tr>
                 </thhead>
                 <tbody class="shoppingcart" id="cart-table">
                 </tbody>
-                <tfoot>
-                    <tf class="shoppingcart" hidden></th>
-                    <tf class="shoppingcart"></tf>
-                    <tf class="shoppingcart"></tf>
-                    <tf class="shoppingcart"></tf>
-                    <tf class="shoppingcart" id="shoppingcart-totalamount"></tf>
-                </tfoor>
+                <tfoot class="shoppingcart">
+                    <tr class="shoppingcart">
+                        <td class="shoppingcart" hidden></th>
+                        <td class="shoppingcart"></td>
+                        <td class="shoppingcart"></td>
+                        <td class="shoppingcart" id="shoppingcart-totalamount-label">Totalamount</td>
+                        <td class="shoppingcart" id="shoppingcart-totalamount"></td>
+                    </tr> 
+                </tfoot>
             </table>
+
+            <!-- formular fehlt noch das muss sich dann über die tabelle des shopping carts und balance erstrecken und checken ob man sich den einkauf leisten kann, wenn nicht fehler werfen oder cart leeren? muss entschieden werden php soll dann die sql querries durchführen -->
         </aside>
 
     </main>
