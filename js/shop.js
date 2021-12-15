@@ -2,16 +2,20 @@
 var cart = [];
 var running = false;
 
+window.onload = function() {
+    start(null)
+  };
+
 // Triggers addition to the cart
 function start(it) {
     if (!running) {
     console.log("runnunig shop.js");
-    running = true;
-    // Unhide and clear shoppingcart table
-    $(".shoppingcart").show();
+    running = true
     }
 
-    addCart(it, printCart);
+    if (it != null){
+        addCart(it, printCart);
+    }
 }
 
 // Adds new fish to cart
@@ -29,7 +33,7 @@ function addCart(it, callback) {
     });
 
     // If fish is not in cart the amount off the fish in cart is increased by the added amount
-    if (!isInCart) {
+    if (!isInCart && (Number(document.getElementById(`${fishId}-amount-article`).value) > 0)) {
         fish = {
             id : fishId,
             name : document.getElementById(`${fishId}-name-article`).value,
@@ -40,7 +44,7 @@ function addCart(it, callback) {
         cart.push(fish);
 
     // If fish is in cart the amount off the fish in cart is increased by the added amount
-    } else {
+    } else if (Number(document.getElementById(`${fishId}-amount-article`).value) > 0) {
         var toUpdate = cart.filter(function(item) { return item.id == fishId });
         toUpdate[0].amount =  (Number(toUpdate[0].amount) + Number(document.getElementById(`${fishId}-amount-article`).value));
         toUpdate[0].total = (Number(toUpdate[0].price) * Number(toUpdate[0].amount));
@@ -48,9 +52,6 @@ function addCart(it, callback) {
 
     callback();
 }
-
-// Updates cart[]
-function updateCart(){}
 
 // Prints/refreshes the shoppingcart on the page
 function printCart(){
@@ -97,4 +98,20 @@ function printCart(){
 
     // Adds total amount at tablefoot
     document.getElementById("shoppingcart-totalamount").innerHTML = totalamount;
+}
+
+// Resets shoppingcart
+function resetCart(){
+    console.log("called resetCart");
+
+    // Clear shoppingcart-table
+    $("#cart-table > tr").remove();
+    $("#cart-table > td").remove();
+    cart = [];
+    document.getElementById("shoppingcart-totalamount").innerHTML = 0;
+}
+
+// Handles purchase
+async function buy(){
+    console.log("called buy");
 }

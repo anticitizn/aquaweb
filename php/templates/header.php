@@ -6,6 +6,7 @@ if ($db_connect && (isset($_SESSION['userid']))) {
     $result = mysqli_query($db_connect,$request);
     $row = mysqli_fetch_assoc($result);
     $displayedusername = $row['username'];
+    $userid = $row['id'];
 }
 ?>
 
@@ -53,7 +54,8 @@ if ($db_connect && (isset($_SESSION['userid']))) {
                         <a class="nav-link" href="/tinf20-aquaweb/php/forms/logout.php">Log out</a>
                     </li>
                     <li class="nav-item">
-                        <span class="nav-link"> <?php echo $displayedusername; ?></span>
+                        <span class="nav-link" id="username"> <?php echo $displayedusername; ?></span>
+                        <span class="nav-link" id="userid" hidden> <?php echo $displayedusername; ?></span>
                     </li>
                     <?php } ?>
 
