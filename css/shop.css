@@ -1,3 +1,8 @@
+main {
+    display: table;
+    width: 100vw;
+}
+
 div.fishimg {
     max-width: 400px;
     max-height: 400px;
@@ -13,12 +18,7 @@ div.fishdescription {
     display: inline-block;
 }
 
-main {
-    display: table;
-    width: 100vw;
-}
-
-div.filter {
+aside.filterside {
     margin-left: 2vw;
     width: 15%;
     float: left;
@@ -26,15 +26,9 @@ div.filter {
 
 div.articles {
     margin: 0vw 1vw 0vw 1vw;
-    width: 45%;
+    width: 65%;
     float: left;
     display: table-row;
-}
-
-div.balance-cart {
-    margin-right: 2vw;
-    width: 40%;
-    float: right;
 }
 
 td.label-column{

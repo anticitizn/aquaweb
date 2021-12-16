@@ -15,36 +15,110 @@ $indexphp = '';
     <link rel="icon" type="image/vnd.microsoft.icon" href="http://test.anticitizen.space/favicon.ico">
     <!--Favicon wird aktuell von Daniels Test-Server gezogen-->
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
-    <script type="text/javascript" src="../js/shop.js"></script>
     <meta name="viewport" content="width=device-width, initial-scale=1">
 </head>
 
 <body>
     <?php include('templates/header.php'); ?>
+
+    <?php 
+    $statement = "SELECT * FROM fish";
+    $response = mysqli_query($db_connect, $statement);
+    while ($row = mysqli_fetch_assoc($response)) {
+        $buy = $row["id"] . "buy";
+        $price = $row["id"] . "price";
+        $id = $row["id"] . "id";
+        if(isset($_GET[$buy]) && $_GET[$buy] == 1) {
+            $day_of_Purchase = date("Y-m-d H:i:s");
+            $request = "SELECT position FROM users_fish WHERE users_id = " . $_SESSION['userid'] . " ORDER BY position DESC LIMIT 1";
+            $result = mysqli_query($db_connect, $request);
+            $row = mysqli_fetch_assoc($result);
+            if (isset($row['position'])) {
+                $position = $row['position'] + 1;
+            } else {
+                $position = 0;
+            }
+
+            $request = "INSERT INTO users_fish (users_id, position, fish_id, amount, day_of_Purchase, lastFed) VALUE (". $_SESSION['userid'] . "," . $position . "," . $_POST[$id] . ",1, NOW(), NOW());";
+            $result = mysqli_query($db_connect,$request);
+
+            echo "<script>console.log('" . $buy . "')</script>";
+
+            $request = "UPDATE users SET balance=balance-". $_POST[$price]." WHERE id = " . $_SESSION['userid'] . "";
+            $result = mysqli_query($db_connect,$request);
+        }
+    }
+
+        $request = "SELECT * FROM users WHERE id =" . $_SESSION['userid'] ."";
+        $result = mysqli_query($db_connect,$request);
+        $row = mysqli_fetch_assoc($result);
+        $balance = $row['balance'];
+
+        $namefilter = $_POST["namefilter"] ?? "";
+        if(isset($_POST["pricetill"]) && $_POST["pricetill"] != ""){
+            $pricetill = $_POST["pricetill"];
+        } else {
+            $pricetill = 2147483647;
+        }
+        $priceof = $_POST["priceof"] ?? 0;
+    ?>
     
     <main>
         <h1>Shop</h1>
-        <div class="filter">
-            <p>Filter</p>
-        </div>
+        <aside class="filterside">
+            <div class="balance">
+                <p>Balance: <?php echo $balance; ?></p>
+            </div>
+            <div class="filter">
+                <p>Filter</p>
+                <form id="filterform" action="#" method="POST">
+                    <table>
+                        <tr>
+                            <td class="label-column"><label for="namefilter">Name:</label</td>
+                            <td><input type="text" name ="namefilter"></td>
+                        </tr>
+                        <tr>
+                            <td class="label-column"><label for="pricetill">Price till:</label</td>
+                            <td><input type="number" name ="pricetill" min="0" max="2147483647"></td>
+                        </tr>
+                        <tr>
+                            <td class="label-column"><label for="priceof">Price of:</label</td>
+                            <td><input type="number" name ="priceof" min="0" max="2147483647"></td>
+                        </tr>
+                        <tr>
+                            <td><button type="reset">Reset</button></td>
+                            <td><button type="submit">Filter</button></td>
+                        </tr>
+                    </table>
+                </form>
+            </div>
+    </aside>
 
         <div class="articles">
             <table>
                 <?php if ($db_connect) {
                     $request = "SELECT * FROM fish";
                     $result = mysqli_query($db_connect, $request);
-                    while ($row = mysqli_fetch_assoc($result)) { ?>
+                    while ($row = mysqli_fetch_assoc($result)) {
+                        if ((str_contains($row["name"], $namefilter)) && ($row["price"] <= $pricetill) && ($row["price"] >= $priceof)) {?>
                         <tr>
                             <td>
                                 <div class="fishimg">
                                 <?php include('../assets/images/fish.svg'); ?>
                                 </div>
                                 <div class="fishdescription">
-                                    <form id=<?php echo $row["id"] . "-formaddcartdish-article"; ?>>
+                                    <?php 
+                                        if($row["price"] <= $balance){
+                                            ${"buy".$row["id"]} = 1;
+                                        } else {
+                                            ${"buy".$row["id"]} = 0;
+                                        }
+                                    ?>
+                                    <form id=<?php echo $row["id"] . "formbuyfisharticle"; ?> action="?<?php echo $row['id'];?>buy=<?php echo ${"buy".$row["id"]} ?>" method="post">
                                         <table>
                                             <tr hidden>
                                                 <td class="label-column" hidden><label for="id" hidden>ID:</label></td>
-                                                <td hidden><input type="id" id=<?php echo $row["id"] . "-id-article"; ?> name ="id" value=<?php echo $row["id"]?> readonly hidden></td>
+                                                <td hidden><input type="id" id=<?php echo $row["id"] . "-id-article"; ?> name ="<?php echo $row['id'];?>id" value=<?php echo $row["id"]?> readonly hidden></td>
                                             </tr>
                                             <tr>
                                                 <td class="label-column"><label for="name">Name:</label></td>
@@ -52,71 +126,23 @@ $indexphp = '';
                                             </tr>
                                             <tr>
                                                 <td class="label-column"><label for="price">Price:</label></td>
-                                                <td><input type="number" id=<?php echo $row["id"] . "-price-article"; ?> name ="price" value=<?php echo $row["price"]?> readonly></td>
-                                            </tr>
-                                            <tr>
-                                                <td class="label-column"><label for="amount">Amount:</label></td>
-                                                <td><input type="number" id=<?php echo $row["id"] . "-amount-article"; ?> name="amount" min="1"></td>
+                                                <td><input type="number" id=<?php echo $row["id"] . "-price-article"; ?> name ="<?php echo $row['id'];?>price" value=<?php echo $row["price"]?> readonly></td>
                                             </tr>
                                             <tr>
                                                 <td class="label-column"></td>
-                                                <td><button type="button" id=<?php echo $row["id"] . "-add-article"; ?> class="add-button" onclick="start(this)">Add to cart!</button> 
+                                                <td><button type="submit" id=<?php echo $row["id"] . "-buy-article"; ?> class="buy-button">Buy!</button> 
                                             </tr>
                                         </table>
                                     </form>
                                 </div>
                             </td>
                         </tr>
-                    <?php
+                    <?php }
                     }
                 }
                 ?>
             </table>
         </div>
-
-        <aside class="balance-cart">
-            <?php 
-                $request = "SELECT * FROM users WHERE id =" . $_SESSION['userid'] ."";
-                $result = mysqli_query($db_connect,$request);
-                $row = mysqli_fetch_assoc($result);
-                $balance = $row['balance'];
-            ?>
-            <h3>balance and Cart</h3>
-            <form>
-                <table id="balancetable">
-                    <tr>
-                        <td>balance:</td>
-                        <td id="balance" ><?php echo $balance; ?></td>
-                    </tr>
-                </table>
-                <table class="shoppingcart" id="shoppingcart">
-                    <thead class="shoppingcart">
-                        <tr class="shoppingcart">
-                            <th class="shoppingcart" hidden>id</th>
-                            <th class="shoppingcart">Name</th>
-                            <th class="shoppingcart">Amount</th>
-                            <th class="shoppingcart">Price</th>
-                            <th class="shoppingcart">Total</th>
-                        </tr>
-                    </thhead>
-                    <tbody class="shoppingcart" id="cart-table">
-                    </tbody>
-                    <tfoot class="shoppingcart">
-                        <tr class="shoppingcart">
-                            <td class="shoppingcart" hidden></th>
-                            <td class="shoppingcart"></td>
-                            <td class="shoppingcart"></td>
-                            <td class="shoppingcart" id="shoppingcart-totalamount-label">Totalamount</td>
-                            <td class="shoppingcart" id="shoppingcart-totalamount">0</td>
-                        </tr> 
-                    </tfoot>
-                </table>
-
-                <!-- formular fehlt noch das muss sich dann über die tabelle des shopping carts und balance erstrecken und checken ob man sich den einkauf leisten kann, wenn nicht fehler werfen oder cart leeren? muss entschieden werden php soll dann die sql querries durchführen -->
-                <button type="button" id="reset-button" class="reset-button" onclick="resetCart()" >Reset to cart!</button>
-                <button type="button" id="buy-button" class="buy-button" onclick="buy()">Buy!</button>
-            </form>
-        </aside>
 
     </main>
 
