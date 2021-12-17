@@ -10,7 +10,7 @@ $indexphp = '';
     <meta http-equiv="content-type" content="text/html;charset=utf-8" />
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
     <link rel="stylesheet" href="../css/style.css">
-    <!-- <link rel="stylesheet" href="../../css/style_statistics.css"> -->
+    <!--<link rel="stylesheet" href="../../css/style_statistics.css">-->
     <link rel="icon" type="image/vnd.microsoft.icon" href="http://test.anticitizen.space/favicon.ico">
     <!--Favicon wird aktuell von Daniels Test-Server gezogen-->
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
@@ -29,9 +29,9 @@ $indexphp = '';
     <form class="sql_sort" method="post" action="<?=$_SERVER['PHP_SELF']?>">
         <input type="radio" id="sort1" name="sortingOption" value="sortByName">
         <label for="sort1">Sort by Name</label><br>
-        <input type="radio" id="sort2"  name="sortingOption" value="sortByPrice">
+        <label for="sort2"></label><input type="radio" id="sort2" name="sortingOption" value="sortByPrice">
         <label for="sort1">Sort by Price</label><br>
-        <input type="radio" id="sort3" name="sortingOption" value="sortByAmount">
+        <label for="sort3"></label><input type="radio" id="sort3" name="sortingOption" value="sortByAmount">
         <label for="sort1">Sort by Amount</label><br>
         <input type="submit" value="sort">
     </form>
@@ -74,10 +74,15 @@ $indexphp = '';
             break;
     }
 
-  
+
     $result = mysqli_query($db_connect, $abfrage);
 
-    echo "<table class='table table-striped'>
+    echo "<div class='container'>";
+    echo "<div class='row'>";
+    echo "<div class='col-md-offset-1 col-md-10'>";
+    echo "<div class='panel'>";
+    echo "<div class='panel-body table-responsive'>";
+    echo "<table class='table'>
             <thead>
             <th>id</th>
             <th>name</th>
@@ -100,6 +105,11 @@ $indexphp = '';
     }
     echo "</tbody>";
     echo "</table>";
+    echo "</div>";
+    echo "</div>";
+    echo "</div>";
+    echo "</div>";
+    echo "</div>";
     ?>
 
     </main>
