@@ -30,6 +30,7 @@ a:visited {
 }
 
 header, footer {
+    height: 56px;
     display: table-row;
 }
 

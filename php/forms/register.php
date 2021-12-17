@@ -45,7 +45,23 @@ $pdo = new PDO('mysql:host=51.15.100.196;dbname=aquaweb', 'aquaweb', 'webaqua123
                     $user = $statement->fetch();
 
                     if($user !== false) {
-                        echo '<p>Diese Benutzername ist bereits vergeben ist bereits vergeben</p>';
+                        echo '<div id="registerError" class="modal fade">
+                        <div class="modal-dialog modal-confirm">
+                            <div class="modal-header">
+                                <div class="icon-box">
+                                    <i class="material-icons">&#xE5CD;</i>
+                                </div>				
+                                <h4 class="modal-title">Beim Abspeichern ist leider ein Fehler aufgetreten</h4>	
+                                <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+                            </div>
+                            <div class="modal-body">
+                                <p>Username is already taken</p>
+                            </div>
+                            <div class="modal-footer">
+                                <button type="button" class="btn btn-info" data-dismiss="modal">OK</button>
+                            </div>
+                        </div>
+                      </div>';
                         $error = true;
                     }
                 }
@@ -61,7 +77,23 @@ $pdo = new PDO('mysql:host=51.15.100.196;dbname=aquaweb', 'aquaweb', 'webaqua123
                         echo '<p>Du wurdest erfolgreich registriert. <a href="login.php">Zum Login</a></p>';
                         $showFormular = false;
                     } else {
-                        echo '<p>Beim Abspeichern ist leider ein Fehler aufgetreten</p>';
+                        echo '<div id="registerError" class="modal fade">
+                                <div class="modal-dialog modal-confirm">
+                                    <div class="modal-header">
+                                        <div class="icon-box">
+                                            <i class="material-icons">&#xE5CD;</i>
+                                        </div>				
+                                        <h4 class="modal-title">Beim Abspeichern ist leider ein Fehler aufgetreten</h4>	
+                                        <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+                                    </div>
+                                    <div class="modal-body">
+                                        <p>Username is already taken</p>
+                                    </div>
+                                    <div class="modal-footer">
+                                        <button type="button" class="btn btn-info" data-dismiss="modal">OK</button>
+                                    </div>
+                                </div>
+                              </div>';
                     }
                 } 
             }

@@ -3,14 +3,14 @@ session_start();
 $pdo = new PDO('mysql:host=51.15.100.196;dbname=aquaweb', 'aquaweb', 'webaqua123');
 $indexphp = '../';
 $user = null;
-$LoginPassword = null;
+$password = null;
 
 if(isset($_GET['login'])) {
-    $LoginUsername = $_POST['LoginUsername'];
-    $LoginPassword = $_POST['LoginPassword'];
+    $username = $_POST['username'];
+    $password = $_POST['password'];
     
     $statement = $pdo->prepare("SELECT * FROM users WHERE username = :username");
-    $result = $statement->execute(array('LoginUsername' => $LoginUsername));
+    $result = $statement->execute(array('username' => $username));
     $user = $statement->fetch();
 }
 
@@ -43,8 +43,8 @@ if(isset($_GET['login'])) {
             }
             echo '<div class="form">';
             //check password
-            if(isset($user) && isset($LoginPassword)){
-                if ($user !== false && password_verify($LoginPassword, $user['LoginPassword'])) {
+            if(isset($user) && isset($password)){
+                if ($user !== false && password_verify($password, $user['password'])) {
                     $_SESSION['userid'] = $user['id'];
                     header('Location: /tinf20-aquaweb/php/aquarium.php');
                 }
@@ -53,66 +53,9 @@ if(isset($_GET['login'])) {
         <?php
         $showFormular = true; //Variable ob das Registrierungsformular angezeigt werden soll
 
-            $error = false;
-            $registerUsername = $_POST["registerUsername"];
-            $registerPassword = $_POST["registerPassword"];
-            $registerPassword2 = $_POST["registerPassword2"];
-
-            if(strlen($registerPassword) == 0) {
-                echo '<p>Bitte ein Passwort angeben</p>';
-                $error = true;
-            }
-            if(($registerPassword != $registerPassword2) && (strlen($registerPassword2) == 0)){
-                echo 'Die Passwörter müssen übereinstimmen<br>';
-                $error = true;
-            }
-
-            //check if username is already registered
-            if(!$error) {
-                $statement = $pdo->prepare("SELECT * FROM users WHERE username = :username");
-                $result = $statement->execute(array('username' => $registerUsername));
-                $user = $statement->fetch();
-
-                if($user !== false) {
-                    echo '<p>Diese Benutzername ist bereits vergeben ist bereits vergeben</p>';
-                    $error = true;
-                }
-            }
-
-            //no errors -> user will be registered
-            if(!$error) {
-                $password_hash = password_hash($registerPassword, PASSWORD_DEFAULT);
-
-                $statement = $pdo->prepare("INSERT INTO users (username, password) VALUES (:username, :password)");
-                $result = $statement->execute(array('username' => $registerUsername, 'password' => $password_hash));
-
-                if($result) {
-                    echo '<p>Du wurdest erfolgreich registriert. <a href="login.php">Zum Login</a></p>';
-                    $showFormular = false;
-                } else {
-                    echo '<div id="registerError" class="modal fade">
-                            <div class="modal-dialog modal-confirm">
-                                <div class="modal-header">
-				                    <div class="icon-box">
-					                    <i class="material-icons">&#xE5CD;</i>
-				                    </div>				
-				                    <h4 class="modal-title">Beim Abspeichern ist leider ein Fehler aufgetreten</h4>	
-                                    <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
-			                    </div>
-			                    <div class="modal-body">
-				                    <p>Username is already taken</p>
-			                    </div>
-			                    <div class="modal-footer">
-				                    <button type="button" class="btn btn-info" data-dismiss="modal">OK</button>
-			                    </div>
-			                </div>
-                          </div>';
-                }
-            }
-
         if($showFormular) {
         ?>
-        <!--
+        
         <div class="loginBox">
             <h3>Sign In</h3>
             <form action="?login=1" method="post">
@@ -126,7 +69,8 @@ if(isset($_GET['login'])) {
                 <a href="register.php">Sign-Up</a>
             </div>
         </div>
-        -->
+        
+        <!--
         <div>
             <form action="?login=1" method="post">
                 <a href="https://front.codes/" class="logo" target="_blank"> <img src="https://assets.codepen.io/1462889/fcy.png" alt=""> </a>
@@ -168,6 +112,7 @@ if(isset($_GET['login'])) {
                 </div>
             </form>
         </div>
+        -->
             <?php
         }
         ?>

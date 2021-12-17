@@ -27,9 +27,9 @@ $indexphp = '';
     while ($row = mysqli_fetch_assoc($response)) {
         $update = $row["id"] . "update";
         $price = $row["id"] . "price";
-        $id = $row["id"] . "id";
+        $id = $row["id"] . "id";/*
         if(isset($_GET[$update]) && $_GET[$update] == 1) {
-            /*
+            
             $day_of_Purchase = date("Y-m-d H:i:s");
             $request = "SELECT position FROM users_fish WHERE users_id = " . $_SESSION['userid'] . " ORDER BY position DESC LIMIT 1";
             $result = mysqli_query($db_connect, $request);
