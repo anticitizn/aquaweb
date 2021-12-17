@@ -25,10 +25,11 @@ $indexphp = '';
     $statement = "SELECT * FROM fish";
     $response = mysqli_query($db_connect, $statement);
     while ($row = mysqli_fetch_assoc($response)) {
-        $buy = $row["id"] . "buy";
+        $update = $row["id"] . "update";
         $price = $row["id"] . "price";
         $id = $row["id"] . "id";
-        if(isset($_GET[$buy]) && $_GET[$buy] == 1) {
+        if(isset($_GET[$update]) && $_GET[$update] == 1) {
+            /*
             $day_of_Purchase = date("Y-m-d H:i:s");
             $request = "SELECT position FROM users_fish WHERE users_id = " . $_SESSION['userid'] . " ORDER BY position DESC LIMIT 1";
             $result = mysqli_query($db_connect, $request);
@@ -42,14 +43,15 @@ $indexphp = '';
             $request = "INSERT INTO users_fish (users_id, position, fish_id, amount, day_of_Purchase, lastFed) VALUE (". $_SESSION['userid'] . "," . $position . "," . $_POST[$id] . ",1, NOW(), NOW());";
             $result = mysqli_query($db_connect,$request);
 
-            echo "<script>console.log('" . $buy . "')</script>";
+            echo "<script>console.log('" . $update . "')</script>";
 
             $request = "UPDATE users SET balance=balance-". $_POST[$price]." WHERE id = " . $_SESSION['userid'] . "";
             $result = mysqli_query($db_connect,$request);
         }
-        if(isset($_GET[$buy]) && $_GET[$buy] == 0) {
+        if(isset($_GET[$update]) && $_GET[$update] == 0) {
             echo '<div class="cannotAfford"><p>You cannot afford this '. $row["name"].'.</p></div>';
         }
+        */
     }
 
         $request = "SELECT * FROM users WHERE id =" . $_SESSION['userid'] ."";
@@ -112,12 +114,12 @@ $indexphp = '';
                                 <div class="fishdescription">
                                     <?php 
                                         if($row["price"] <= $balance){
-                                            ${"buy".$row["id"]} = 1;
+                                            ${"update".$row["id"]} = 1;
                                         } else {
-                                            ${"buy".$row["id"]} = 0;
+                                            ${"update".$row["id"]} = 0;
                                         }
                                     ?>
-                                    <form id=<?php echo $row["id"] . "formbuyfisharticle"; ?> action="?<?php echo $row['id'];?>buy=<?php echo ${"buy".$row["id"]} ?>" method="post">
+                                    <form id=<?php echo $row["id"] . "formupdatefisharticle"; ?> action="?<?php echo $row['id'];?>update=<?php echo ${"update".$row["id"]} ?>" method="post">
                                         <table>
                                             <tr hidden>
                                                 <td class="label-column" hidden><label for="id" hidden>ID:</label></td>
@@ -125,15 +127,15 @@ $indexphp = '';
                                             </tr>
                                             <tr>
                                                 <td class="label-column"><label for="name">Name:</label></td>
-                                                <td><input type="name" id=<?php echo $row["id"] . "-name-article"; ?> name ="name" value=<?php echo $row["name"]?> readonly></td>
+                                                <td><input type="name" id=<?php echo $row["id"] . "-name-article"; ?> name ="name" value=<?php echo $row["name"]?>></td>
                                             </tr>
                                             <tr>
                                                 <td class="label-column"><label for="price">Price:</label></td>
-                                                <td><input type="number" id=<?php echo $row["id"] . "-price-article"; ?> name ="<?php echo $row['id'];?>price" value=<?php echo $row["price"]?> readonly></td>
+                                                <td><input type="number" id=<?php echo $row["id"] . "-price-article"; ?> name ="<?php echo $row['id'];?>price" value=<?php echo $row["price"]?>></td>
                                             </tr>
                                             <tr>
                                                 <td class="label-column"></td>
-                                                <td><button type="submit" id=<?php echo $row["id"] . "-buy-article"; ?> class="buy-button">Buy!</button> 
+                                                <td><button type="submit" id=<?php echo $row["id"] . "-update-article"; ?> class="update-button">Update!</button> 
                                             </tr>
                                         </table>
                                     </form>

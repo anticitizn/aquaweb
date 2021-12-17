@@ -24,7 +24,7 @@ if ($db_connect && (isset($_SESSION['userid']))) {
                     <?php
                     if(isset($_SESSION['userid']) && $_SESSION['userid'] == 1) { ?>
                     <li class="nav-item active">
-                        <a class="nav-link active" href="/tinf20-aquaweb/">Administration</a>
+                        <a class="nav-link active" href="/tinf20-aquaweb/php/adminoverview.php">Administration</a>
                     </li>
                     <?php } ?>
 
