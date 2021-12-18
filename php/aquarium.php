@@ -2,6 +2,7 @@
 session_start();
 $indexphp = '';
 ?>
+
 <!DOCTYPE html>
 <html xml:lang="en" lang="en">
 
@@ -16,11 +17,34 @@ $indexphp = '';
 </head>
 
 <body>
-<?php include('templates/header.php');?>
+
+<?php include('../templates/header.php');?>
+
 <main>
-<p>Hello AquaWeb</p>
+<div id="aquariumContainer">
+    <div class="fish">
+        <?php include('../assets/images/fish.svg');?>
+    </div>
+
+    <div class="fish">
+        <?php include('../assets/images/fish.svg');?>
+    </div>
+    
+    <div class="fish">
+        <?php include('../assets/images/fish.svg');?>
+    </div>
+
+    <div class="fish">
+        <?php include('../assets/images/fish.svg');?>
+    </div>
+
+    <div class="fish">
+        <?php include('../assets/images/fish.svg');?>
+    </div>
+</div>
 </main>
-<?php include('templates/footer.php');?>
+
+<?php include('../templates/footer.php');?>
     
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p" crossorigin="anonymous"></script>
 <script src="js/aquariumAnimation.js"></script>
