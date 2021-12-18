@@ -103,7 +103,7 @@ $indexphp = '';
                     $request = "SELECT * FROM fish";
                     $result = mysqli_query($db_connect, $request);
                     while ($row = mysqli_fetch_assoc($result)) {
-                        if ((str_contains($row["name"], $namefilter)) && ($row["price"] <= $pricetill) && ($row["price"] >= $priceof)) {?>
+                        if ((strpos($haystack, $needle) !== false) && ($row["price"] <= $pricetill) && ($row["price"] >= $priceof)) {?>
                         <tr>
                             <td>
                                 <div class="fishimg">
