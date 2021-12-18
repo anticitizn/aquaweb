@@ -62,6 +62,8 @@ $indexphp = '';
         if(isset($_GET[$delete]) && $_GET[$delete] == 1) {
             $request = "DELETE FROM users WHERE id=". $_POST[$id] ."";
             $result = mysqli_query($db_connect, $request);
+            $request = "DELETE FROM users_fish WHERE users_id=". $_POST[$id] ."";
+            $result = mysqli_query($db_connect, $request);
         }
     }
     ?>

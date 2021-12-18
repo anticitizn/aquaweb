@@ -54,8 +54,7 @@ if ($db_connect && (isset($_SESSION['userid']))) {
                         <a class="nav-link" href="/tinf20-aquaweb/php/forms/logout.php">Log out</a>
                     </li>
                     <li class="nav-item">
-                        <span class="nav-link" id="username"> <?php echo $displayedusername; ?></span>
-                        <span class="nav-link" id="userid" hidden> <?php echo $displayedusername; ?></span>
+                    <a class="nav-link" href="/tinf20-aquaweb/php/userpage.php"> <?php echo $displayedusername; ?></a>
                     </li>
                     <?php } ?>
 
