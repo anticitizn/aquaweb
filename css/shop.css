@@ -25,7 +25,7 @@ aside.filterside {
 }
 
 div.articles {
-    margin: 0vw 1vw 0vw 1vw;
+    margin: 0 1vw 0 1vw;
     width: 65%;
     float: left;
     display: table-row;
@@ -35,9 +35,3 @@ td.label-column{
     width: 5rem;
 }
 
-td#balance {
-    text-align: right;
-    /*
-    funktioniert noch nciht ganz
-    */
-}

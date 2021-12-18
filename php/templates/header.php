@@ -2,7 +2,7 @@
 $connectionpath = $indexphp . 'database/connection.php';
 include($connectionpath); 
 if ($db_connect && (isset($_SESSION['userid']))) {
-    $request = "SELECT * FROM users WHERE id =" . $_SESSION['userid'] ."";
+    $request = "SELECT * FROM users WHERE id =" . $_SESSION['userid'];
     $result = mysqli_query($db_connect,$request);
     $row = mysqli_fetch_assoc($result);
     $displayedusername = $row['username'];
@@ -13,7 +13,7 @@ if ($db_connect && (isset($_SESSION['userid']))) {
 <!--Header-->
 <header>
     <!-- Navigation -->
-    <nav class="navbar navbar-expand-lg navbar-black bg-light fixed-top">
+    <nav class="navbar navbar-expand-lg navbar-light bg-light fixed-top">
         <div class="container">
             <a class="navbar-brand" href="/tinf20-aquaweb/">AquaWeb</a>
             <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">

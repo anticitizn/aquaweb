@@ -27,9 +27,12 @@ if(isset($_GET['login'])) {
 <head>
 	<title>AquaWeb</title>
 	<meta http-equiv="content-type" content="text/html;charset=utf-8" />
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet"
+          integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.5.0/font/bootstrap-icons.css">
     <link rel="stylesheet" href="../../css/style.css">
-    <link rel="stylesheet" href="../../css/register-login.css">
     <link rel="icon" type="image/vnd.microsoft.icon" href="http://test.anticitizen.space/favicon.ico">
     <meta name="viewport" content="width=device-width, initial-scale=1">
 </head>
@@ -62,7 +65,7 @@ if(isset($_GET['login'])) {
 
         if($showFormular) {
         ?>
-        
+        <!-- 
         <div class="loginBox">
             <h3>Sign In</h3>
             <form action="?login=1" method="post">
@@ -76,7 +79,41 @@ if(isset($_GET['login'])) {
                 <a href="register.php">Sign-Up</a>
             </div>
         </div>
+        -->
         
+            <div class="container-fluid vh-100" style="margin-top:300px">
+                <div class="" style="margin-top:200px">
+                    <div class="rounded d-flex justify-content-center">
+                        <div class="col-md-4 col-sm-12 shadow-lg p-5 bg-light">
+                            <div class="text-center">
+                                <h3 class="text-primary">Sign In</h3>
+                            </div>
+                            <form action="?login=1" method="post">
+                                <div class="p-4">
+                                    <div class="input-group mb-3">
+                                    <span class="input-group-text bg-primary"><i
+                                                class="bi bi-person-plus-fill text-white"></i></span>
+                                        <input name="username" type="text" class="form-control" placeholder="Username">
+                                    </div>
+                                    <div class="input-group mb-3">
+                                    <span class="input-group-text bg-primary"><i
+                                                class="bi bi-key-fill text-white"></i></span>
+                                        <input name="password" type="password" class="form-control" placeholder="password">
+                                    </div>
+                                    <button class="btn btn-primary text-center mt-2" type="submit">
+                                        Login
+                                    </button>
+                                    <p class="text-center mt-5 text-secondary">Don't have an account?
+                                        <span class="text-primary">Sign Up</span>
+                                    </p>
+                                    <p class="text-center text-primary">Forgot your password?</p>
+                                </div>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
             <?php
         }
         ?>

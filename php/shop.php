@@ -13,6 +13,7 @@ $indexphp = '';
     <link rel="stylesheet" href="../css/style.css">
     <link rel="stylesheet" href="../css/shop.css">
     <link rel="icon" type="image/vnd.microsoft.icon" href="http://test.anticitizen.space/favicon.ico">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.5.0/font/bootstrap-icons.css">
     <!--Favicon wird aktuell von Daniels Test-Server gezogen-->
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
     <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -85,15 +86,21 @@ $indexphp = '';
                     <table>
                         <tr>
                             <td class="label-column"><label for="namefilter">Name:</label</td>
-                            <td><input type="text" name ="namefilter"></td>
+                            <td><label>
+                                    <input type="text" name ="namefilter">
+                                </label></td>
                         </tr>
                         <tr>
                             <td class="label-column"><label for="pricetill">Price till:</label</td>
-                            <td><input type="number" name ="pricetill" min="0" max="2147483647"></td>
+                            <td><label>
+                                    <input type="number" name ="pricetill" min="0" max="2147483647">
+                                </label></td>
                         </tr>
                         <tr>
                             <td class="label-column"><label for="priceof">Price of:</label</td>
-                            <td><input type="number" name ="priceof" min="0" max="2147483647"></td>
+                            <td><label>
+                                    <input type="number" name ="priceof" min="0" max="2147483647">
+                                </label></td>
                         </tr>
                         <tr>
                             <td><button type="reset">Reset</button></td>

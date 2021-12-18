@@ -11,9 +11,10 @@ $pdo = new PDO('mysql:host=51.15.100.196;dbname=aquaweb', 'aquaweb', 'webaqua123
 <head>
 	<title>AquaWeb</title>
 	<meta http-equiv="content-type" content="text/html;charset=utf-8" />
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet"
+          integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.5.0/font/bootstrap-icons.css">
     <link rel="stylesheet" href="../../css/style.css">
-    <link rel="stylesheet" href="../../css/register-login.css">
     <link rel="icon" type="image/vnd.microsoft.icon" href="http://test.anticitizen.space/favicon.ico">
     <meta name="viewport" content="width=device-width, initial-scale=1">
 </head>
@@ -111,16 +112,41 @@ $pdo = new PDO('mysql:host=51.15.100.196;dbname=aquaweb', 'aquaweb', 'webaqua123
             // check if registerform has to be shown
             if($showFormular) {
         ?>
-                <div class="loginBox">
-                    <h3>Register</h3>
-                    <form action="?register=1" method="post">
-                        <div class="inputBox">
-                            <label for="userName"></label><input id="userName" type="text" name="username" placeholder="Username" />
-                            <label for="password"><input id="password" type="password" name="password" placeholder="Password" />
-                            <label for="password"></label><input id="password" type="password" name="password2" placeholder="Repeat password" />
+                <div class="container-fluid vh-100" style="margin-top:300px">
+                    <div class="" style="margin-top:200px">
+                        <div class="rounded d-flex justify-content-center">
+                            <div class="col-md-4 col-sm-12 shadow-lg p-5 bg-light">
+                                <div class="text-center">
+                                    <h3 class="text-primary">Register In</h3>
+                                </div>
+                                <form action="?login=1" method="post">
+                                    <div class="p-4">
+                                        <div class="input-group mb-3">
+                                    <span class="input-group-text bg-primary"><i
+                                                class="bi bi-person-plus-fill text-white"></i></span>
+                                            <input name="username" type="text" class="form-control" placeholder="Username">
+                                        </div>
+                                        <div class="input-group mb-3">
+                                    <span class="input-group-text bg-primary"><i
+                                                class="bi bi-key-fill text-white"></i></span>
+                                            <input name="password" type="password" class="form-control" placeholder="Password">
+                                        </div>
+                                        <div class="input-group mb-3">
+                                    <span class="input-group-text bg-primary"><i
+                                                class="bi bi-key-fill text-white"></i></span>
+                                            <input name="password2" type="password" class="form-control" placeholder="Repeat password">
+                                        </div>
+                                        <button class="btn btn-primary text-center mt-2" type="submit">
+                                            Register
+                                        </button>
+                                        <p class="text-center mt-5 text-secondary">You have an account?
+                                            <span class="text-primary">Log In</span>
+                                        </p>
+                                    </div>
+                                </form>
+                            </div>
                         </div>
-                        <input type="submit" value="Register">
-                    </form>
+                    </div>
                 </div>
         <?php
             }
