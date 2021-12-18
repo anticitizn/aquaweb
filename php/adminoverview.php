@@ -10,11 +10,12 @@ $indexphp = '';
 	<title>AquaWeb</title>
 	<meta http-equiv="content-type" content="text/html;charset=utf-8" />
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
-    <link rel="stylesheet" href="../css/style.css">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.5.0/font/bootstrap-icons.css">
     <link rel="icon" type="image/vnd.microsoft.icon" href="http://test.anticitizen.space/favicon.ico">  <!--Favicon wird aktuell von Daniels Test-Server gezogen-->
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
     <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="../css/style.css">
+    <link rel="stylesheet" href="../css/style_adminoverview.css">
 </head>
 
 <body>
@@ -25,13 +26,37 @@ $indexphp = '';
 <div class="headline">
     <a href="/tinf20-aquaweb/php/adminoverview.php"><h1>Administration</h1></a>
 </div>
-<table>
-    <tr>
-        <!-- links to the administrative sides -->
-        <td><a class="nav-link active" href="adminfish.php">Administrate the fishes.</a></td>
-        <td><a class="nav-link active" href="adminuser.php">Administrate the users.</a></td>
-    </tr>
-</table>
+
+    <div class="container h-50">
+        <div class="row align-middle">
+            <div class="col-md-6 col-lg-4 column">
+                <div class="card gr-1">
+                    <div class="txt">
+                        <h1>Administrate </br>
+                            the fishes</h1>
+                        <p>You can administrate the fishes</p>
+                    </div>
+                    <a href="adminfish.php">more</a>
+                    <div class="ico-card">
+                        <i class="fa fa-rebel"></i>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-6 col-lg-4 column">
+                <div class="card gr-2">
+                    <div class="txt">
+                        <h1>Administrate </br>
+                            the fishers</h1>
+                        <p>You can administrate the fishers.</p>
+                    </div>
+                    <a href="adminuser.php">more</a>
+                    <div class="ico-card">
+                        <i class="fa fa-codepen"></i>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
 </main>
 <?php // imports footer
     include('templates/footer.php');

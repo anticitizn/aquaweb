@@ -5,19 +5,27 @@ $indexphp = '';
 ?>
 
 <!DOCTYPE html>
-<html xml:lang="en" lang="en">
+<html xml:lang="en" lang="en" xmlns="http://www.w3.org/1999/html">
 
 <head>
     <title>AquaWeb</title>
     <meta http-equiv="content-type" content="text/html;charset=utd-8" />
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
-    <link rel="stylesheet" href="../css/style.css">
+    <link rel="stylesheet" href="../css/style_adminuser.css">
     <link rel="stylesheet" href="../css/shop.css">
     <link rel="icon" type="image/vnd.microsoft.icon" href="http://test.anticitizen.space/favicon.ico">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.5.0/font/bootstrap-icons.css">
     <!--Favicon wird aktuell von Daniels Test-Server gezogen-->
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
     <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto|Varela+Round">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+    <script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js"></script>
+    <link rel="stylesheet" href="../css/style.css">
 </head>
 
 <body>
@@ -69,84 +77,145 @@ $indexphp = '';
     ?>
     
     <main>
-        <h1><a href="/tinf20-aquaweb/php/adminuser.php">User administration</h1></a>
-        <div class="articles">
-            <table>
-                <tr>
-                    <td>
-                        <!-- form to add a new user -->
-                        <form id="formaddfisharticle" action="?add=1" method="post">
-                            <table>
-                                <tr>
-                                    <td class="label-column"><label for="addusername">Userame:</label></td>
-                                    <td><input type="name" id="addusername" name ="addusername"></td>
-                                </tr>
-                                <tr>
-                                    <td class="label-column"><label for="addpassword">Password:</label></td>
-                                    <td><input type="password" id="addpassword" name ="addpassword" value=""></td>
-                                </tr>
-                                <tr>
-                                    <td class="label-column"><label for="addbalance">Balance:</label></td>
-                                    <td><input type="number" id="addbalance"name ="addbalance"></td>
-                                </tr>
-                                <tr>
-                                    <td class="label-column"></td>
-                                    <td><button type="submit" id="add" class="add-button">Add!</button> 
-                                </tr>
-                            </table>
-                        </form>
-                    </td>
-                </tr>
-                <?php
-                    // generates the filtered userforms
-                    if ($db_connect) {
-                    $request = "SELECT * FROM users";
-                    $result = mysqli_query($db_connect, $request);
-                    while ($row = mysqli_fetch_assoc($result)) {?>
+        <h1><a href="/tinf20-aquaweb/php/adminuser.php">Administration Fishers</h1></a>
+        <div class="container-xl">
+            <div class="table-responsive">
+                <div class="table-wrapper">
+                    <div class="table-title">
+                        <div class="row">
+                            <div class="col-sm-6">
+                                <h2>Manage <b>Fisher</b></h2>
+                            </div>
+                            <div class="col-sm-6">
+                                <a href="#addEmployeeModal" class="btn btn-success" data-toggle="modal"><i class="material-icons">&#xE147;</i> <span>Add New Fisher</span></a>
+                            </div>
+                        </div>
+                    </div>
+                    <table class="table table-striped table-hover">
+                        <thead>
                         <tr>
-                            <td>
-                                <div class="fishdescription">
-                                    <form id=<?php echo $row["id"] . "formupdatefisharticle"; ?> action="?<?php echo $row['id'];?>update=1" method="post">
-                                        <table>
-                                            <tr >
-                                                <td class="label-column" ><label for="id" >ID:</label></td>
-                                                <td ><input type="id" id=<?php echo $row["id"] . "id"; ?> name ="<?php echo $row['id'];?>id" value=<?php echo $row["id"]?> readonly></td>
-                                            </tr>
-                                            <tr>
-                                                <td class="label-column"><label for=<?php echo $row["id"] . "-username"?> >Name:</label></td>
-                                                <td><input type="name" id=<?php echo $row["id"] . "username"; ?> name ="<?php echo $row['id'];?>username" value=<?php echo $row["username"]?>></td>
-                                            </tr>
-                                            <tr>
-                                                <td class="label-column"><label for="<?php echo $row["id"] . "-password"; ?>">Password:</label></td>
-                                                <td><input type="password" id=<?php echo $row["id"] . "password"; ?> name ="<?php echo $row['id'];?>password" value=""></td>
-                                            </tr>
-                                            <tr>
-                                                <td class="label-column"><label for="<?php echo $row["id"] . "-balance";?>">Balance:</label></td>
-                                                <td><input type="number" id=<?php echo $row["id"] . "balance"; ?> name ="<?php echo $row['id'];?>balance" value=<?php echo $row["balance"]?>></td>
-                                            </tr>
-                                            <tr>
-                                                <td class="label-column"></td>
-                                                <td><button type="submit" id=<?php echo $row["id"] . "update"; ?> class="update-button">Update!</button> 
-                                            </tr>
-                                        </table>
-                                    </form>
-                                </div>
-                            </td>
-                            <td>
-                                <form id=<?php echo $row["id"] . "formdeletefisharticle"; ?> action="?<?php echo $row['id'];?>delete=1" method="post">
-                                    <label for="id" hidden>ID:</label>
-                                    <input type="id" id=<?php echo $row["id"] . "-id"; ?> name ="<?php echo $row['id'];?>id" value=<?php echo $row["id"]?> readonly hidden>
-                                    <button type="submit" id=<?php echo $row["id"] . "-delete"; ?> class="delete-button">Delete!</button> 
-                                </form>
-                            </td>
+                            <th>ID</th>
+                            <th>Name</th>
+                            <th>Balance</th>
+                            <th>Actions</th>
                         </tr>
-                    <?php
-                    }
-                }
-                ?>
-            </table>
+                        </thead>
+                        <tbody>
+                        <?php
+                        // generates the filtered userforms
+                        if ($db_connect) {
+                            $request = "SELECT * FROM users";
+                            $result = mysqli_query($db_connect, $request);
+                            while ($row = mysqli_fetch_assoc($result)) {?>
+                                <tr>
+                                    <div class="fishdescription">
+                                        <form id=<?php echo $row["id"] . "formupdatefisharticle"; ?> action="?<?php echo $row['id'];?>update=1" method="post">
+                                            <td ><?php echo $row["id"]?></td>
+                                            <td><?php echo $row["username"]?></td>
+                                            <td><?php echo $row["balance"]?></td>
+                                        </form>
+                                    </div>
+                                    <td>
+                                        <a href="#editEmployeeModal<?php echo $row["id"];?>" class="edit" data-toggle="modal"><i class="material-icons" data-toggle="tooltip" title="Edit">&#xE254;</i></a>
+                                        <!-- Edit Modal HTML -->
+                                        <div id="editEmployeeModal<?php echo $row["id"];?>" class="modal fade text-primary">
+                                            <div class="modal-dialog">
+                                                <div class="modal-content">
+                                                    <form  id=<?php echo $row["id"] . "formupdatefisharticle"; ?> action="?<?php echo $row['id'];?>update=1" method="post">
+                                                        <div class="modal-header">
+                                                            <h4 class="modal-title">Edit Employee</h4>
+                                                            <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+                                                        </div>
+                                                        <div class="modal-body">
+                                                            <div class="form-group">
+                                                                <label>Username</label>
+                                                                <input type="name" id=<?php echo $row["id"] . "username"; ?> name ="<?php echo $row['id'];?>username" value=<?php echo $row["username"]?>>
+                                                            </div>
+                                                            <div class="form-group">
+                                                                <label>Password</label>
+                                                                <input type="password" id=<?php echo $row["id"] . "password"; ?> name ="<?php echo $row['id'];?>password" value="">
+                                                            </div>
+                                                            <div class="form-group">
+                                                                <label>Balance</label>
+                                                                <input type="number" min="0" max="9999999999" id=<?php echo $row["id"] . "balance"; ?> name ="<?php echo $row['id'];?>balance" value=<?php echo $row["balance"]?>>
+                                                            </div>
+                                                        </div>
+                                                        <div class="modal-footer">
+                                                            <input type="id" id=<?php echo $row["id"] . "-id"; ?> name ="<?php echo $row['id'];?>id" value=<?php echo $row["id"]?> readonly hidden>
+                                                            <input type="button" class="btn btn-default" data-dismiss="modal" value="Cancel">
+                                                            <input type="submit" id=<?php echo $row["id"] . "update"; ?> class="btn btn-info" value="Save">
+                                                        </div>
+                                                    </form>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <a href="#deleteFisherModal<?php echo $row["id"];?>" class="delete" data-toggle="modal"><i class="material-icons" data-toggle="tooltip" title="Delete">&#xE872;</i></a>
+                                        <!-- Delete Modal HTML -->
+                                        <div id="deleteFisherModal<?php echo $row["id"];?>" class="modal fade text-primary">
+                                            <div class="modal-dialog">
+                                                <div class="modal-content">
+                                                    <form  id=<?php echo $row["id"] . "formdeletefisharticle"; ?> action="?<?php echo $row['id'];?>delete=1" method="post">
+                                                        <div class="modal-header text-primary">
+                                                            <h4 class="modal-title">Delete Employee</h4>
+                                                            <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+                                                        </div>
+                                                        <div class="modal-body text-primary">
+                                                            <p>Are you sure you want to delete these Records?</p>
+                                                            <p class="text-warning"><small>This action cannot be undone.</small></p>
+                                                        </div>
+                                                        <div class="modal-footer text-primary">
+                                                            <input type="id" id=<?php echo $row["id"] . "-id"; ?> name ="<?php echo $row['id'];?>id" value=<?php echo $row["id"]?> readonly hidden>
+                                                            <input type="button" class="btn btn-default" data-dismiss="modal" value="Cancel">
+                                                            <input type="submit" id=<?php echo $row["id"] . "-delete"; ?> class="btn btn-danger" value="Delete">
+                                                        </div>
+                                                    </form>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </td>
+                                </tr>
+                                <?php
+                            }
+                        }
+                        ?>
+                        </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
         </div>
-
+        <!-- AddUser Modal HTML -->
+        <div id="addEmployeeModal" class="modal fade text-primary">
+            <div class="modal-dialog">
+                <div class="modal-content">
+                    <form  id="formaddfisharticle" action="?add=1" method="post">
+                        <div class="modal-header">
+                            <h4 class="modal-title text-primary">Add User</h4>
+                            <button type="button" class="close" data-dismiss="modal" aria-hidden="false">&times;</button>
+                        </div>
+                        <div class="modal-body">
+                            <div class="form-group text-primary">
+                                <label>Username</label>
+                                <input id="addusername" name ="addusername" type="text" class="form-control" required>
+                            </div>
+                            <div class="form-group text-primary">
+                                <label>Password</label>
+                                <input id="addpassword" name ="addpassword" type="password" class="form-control" required>
+                            </div>
+                            <div class="form-group text-primary">
+                                <label>Balance</label>
+                                <input id="addbalance"name ="addbalance" type="number" class="form-control" required/>
+                            </div>
+                        </div>
+                        <div class="modal-footer">
+                            <input type="button" class="btn btn-default" data-dismiss="modal" value="Cancel">
+                            <input type="submit" id="add" class="btn btn-success" value="Add">
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+        <h1><a href="/tinf20-aquaweb/php/adminoverview.php">Return</h1></a>
     </main>
 
     <?php // imports footer

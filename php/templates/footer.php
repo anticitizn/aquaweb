@@ -5,7 +5,7 @@
         <!-- Section for our GitHub-->
         <section class="mb-4">
             <!-- Github -->
-            <a class="btn btn-outline-dark btn-floating m-1" href="https://github.com/kreug/aquaweb" role="button">
+            <a class="btn btn-outline-dark btn-floating m-1" href="https://github.com/kreug/aquaweb" role="button" target="_blank">
                 <i class="bi-github" role="img" aria-label="GitHub"></i>
             </a>
         </section>
@@ -24,15 +24,15 @@
             <!-- Responsive Grid row-->
             <div class="row">
                 <!-- Responsive Grid column-->
-                <div class="col-lg-3 col-md-6 mb-4 mb-md-0">
+                <div class="mb-4 mb-md-0">
                     <h5 class="text">Links</h5>
 
                     <ul class="list-unstyled mb-0">
                         <li>
-                            <a class="nav-link" href="/tinf20-aquaweb/php/impressum.php">Impressum</a>
+                            <a class="nav-link" href="/tinf20-aquaweb/php/impressum.php">Legal Notice</a>
                         </li>
                         <li>
-                            <a class="nav-link" href="/tinf20-aquaweb/php/datenschutz.php">Datenschutz</a>
+                            <a class="nav-link" href="/tinf20-aquaweb/php/datenschutz.php">Privacy</a>
                         </li>
                     </ul>
                 </div>
@@ -46,7 +46,7 @@
 
     <!-- Copyright -->
     <div class="text-center p-3" style="background-color: rgba(0, 0, 0, 0.2);">
-        © 2021 Copyright:
+        © <?php echo date("Y");?> Copyright:
         <span>AquaWeb</span>
     </div>
     <!-- Copyright -->

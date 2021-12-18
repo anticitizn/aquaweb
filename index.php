@@ -33,20 +33,20 @@ $indexphp = 'php/';
         <div class="carousel-inner">
             <div class="carousel-item active" style="background-image: url('https://cdn.pixabay.com/photo/2014/06/27/12/36/fish-378286_960_720.jpg')">
                 <div class="carousel-caption">
-                    <h2>Willkommen zu AquaWeb</h2>
-                    <p>Hier können sie ihre eigenes Online-Aquarium pflegen</p>
+                    <h2>Welcome to AquaWeb</h2>
+                    <p>Here you can maintain your own online aquarium</p>
                 </div>
             </div>
             <div class="carousel-item" style="background-image: url('https://cdn.pixabay.com/photo/2016/11/29/09/43/koi-fish-1868779_960_720.jpg')">
                 <div class="carousel-caption">
-                    <h2>Füttern sie ihre Fische</h2>
-                    <p>Sie können ihre Fische füttern und sie dadurch wachsen lassen</p>
+                    <h2>Feed your fish</h2>
+                    <p>You can feed your fish and thereby make them grow</p>
                 </div>
             </div>
             <div class="carousel-item" style="background-image: url('https://cdn.pixabay.com/photo/2012/03/03/23/54/animal-21668_960_720.jpg')">
                 <div class="carousel-caption">
-                    <h2>Kaufen sie neue Fische</h2>
-                    <p>Im Shop können sie neue und größere Fische kaufen</p>
+                    <h2>Buy new fish</h2>
+                    <p>In the store you can buy new and bigger fish</p>
                 </div>
             </div>
         </div>
