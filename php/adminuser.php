@@ -1,4 +1,5 @@
 <?php
+// starts session
 session_start();
 $indexphp = '';
 ?>
@@ -13,21 +14,26 @@ $indexphp = '';
     <link rel="stylesheet" href="../css/style.css">
     <link rel="stylesheet" href="../css/shop.css">
     <link rel="icon" type="image/vnd.microsoft.icon" href="http://test.anticitizen.space/favicon.ico">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.5.0/font/bootstrap-icons.css">
     <!--Favicon wird aktuell von Daniels Test-Server gezogen-->
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
     <meta name="viewport" content="width=device-width, initial-scale=1">
 </head>
 
 <body>
-    <?php include('templates/header.php'); ?>
+    <?php // imports header
+        include('templates/header.php');
+    ?>
 
     <?php
+    // adds ne user if add button was hit
     if(isset($_GET["add"]) && $_GET["add"] == 1) {
         $password_hash = password_hash($_POST["addpassword"], PASSWORD_DEFAULT);
         $request = "INSERT INTO users (username, password, creation_date, balance) VALUE ('". $_POST["addusername"] ."', '". $password_hash ."', now(), " . $_POST["addbalance"] . ")";
         $result = mysqli_query($db_connect, $request);
     }
 
+    // itterates through all users
     $statement = "SELECT * FROM users";
     $response = mysqli_query($db_connect, $statement);
     while ($row = mysqli_fetch_assoc($response)) {
@@ -42,6 +48,7 @@ $indexphp = '';
                 $password_hash = password_hash($_POST[$password], PASSWORD_DEFAULT);
             }
         }
+        // updates the correct user with the new values
         if(isset($_GET[$update]) && $_GET[$update] == 1) {
             if(isset($password_hash)){
                 $request = "UPDATE users SET username='". $_POST[$username] ."', password='". $password_hash ."', balance=". $_POST[$balance] ." WHERE id=". $_POST[$id] ."";
@@ -50,6 +57,8 @@ $indexphp = '';
             }
             $result = mysqli_query($db_connect, $request);
         }
+
+        //deletes the correct users
         if(isset($_GET[$delete]) && $_GET[$delete] == 1) {
             $request = "DELETE FROM users WHERE id=". $_POST[$id] ."";
             $result = mysqli_query($db_connect, $request);
@@ -63,6 +72,7 @@ $indexphp = '';
             <table>
                 <tr>
                     <td>
+                        <!-- form to add a new user -->
                         <form id="formaddfisharticle" action="?add=1" method="post">
                             <table>
                                 <tr>
@@ -85,7 +95,9 @@ $indexphp = '';
                         </form>
                     </td>
                 </tr>
-                <?php if ($db_connect) {
+                <?php
+                    // generates the filtered userforms
+                    if ($db_connect) {
                     $request = "SELECT * FROM users";
                     $result = mysqli_query($db_connect, $request);
                     while ($row = mysqli_fetch_assoc($result)) {?>
@@ -135,7 +147,9 @@ $indexphp = '';
 
     </main>
 
-    <?php include('templates/footer.php');?>
+    <?php // imports footer
+        include('templates/footer.php');
+    ?>
     
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p" crossorigin="anonymous"></script>
 

@@ -1,4 +1,5 @@
 <?php
+// starts session
 session_start();
 $indexphp = '';
 ?>
@@ -12,6 +13,7 @@ $indexphp = '';
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
     <link rel="stylesheet" href="../css/style.css">
     <link rel="stylesheet" href="../css/shop.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.5.0/font/bootstrap-icons.css">
     <link rel="icon" type="image/vnd.microsoft.icon" href="http://test.anticitizen.space/favicon.ico">
     <!--Favicon wird aktuell von Daniels Test-Server gezogen-->
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
@@ -19,14 +21,18 @@ $indexphp = '';
 </head>
 
 <body>
-    <?php include('templates/header.php'); ?>
+    <?php // imports header
+        include('templates/header.php');
+    ?>
 
     <?php
+    // adds ne fish if add button was hit
     if(isset($_GET["add"]) && $_GET["add"] == 1) {
         $request = "INSERT INTO fish (name, price) VALUE ('" . $_POST["addname"] . "', " . $_POST["addprice"] . ")";
         $result = mysqli_query($db_connect, $request);
     }
 
+    // itterates through all fishes
     $statement = "SELECT * FROM fish";
     $response = mysqli_query($db_connect, $statement);
     while ($row = mysqli_fetch_assoc($response)) {
@@ -35,15 +41,18 @@ $indexphp = '';
         $price = $row["id"] . "price";
         $id = $row["id"] . "id";
         $name = $row["id"] . "name";
+        // updates the correct fish with the new values
         if(isset($_GET[$update]) && $_GET[$update] == 1) {
             $request = "UPDATE fish SET name='". $_POST[$name] ."', price=". $_POST[$price] ." WHERE id=". $_POST[$id] ."";
             $result = mysqli_query($db_connect, $request);
         }
+        //deletes the correct fish
         if(isset($_GET[$delete]) && $_GET[$delete] == 1) {
             $request = "DELETE FROM fish WHERE id=". $_POST[$id] ."";
             $result = mysqli_query($db_connect, $request);
         }
     }
+        // fillters the shown fishes
         $namefilter = $_POST["namefilter"] ?? "";
         if(isset($_POST["pricetill"]) && $_POST["pricetill"] != ""){
             $pricetill = $_POST["pricetill"];
@@ -85,6 +94,7 @@ $indexphp = '';
             <table>
                 <tr>
                     <td>
+                        <!-- form to add a new fish -->
                         <form id="formaddfisharticle" action="?add=1" method="post">
                             fileupload für das fish picture fehlt noch
                             <table>
@@ -104,7 +114,9 @@ $indexphp = '';
                         </form>
                     </td>
                 </tr>
-                <?php if ($db_connect) {
+                <?php
+                    // generates the filtered fishforms
+                    if ($db_connect) {
                     $request = "SELECT * FROM fish";
                     $result = mysqli_query($db_connect, $request);
                     while ($row = mysqli_fetch_assoc($result)) {
@@ -154,7 +166,9 @@ $indexphp = '';
 
     </main>
 
-    <?php include('templates/footer.php');?>
+    <?php // imports footer
+    include('templates/footer.php');
+    ?>
     
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p" crossorigin="anonymous"></script>
 
