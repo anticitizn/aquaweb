@@ -64,7 +64,6 @@ header, footer {
     background-size: cover;
 }
 
-
 .panel{
     background: linear-gradient(to right, #2980b9, #2c3e50);
     padding: 0;
@@ -149,5 +148,3 @@ header, footer {
         margin: 0 0 10px;
     }
 }
-
-

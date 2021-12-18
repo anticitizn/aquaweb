@@ -1,4 +1,5 @@
 <?php
+// starts session
 session_start();
 $indexphp = '../';
 $pdo = new PDO('mysql:host=51.15.100.196;dbname=aquaweb', 'aquaweb', 'webaqua123');
@@ -18,21 +19,27 @@ $pdo = new PDO('mysql:host=51.15.100.196;dbname=aquaweb', 'aquaweb', 'webaqua123
 </head>
 
 <body>
-    <?php include('../templates/header.php');?>
+    <?php // imports header
+        include('../templates/header.php');
+    ?>
     <main>
         <?php
-            $showFormular = true; //Variable ob das Registrierungsformular anezeigt werden soll
+            $showFormular = true; //Variable if Registrierform is shown
 
+            // checks if register is triggerd
             if(isset($_GET['register'])) {
                 $error = false;
                 $username = $_POST["username"];
                 $password = $_POST["password"];
                 $password2 = $_POST["password2"];
 
+                // checks password length
                 if(strlen($password) == 0) {
                     echo '<p>Bitte ein Passwort angeben</p>';
                     $error = true;
                 }
+
+                // checks passwords are equal
                 if(($password != $password2) && (strlen($password2) == 0)){
                     echo 'Die Passwörter müssen übereinstimmen<br>';
                     $error = true;
@@ -44,6 +51,7 @@ $pdo = new PDO('mysql:host=51.15.100.196;dbname=aquaweb', 'aquaweb', 'webaqua123
                     $result = $statement->execute(array('username' => $username));
                     $user = $statement->fetch();
 
+                    // popup message if username is already used
                     if($user !== false) {
                         echo '<div id="registerError" class="modal fade">
                         <div class="modal-dialog modal-confirm">
@@ -73,17 +81,19 @@ $pdo = new PDO('mysql:host=51.15.100.196;dbname=aquaweb', 'aquaweb', 'webaqua123
                     $statement = $pdo->prepare("INSERT INTO users (username, password) VALUES (:username, :password)");
                     $result = $statement->execute(array('username' => $username, 'password' => $password_hash));
 
+                    // shows register was succsessful message
                     if($result) {        
-                        echo '<p>Du wurdest erfolgreich registriert. <a href="login.php">Zum Login</a></p>';
+                        echo '<p>Your registry was succsessful. <a href="login.php">Please login.</a></p>';
                         $showFormular = false;
                     } else {
+                        // shows register faild mmessage
                         echo '<div id="registerError" class="modal fade">
                                 <div class="modal-dialog modal-confirm">
                                     <div class="modal-header">
                                         <div class="icon-box">
                                             <i class="material-icons">&#xE5CD;</i>
                                         </div>				
-                                        <h4 class="modal-title">Beim Abspeichern ist leider ein Fehler aufgetreten</h4>	
+                                        <h4 class="modal-title">Something went wrong</h4>	
                                         <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
                                     </div>
                                     <div class="modal-body">
@@ -98,6 +108,7 @@ $pdo = new PDO('mysql:host=51.15.100.196;dbname=aquaweb', 'aquaweb', 'webaqua123
                 } 
             }
 
+            // check if registerform has to be shown
             if($showFormular) {
         ?>
                 <div class="loginBox">
@@ -115,7 +126,9 @@ $pdo = new PDO('mysql:host=51.15.100.196;dbname=aquaweb', 'aquaweb', 'webaqua123
             }
         ?>
     </main>
-    <?php include('../templates/footer.php');?>
+    <?php // imports footer
+        include('../templates/footer.php');
+    ?>
     
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p" crossorigin="anonymous"></script>
 </body>

@@ -1,4 +1,5 @@
 <?php
+    // starts session
     session_start();
     $indexphp = '../';
     $showform = true;
@@ -24,6 +25,7 @@
 
     <main>
         <?php
+        // ends session, user have to login again and loads main page
         session_destroy();  
         header('Location: /tinf20-aquaweb/');
         ?>

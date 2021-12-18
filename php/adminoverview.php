@@ -1,4 +1,5 @@
 <?php
+// starts session
 session_start();
 $indexphp = '';
 ?>
@@ -16,19 +17,24 @@ $indexphp = '';
 </head>
 
 <body>
-<?php include('templates/header.php');?>
+    <?php // imports header
+        include('templates/header.php');
+    ?>
 <main>
 <div class="headline">
     <a href="/tinf20-aquaweb/php/adminoverview.php"><h1>Administration</h1></a>
 </div>
 <table>
     <tr>
+        <!-- links to the administrative sides -->
         <td><a class="nav-link active" href="adminfish.php">Administrate the fishes.</a></td>
         <td><a class="nav-link active" href="adminuser.php">Administrate the users.</a></td>
     </tr>
 </table>
 </main>
-<?php include('templates/footer.php');?>
+<?php // imports footer
+    include('templates/footer.php');
+?>
     
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p" crossorigin="anonymous"></script>
 <script src="js/aquariumAnimation.js"></script>

@@ -1,4 +1,5 @@
 <?php
+// starts session
 session_start();
 $indexphp = '';
 ?>
@@ -20,7 +21,9 @@ $indexphp = '';
 
 <body>
 
-    <?php include('templates/header.php'); ?>
+    <?php // imports header
+        include('templates/header.php');
+    ?>
     <main>
  
     <!-- die relative position ist auch unnötig style="position: relative;" -->
@@ -114,7 +117,9 @@ $indexphp = '';
 
     </main>
 
-    <?php include('templates/footer.php'); ?>
+    <?php // imports footer
+    include('templates/footer.php');
+    ?>
 </body>
 
 </html>
