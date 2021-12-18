@@ -96,7 +96,6 @@ $indexphp = '';
                     <td>
                         <!-- form to add a new fish -->
                         <form id="formaddfisharticle" action="?add=1" method="post">
-                            fileupload für das fish picture fehlt noch
                             <table>
                                 <tr>
                                     <td class="label-column"><label for="addname">Name:</label></td>
@@ -124,7 +123,7 @@ $indexphp = '';
                         <tr>
                             <td>
                                 <div class="fishimg">
-                                <?php include('../assets/images/fish.svg'); ?>
+                                <img class="card-img-top" src='../assets/images/<?php echo $row["id"] ?>.png' alt="..." />
                                 </div>
                                 <div class="fishdescription">
                                     <form id=<?php echo $row["id"] . "formupdatefisharticle"; ?> action="?<?php echo $row['id'];?>update=1" method="post">

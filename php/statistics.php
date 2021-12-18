@@ -25,9 +25,15 @@ $indexphp = '';
     <?php // imports header
         include('templates/header.php');
     ?>
-    <main>
+     <header class="bg-dark py-5">
+            <div class="container px-4 px-lg-5 my-5">
+                <div class="text-center text-white">
+                    <h1 class="display-4 fw-bolder">Statistics</h1>
+                </div>
+            </div>
+        </header>
 
-        <div class="headline"><?php echo "<h1>Your aquarium statistics </h1>"; ?></div>
+    <main>
 
         
         <!--Form-element with radioButtons for sorting the fishes in your aquarium-->

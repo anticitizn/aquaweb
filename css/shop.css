@@ -35,3 +35,20 @@ td.label-column{
     width: 5rem;
 }
 
+
+
+input.name-form{
+    color: rgb(108, 117, 125);
+    font-weight: bold;
+    width: 150px;
+    border: none;
+    text-align: center;
+}
+
+input.number-buy-form{
+    width: 150px;
+    border: none;
+    text-align: center;
+    margin-right: 10;
+}
+
