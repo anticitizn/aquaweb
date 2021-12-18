@@ -41,9 +41,7 @@ if(isset($_GET['login'])) {
     <?php // imports header
         include('../templates/header.php');
     ?>
-
-
-
+    
     <main>
         <?php 
             // throws error message
@@ -65,22 +63,6 @@ if(isset($_GET['login'])) {
 
         if($showFormular) {
         ?>
-        <!-- 
-        <div class="loginBox">
-            <h3>Sign In</h3>
-            <form action="?login=1" method="post">
-                <div class="inputBox">
-                    <label for="userName"></label><input id="userName" type="text" name="username" placeholder="Username" />
-                    <label for="password"></label><input id="password" type="password" name="password" placeholder="Password" />
-                </div>
-                <input type="submit" value="Login">
-            </form>
-            <div class="text-center">
-                <a href="register.php">Sign-Up</a>
-            </div>
-        </div>
-        -->
-        
             <div class="container-fluid vh-100" style="margin-top:300px">
                 <div class="" style="margin-top:200px">
                     <div class="rounded d-flex justify-content-center">
