@@ -38,7 +38,7 @@ if ($db_connect && (isset($_SESSION['userid']))) {
                         <a class="nav-link" href="/tinf20-aquaweb/php/forms/login.php">Login</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="/tinf20-aquaweb/php/forms/register.php">Registrierung</a>
+                        <a class="nav-link" href="/tinf20-aquaweb/php/forms/register.php">Register</a>
                     </li>
                     <?php } else { ?>
                         <li class="nav-item">
