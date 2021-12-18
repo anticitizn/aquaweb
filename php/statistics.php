@@ -26,67 +26,72 @@ $indexphp = '';
         include('templates/header.php');
     ?>
     <main>
- 
-    <!-- die relative position ist auch unnötig style="position: relative;" -->
-    <div class="headline" ><?php echo "<h1>Your aquarium statistics </h1>";?></div>
 
-    <form class="sql_sort" method="post" action="<?=$_SERVER['PHP_SELF']?>">
-        <input type="radio" id="sort1" name="sortingOption" value="sortByName">
-        <label for="sort1">Sort by Name</label><br>
-        <label for="sort2"></label><input type="radio" id="sort2" name="sortingOption" value="sortByPrice">
-        <label for="sort1">Sort by Price</label><br>
-        <label for="sort3"></label><input type="radio" id="sort3" name="sortingOption" value="sortByAmount">
-        <label for="sort1">Sort by Amount</label><br>
-        <input type="submit" value="sort">
-    </form>
- 
-    <?php
-   
+        <div class="headline"><?php echo "<h1>Your aquarium statistics </h1>"; ?></div>
 
+        
+        <!--Form-element with radioButtons for sorting the fishes in your aquarium-->
+        <form class="sql_sort" method="post" action="<?= $_SERVER['PHP_SELF'] ?>">
+            <input type="radio" id="sort1" name="sortingOption" value="sortByName">
+            <label for="sort1">Sort by Name</label><br>
+            <label for="sort2"></label><input type="radio" id="sort2" name="sortingOption" value="sortByPrice">
+            <label for="sort1">Sort by Price</label><br>
+            <label for="sort3"></label><input type="radio" id="sort3" name="sortingOption" value="sortByAmount">
+            <label for="sort1">Sort by Amount</label><br>
+            <input type="submit" value="sort">
+        </form>
 
-    $sortingOption = $_POST["sortingOption"]??"";
-    $userid = $_SESSION['userid'];
+        <?php
 
 
-    switch($sortingOption){
-        case "sortByName": 
-            $abfrage = "SELECT fish.id, fish.name, fish.price, users_fish.amount, users_fish.day_of_Purchase, users_fish.lastFed 
+        //get the sortingOption from the Form-element
+        $sortingOption = $_POST["sortingOption"] ?? "";
+
+        //get the user_id from the session
+        $userid = $_SESSION['userid'];
+
+
+        //switch case block with different sql-queries depending on your sortingOption
+        switch ($sortingOption) {
+            case "sortByName":
+                $abfrage = "SELECT fish.id, fish.name, fish.price, users_fish.amount, users_fish.day_of_Purchase, users_fish.lastFed 
             FROM users_fish
             INNER JOIN fish ON fish.id = users_fish.fish_id
             WHERE users_fish.users_id = $userid
             ORDER BY fish.name";
-            break;
-        case "sortByPrice":
-            $abfrage = "SELECT fish.id, fish.name, fish.price, users_fish.amount, users_fish.day_of_Purchase, users_fish.lastFed 
+                break;
+            case "sortByPrice":
+                $abfrage = "SELECT fish.id, fish.name, fish.price, users_fish.amount, users_fish.day_of_Purchase, users_fish.lastFed 
             FROM users_fish
             INNER JOIN fish ON fish.id = users_fish.fish_id
             WHERE users_fish.users_id = $userid
             ORDER BY fish.price";
-            break;
-        case "sortByAmount":
-            $abfrage = "SELECT fish.id, fish.name, fish.price, users_fish.amount, users_fish.day_of_Purchase, users_fish.lastFed 
+                break;
+            case "sortByAmount":
+                $abfrage = "SELECT fish.id, fish.name, fish.price, users_fish.amount, users_fish.day_of_Purchase, users_fish.lastFed 
             FROM users_fish
             INNER JOIN fish ON fish.id = users_fish.fish_id
             WHERE users_fish.users_id = $userid
             ORDER BY users_fish.amount";
-            break;
-        default:
-            $abfrage = "SELECT fish.id, fish.name, fish.price, users_fish.amount, users_fish.day_of_Purchase, users_fish.lastFed 
+                break;
+            default:
+                $abfrage = "SELECT fish.id, fish.name, fish.price, users_fish.amount, users_fish.day_of_Purchase, users_fish.lastFed 
             FROM users_fish
             INNER JOIN fish ON fish.id = users_fish.fish_id
             WHERE users_fish.users_id = $userid";
-            break;
-    }
+                break;
+        }
 
+        //stores the result of sql-query in variable
+        $result = mysqli_query($db_connect, $abfrage);
 
-    $result = mysqli_query($db_connect, $abfrage);
-
-    echo "<div class='container'>";
-    echo "<div class='row'>";
-    echo "<div class='col-md-offset-1 col-md-10'>";
-    echo "<div class='panel'>";
-    echo "<div class='panel-body table-responsive'>";
-    echo "<table class='table'>
+        //generates on output-table for the sql-query
+        echo "<div class='container'>";
+        echo "<div class='row'>";
+        echo "<div class='col-md-offset-1 col-md-10'>";
+        echo "<div class='panel'>";
+        echo "<div class='panel-body table-responsive'>";
+        echo "<table class='table'>
             <thead>
             <th>id</th>
             <th>name</th>
@@ -96,25 +101,27 @@ $indexphp = '';
             <th>lastFed</th>
             </thead>";
 
-    echo "<tbody>";
-    while ($row = mysqli_fetch_assoc($result)) {
-        echo "<tr>";
-        echo "<td>" . $row["id"] . "</td>";
-        echo "<td>" . $row["name"] . "</td>";
-        echo "<td>" . $row["price"] . "</td>";
-        echo "<td>" . $row["amount"] . "</td>";
-        echo "<td>" . $row["day_of_Purchase"] . "</td>";
-        echo "<td>" . $row["lastFed"] . "</td>";
-        echo "</tr>";
-    }
-    echo "</tbody>";
-    echo "</table>";
-    echo "</div>";
-    echo "</div>";
-    echo "</div>";
-    echo "</div>";
-    echo "</div>";
-    ?>
+        echo "<tbody>";
+
+        //insert the result-variable into the table
+        while ($row = mysqli_fetch_assoc($result)) {
+            echo "<tr>";
+            echo "<td>" . $row["id"] . "</td>";
+            echo "<td>" . $row["name"] . "</td>";
+            echo "<td>" . $row["price"] . "</td>";
+            echo "<td>" . $row["amount"] . "</td>";
+            echo "<td>" . $row["day_of_Purchase"] . "</td>";
+            echo "<td>" . $row["lastFed"] . "</td>";
+            echo "</tr>";
+        }
+        echo "</tbody>";
+        echo "</table>";
+        echo "</div>";
+        echo "</div>";
+        echo "</div>";
+        echo "</div>";
+        echo "</div>";
+        ?>
 
     </main>
 
