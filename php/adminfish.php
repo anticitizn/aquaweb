@@ -21,44 +21,29 @@ $indexphp = '';
 <body>
     <?php include('templates/header.php'); ?>
 
-    <?php 
+    <?php
+    if(isset($_GET["add"]) && $_GET["add"] == 1) {
+        $request = "INSERT INTO fish (name, price) VALUE ('" . $_POST["addname"] . "', " . $_POST["addprice"] . ")";
+        $result = mysqli_query($db_connect, $request);
+    }
+
     $statement = "SELECT * FROM fish";
     $response = mysqli_query($db_connect, $statement);
     while ($row = mysqli_fetch_assoc($response)) {
         $update = $row["id"] . "update";
+        $delete = $row["id"] . "delete";
         $price = $row["id"] . "price";
-        $id = $row["id"] . "id";/*
+        $id = $row["id"] . "id";
+        $name = $row["id"] . "name";
         if(isset($_GET[$update]) && $_GET[$update] == 1) {
-            
-            $day_of_Purchase = date("Y-m-d H:i:s");
-            $request = "SELECT position FROM users_fish WHERE users_id = " . $_SESSION['userid'] . " ORDER BY position DESC LIMIT 1";
+            $request = "UPDATE fish SET name='". $_POST[$name] ."', price=". $_POST[$price] ." WHERE id=". $_POST[$id] ."";
             $result = mysqli_query($db_connect, $request);
-            $row = mysqli_fetch_assoc($result);
-            if (isset($row['position'])) {
-                $position = $row['position'] + 1;
-            } else {
-                $position = 0;
-            }
-
-            $request = "INSERT INTO users_fish (users_id, position, fish_id, amount, day_of_Purchase, lastFed) VALUE (". $_SESSION['userid'] . "," . $position . "," . $_POST[$id] . ",1, NOW(), NOW());";
-            $result = mysqli_query($db_connect,$request);
-
-            echo "<script>console.log('" . $update . "')</script>";
-
-            $request = "UPDATE users SET balance=balance-". $_POST[$price]." WHERE id = " . $_SESSION['userid'] . "";
-            $result = mysqli_query($db_connect,$request);
         }
-        if(isset($_GET[$update]) && $_GET[$update] == 0) {
-            echo '<div class="cannotAfford"><p>You cannot afford this '. $row["name"].'.</p></div>';
+        if(isset($_GET[$delete]) && $_GET[$delete] == 1) {
+            $request = "DELETE FROM fish WHERE id=". $_POST[$id] ."";
+            $result = mysqli_query($db_connect, $request);
         }
-        */
     }
-
-        $request = "SELECT * FROM users WHERE id =" . $_SESSION['userid'] ."";
-        $result = mysqli_query($db_connect,$request);
-        $row = mysqli_fetch_assoc($result);
-        $balance = $row['balance'];
-
         $namefilter = $_POST["namefilter"] ?? "";
         if(isset($_POST["pricetill"]) && $_POST["pricetill"] != ""){
             $pricetill = $_POST["pricetill"];
@@ -69,11 +54,8 @@ $indexphp = '';
     ?>
     
     <main>
-        <h1>Shop</h1>
+        <h1><a href="/tinf20-aquaweb/php/adminfish.php">Fish administration</h1></a>
         <aside class="filterside">
-            <div class="balance">
-                <p>Balance: <?php echo $balance; ?></p>
-            </div>
             <div class="filter">
                 <p>Filter</p>
                 <form id="filterform" action="#" method="POST">
@@ -101,6 +83,27 @@ $indexphp = '';
 
         <div class="articles">
             <table>
+                <tr>
+                    <td>
+                        <form id="formaddfisharticle" action="?add=1" method="post">
+                            fileupload für das fish picture fehlt noch
+                            <table>
+                                <tr>
+                                    <td class="label-column"><label for="addname">Name:</label></td>
+                                    <td><input type="name" id="addname" name ="addname"></td>
+                                </tr>
+                                <tr>
+                                    <td class="label-column"><label for="addprice">Price:</label></td>
+                                    <td><input type="number" id="addprice"name ="addprice"></td>
+                                </tr>
+                                <tr>
+                                    <td class="label-column"></td>
+                                    <td><button type="submit" id="add" class="add-button">Add!</button> 
+                                </tr>
+                            </table>
+                        </form>
+                    </td>
+                </tr>
                 <?php if ($db_connect) {
                     $request = "SELECT * FROM fish";
                     $result = mysqli_query($db_connect, $request);
@@ -112,34 +115,34 @@ $indexphp = '';
                                 <?php include('../assets/images/fish.svg'); ?>
                                 </div>
                                 <div class="fishdescription">
-                                    <?php 
-                                        if($row["price"] <= $balance){
-                                            ${"update".$row["id"]} = 1;
-                                        } else {
-                                            ${"update".$row["id"]} = 0;
-                                        }
-                                    ?>
-                                    <form id=<?php echo $row["id"] . "formupdatefisharticle"; ?> action="?<?php echo $row['id'];?>update=<?php echo ${"update".$row["id"]} ?>" method="post">
+                                    <form id=<?php echo $row["id"] . "formupdatefisharticle"; ?> action="?<?php echo $row['id'];?>update=1" method="post">
                                         <table>
-                                            <tr hidden>
-                                                <td class="label-column" hidden><label for="id" hidden>ID:</label></td>
-                                                <td hidden><input type="id" id=<?php echo $row["id"] . "-id-article"; ?> name ="<?php echo $row['id'];?>id" value=<?php echo $row["id"]?> readonly hidden></td>
+                                            <tr >
+                                                <td class="label-column" ><label for="id" >ID:</label></td>
+                                                <td><input type="id" id=<?php echo $row["id"] . "-id"; ?> name ="<?php echo $row['id'];?>id" value=<?php echo $row["id"]?> readonly ></td>
                                             </tr>
                                             <tr>
                                                 <td class="label-column"><label for="name">Name:</label></td>
-                                                <td><input type="name" id=<?php echo $row["id"] . "-name-article"; ?> name ="name" value=<?php echo $row["name"]?>></td>
+                                                <td><input type="name" id=<?php echo $row["id"] . "-name"; ?> name ="<?php echo $row['id'];?>name" value=<?php echo $row["name"]?>></td>
                                             </tr>
                                             <tr>
                                                 <td class="label-column"><label for="price">Price:</label></td>
-                                                <td><input type="number" id=<?php echo $row["id"] . "-price-article"; ?> name ="<?php echo $row['id'];?>price" value=<?php echo $row["price"]?>></td>
+                                                <td><input type="number" id=<?php echo $row["id"] . "-price"; ?> name ="<?php echo $row['id'];?>price" value=<?php echo $row["price"]?>></td>
                                             </tr>
                                             <tr>
                                                 <td class="label-column"></td>
-                                                <td><button type="submit" id=<?php echo $row["id"] . "-update-article"; ?> class="update-button">Update!</button> 
+                                                <td><button type="submit" id=<?php echo $row["id"] . "-update"; ?> class="update-button">Update!</button> 
                                             </tr>
                                         </table>
                                     </form>
                                 </div>
+                            </td>
+                            <td>
+                                <form id=<?php echo $row["id"] . "formdeletefisharticle"; ?> action="?<?php echo $row['id'];?>delete=1" method="post">
+                                    <label for="id" hidden>ID:</label>
+                                    <input type="id" id=<?php echo $row["id"] . "-id"; ?> name ="<?php echo $row['id'];?>id" value=<?php echo $row["id"]?> readonly hidden>
+                                    <button type="submit" id=<?php echo $row["id"] . "-delete"; ?> class="delete-button">Delete!</button> 
+                                </form>
                             </td>
                         </tr>
                     <?php }

@@ -19,7 +19,7 @@ $indexphp = '';
 <?php include('templates/header.php');?>
 <main>
 <div class="headline">
-<h1>Administration</h1>
+    <a href="/tinf20-aquaweb/php/adminoverview.php"><h1>Administration</h1></a>
 </div>
 <table>
     <tr>
