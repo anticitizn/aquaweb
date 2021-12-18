@@ -28,49 +28,35 @@ $pdo = new PDO('mysql:host=51.15.100.196;dbname=aquaweb', 'aquaweb', 'webaqua123
             $showFormular = true; //Variable if Registrierform is shown
 
             // checks if register is triggerd
-            if(isset($_GET['register'])) {
+            if (isset($_GET['register'])) {
                 $error = false;
                 $username = $_POST["username"];
                 $password = $_POST["password"];
                 $password2 = $_POST["password2"];
 
                 // checks password length
-                if(strlen($password) == 0) {
-                    echo '<p>Bitte ein Passwort angeben</p>';
+                if (strlen($password) == 0) {
+                    echo '<p>Please enter password</p>';
                     $error = true;
                 }
 
                 // checks passwords are equal
-                if(($password != $password2) && (strlen($password2) == 0)){
-                    echo 'Die Passwörter müssen übereinstimmen<br>';
+                if ($password != $password2){
+                    echo 'Passwords musst be euqals.<br>';
                     $error = true;
                 }
 
                 //check if username is allready registered
-                if(!$error) { 
+                if (!$error) { 
                     $statement = $pdo->prepare("SELECT * FROM users WHERE username = :username");
                     $result = $statement->execute(array('username' => $username));
                     $user = $statement->fetch();
 
                     // popup message if username is already used
-                    if($user !== false) {
-                        echo '<div id="registerError" class="modal fade">
-                        <div class="modal-dialog modal-confirm">
-                            <div class="modal-header">
-                                <div class="icon-box">
-                                    <i class="material-icons">&#xE5CD;</i>
-                                </div>				
-                                <h4 class="modal-title">Beim Abspeichern ist leider ein Fehler aufgetreten</h4>	
-                                <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
-                            </div>
-                            <div class="modal-body">
-                                <p>Username is already taken</p>
-                            </div>
-                            <div class="modal-footer">
-                                <button type="button" class="btn btn-info" data-dismiss="modal">OK</button>
-                            </div>
-                        </div>
-                      </div>';
+                    if ($user != null) {
+                        echo '
+                        <script> alert("Username is allreadey in use."); </script>
+                        ';
                         $error = true;
                     }
                 }
@@ -87,24 +73,8 @@ $pdo = new PDO('mysql:host=51.15.100.196;dbname=aquaweb', 'aquaweb', 'webaqua123
                         echo '<p>Your registry was succsessful. <a href="login.php">Please login.</a></p>';
                         $showFormular = false;
                     } else {
-                        // shows register faild mmessage
-                        echo '<div id="registerError" class="modal fade">
-                                <div class="modal-dialog modal-confirm">
-                                    <div class="modal-header">
-                                        <div class="icon-box">
-                                            <i class="material-icons">&#xE5CD;</i>
-                                        </div>				
-                                        <h4 class="modal-title">Something went wrong</h4>	
-                                        <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
-                                    </div>
-                                    <div class="modal-body">
-                                        <p>Username is already taken</p>
-                                    </div>
-                                    <div class="modal-footer">
-                                        <button type="button" class="btn btn-info" data-dismiss="modal">OK</button>
-                                    </div>
-                                </div>
-                              </div>';
+                        // allerts register faild mmessage
+                        echo '<script> alert("Somthing went wrong. Please try again later."); </script>';
                     }
                 } 
             }
@@ -119,7 +89,7 @@ $pdo = new PDO('mysql:host=51.15.100.196;dbname=aquaweb', 'aquaweb', 'webaqua123
                                 <div class="text-center">
                                     <h3 class="text-primary">Register In</h3>
                                 </div>
-                                <form action="?login=1" method="post">
+                                <form action="?register=1" method="post">
                                     <div class="p-4">
                                         <div class="input-group mb-3">
                                     <span class="input-group-text bg-primary"><i
