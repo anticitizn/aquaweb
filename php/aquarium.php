@@ -34,10 +34,6 @@ $ip_num = ip2long($ip);
 $query = "SELECT * FROM users_visitors WHERE user_id = $link_user_id AND ip = $ip_num";
 $result = mysqli_query($db_connect, $query);
 
-if (!$result) {
-    die(mysqli_error($db_connect));
-}
-
 // if IP hasn't visited in the last hour, add money to the user and log the visit
 if (mysqli_num_rows($result) < 1)
 {
@@ -46,10 +42,6 @@ if (mysqli_num_rows($result) < 1)
     $query = "INSERT INTO users_visitors (user_id, ip)
               VALUES ($link_user_id, $ip_num";
     $result = mysqli_query($db_connect, $query);
-
-    if (!$result) {
-        die(mysqli_error($db_connect));
-    }
 }
 ?>
 
