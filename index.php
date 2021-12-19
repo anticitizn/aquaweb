@@ -17,9 +17,8 @@ $indexphp = 'php/';
 </head>
 
 <body>
-    <header>
-        <?php include('php/templates/header.php');?>
-    </header>
+
+<?php include('php/templates/header.php');?>
 
 <main>
 <div id="carouselExampleCaptions" class="carousel slide" data-bs-ride="carousel">
@@ -53,7 +52,7 @@ $indexphp = 'php/';
                 <div class="fish"> <?php include('assets/images/fish.svg');?> </div>
                 <div class="fish"> <?php include('assets/images/fish.svg');?> </div>
             </div>
-            
+
         </div>
         <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide="prev">
             <span class="carousel-control-prev-icon" aria-hidden="true"></span>

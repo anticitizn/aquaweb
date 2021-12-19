@@ -13,9 +13,7 @@
 
         <!-- Section for some text -->
         <section class="mb-4">
-            <p>
-                <h1>AquaWeb</h1>
-            </p>
+            <h1>AquaWeb</h1>
         </section>
         <!-- Section for some text -->
 
