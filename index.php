@@ -63,28 +63,6 @@ $indexphp = 'php/';
             <span class="visually-hidden">Next</span>
         </button>
     </div>
-
-    <div id="aquariumContainer">
-        <div class="fish">
-            <?php include('assets/images/fish.svg');?>
-        </div>
-
-        <div class="fish">
-            <?php include('assets/images/fish.svg');?>
-        </div>
-
-        <div class="fish">
-            <?php include('assets/images/fish.svg');?>
-        </div>
-
-        <div class="fish">
-            <?php include('assets/images/fish.svg');?>
-        </div>
-
-        <div class="fish">
-            <?php include('assets/images/fish.svg');?>
-        </div>
-    </div>
 </main>
 
     <?php include('php/templates/footer.php');?>
