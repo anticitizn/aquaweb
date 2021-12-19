@@ -79,8 +79,8 @@ $indexphp = '';
         <header class="bg-dark py-5">
             <div class="container px-4 px-lg-5 my-5">
                 <div class="text-center text-white">
-                    <h1 class="display-4 fw-bolder">Shop your favourite fish</h1>
-                    <p class="lead fw-normal text-white-50 mb-0">Your Account-Balance:<?php echo $balance; ?> $</p>
+                    <h1 class="display-4 fw-bolder">Buy your favourite fish!</h1>
+                    <p class="lead fw-normal text-white-50 mb-0">Your account balance:<?php echo $balance; ?> $</p>
                 </div>
             </div>
         </header>
@@ -132,8 +132,7 @@ $indexphp = '';
 
 
                         while ($row = mysqli_fetch_assoc($result)) {
-
-                            if ((str_contains($row["name"], $namefilter)) && ($row["price"] <= $pricetill) && ($row["price"] >= $priceof)) { ?>
+                            if ((strpos($row["name"], $namefilter) !== false) && ($row["price"] <= $pricetill) && ($row["price"] >= $priceof)) { ?>
 
                                 <!--<div class="fishdescription">-->
                                 <?php
