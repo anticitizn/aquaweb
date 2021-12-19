@@ -29,8 +29,7 @@ $indexphp = '';
                     
                 </div>
             </div>
-        </header>
-    
+</header>
 <main>
 
 

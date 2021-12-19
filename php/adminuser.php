@@ -220,7 +220,7 @@ $indexphp = '';
                 </div>
             </div>
         </div>
-        <h1><a href="/tinf20-aquaweb/php/adminoverview.php">Return</h1></a>
+        <input type="button" onclick="location.href='/tinf20-aquaweb/php/adminoverview.php'" class="btn btn-info" data-dismiss="modal" value="Return">
     </main>
 
     <?php // imports footer
