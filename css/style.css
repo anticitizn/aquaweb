@@ -37,9 +37,8 @@ header, footer {
 #aquariumContainer {
     position: relative;
     background-color: #708FA3;
-    margin: 3rem;
-    width: 85vw;
-    height: 80vh;
+    width: 100%;
+    height: 94vh;
 }
 
 .fish {

@@ -29,7 +29,7 @@ $link_user_id = $params['user'];
 <?php include('templates/header.php');?>
 
 <?php
-// check if this IP has already visited the aquarium in the last hour
+// query if this IP has already visited the aquarium in the last hour
 $ip_num = ip2long($ip);
 $query = "SELECT * FROM users_visitors WHERE user_id = $link_user_id AND ip = $ip_num";
 $result = mysqli_query($db_connect, $query);
@@ -40,7 +40,6 @@ if (mysqli_num_rows($result) < 1)
     $request = "UPDATE users SET balance = balance + 100 WHERE id=$link_user_id";
     $result = mysqli_query($db_connect, $request);
     $query = "INSERT INTO users_visitors (user_id, ip) VALUES ($link_user_id, $ip_num)";
-    echo "<script>console.log('" . $query . "')</script>";
     $result = mysqli_query($db_connect, $query);
 
     if (!$result) {
@@ -49,13 +48,7 @@ if (mysqli_num_rows($result) < 1)
 }
 ?>
 
-<button class="btn btn-primary" type="button">Feed!</button>
 <main>
-<?php
-echo $link_user_id;
-echo "\n";
-echo $ip;
-?>
 <div id="aquariumContainer">
     <?php
         if (isset($link_user_id) && $link_user_id !== "")
