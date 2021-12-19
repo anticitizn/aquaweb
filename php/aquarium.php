@@ -41,7 +41,7 @@ echo $ip;
             while ($row = mysqli_fetch_assoc($result)) {
                 $imgurl = '../assets/images/' . $row['fish_id'] . '.png';
                 echo '<div class="fish">';
-                echo '<img src="$imgurl">';
+                echo '<img src="' . $imgurl . '">';
                 echo '</div>';
             }
         }
