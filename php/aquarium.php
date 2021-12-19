@@ -2,6 +2,7 @@
 session_start();
 $indexphp = '';
 $ip = $_SERVER['REMOTE_ADDR'];
+$url = 'http://' . $_SERVER['HTTP_HOST'] . $_SERVER['REQUEST_URI'];
 $url_components = parse_url($url);
 parse_str($url_components['query'], $params);
 $link_user_id = $params['user'];
@@ -27,7 +28,8 @@ $link_user_id = $params['user'];
 <button class="btn btn-primary" type="button">Feed!</button>
 <main>
 <?php
-echo $link_user_id + "\n";
+echo $link_user_id;
+echo "\n";
 echo $ip;
 ?>
 <div id="aquariumContainer">
