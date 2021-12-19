@@ -30,8 +30,8 @@ $link_user_id = $params['user'];
 
 <?php
 // check if this IP has already visited the aquarium in the last hour
-$ip_bin = inet_pton($ip);
-$query = "SELECT * FROM users_visitors WHERE user_id = $link_user_id AND ip = $ip_bin";
+$ip_num = ip2long($ip);
+$query = "SELECT * FROM users_visitors WHERE user_id = $link_user_id AND ip = $ip_num";
 $result = mysqli_query($db_connect, $query);
 if (!$result) {
     die(mysqli_error($db_connect));
