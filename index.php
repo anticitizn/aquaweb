@@ -49,6 +49,10 @@ $indexphp = 'php/';
                     <p>In the store you can buy new and bigger fish</p>
                 </div>
             </div>
+            <div class="carousel-item" id="aquariumContainer">
+                <div class="fish"> <?php include('assets/images/fish.svg');?> </div>
+                <div class="fish"> <?php include('assets/images/fish.svg');?> </div>
+            </div>
         </div>
         <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide="prev">
             <span class="carousel-control-prev-icon" aria-hidden="true"></span>
