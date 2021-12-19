@@ -40,8 +40,8 @@ echo $ip;
             $result = mysqli_query($db_connect, $query);
             echo "it worked";
             while ($row = mysqli_fetch_assoc($result)) {
-                echo '<div class="fish">';
-                include('../assets/images/' . $row['fish_id'] . '.png');
+                $imgurl = '../assets/images/' . $row['fish_id'] . '.png';
+                echo `<div class="fish" style="background-image: url('$imgurl');>`;
                 echo '</div>';
             }
         }
