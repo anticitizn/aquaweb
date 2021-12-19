@@ -77,14 +77,14 @@ $indexphp = '';
     ?>
     
     <main>
-        <h1><a href="/tinf20-aquaweb/php/adminuser.php">Administration Fishers</h1></a>
+        <h1><a href="/tinf20-aquaweb/php/adminuser.php">User administration</h1></a>
         <div class="container-xl">
             <div class="table-responsive">
                 <div class="table-wrapper">
                     <div class="table-title">
                         <div class="row">
                             <div class="col-sm-6">
-                                <h2>Manage <b>Fisher</b></h2>
+                                <h2>Manage <b>users</b></h2>
                             </div>
                             <div class="col-sm-6">
                                 <a href="#addEmployeeModal" class="btn btn-success" data-toggle="modal"><i class="material-icons">&#xE147;</i> <span>Add New Fisher</span></a>

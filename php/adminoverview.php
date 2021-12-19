@@ -32,9 +32,9 @@ $indexphp = '';
             <div class="col-md-6 col-lg-4 column">
                 <div class="card gr-1">
                     <div class="txt">
-                        <h1>Administrate </br>
+                        <h1>Edit </br>
                             the fishes</h1>
-                        <p>You can administrate the fishes</p>
+                        <p>You can edit existing fishes or add new ones here</p>
                     </div>
                     <a href="adminfish.php">more</a>
                     <div class="ico-card">
@@ -45,9 +45,9 @@ $indexphp = '';
             <div class="col-md-6 col-lg-4 column">
                 <div class="card gr-2">
                     <div class="txt">
-                        <h1>Administrate </br>
-                            the fishers</h1>
-                        <p>You can administrate the fishers.</p>
+                        <h1>Edit </br>
+                            the users</h1>
+                        <p>You can edit existing users or add new ones here</p>
                     </div>
                     <a href="adminuser.php">more</a>
                     <div class="ico-card">
