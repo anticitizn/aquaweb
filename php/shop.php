@@ -85,41 +85,24 @@ $indexphp = '';
             </div>
         </header>
         <aside class="filterside">
-            <div class="filter">
-                <section class='py-5'>
-                    <div class="container px-4 px-lg-5 mt-5">
-                        <h1>Filter</h1>
-                        <form id="filterform" action="#" method="POST">
-                            <table>
-                                <tr>
-                                    <td class="label-column"><label for="namefilter">Name:</label> </td>
-                                    <td><label>
-                                            <input type="text" name="namefilter">
-                                        </label></td>
-                                </tr>
-                                <tr>
-                                    <td class="label-column"><label for="pricetill">Price till:</label> </td>
-                                    <td><label>
-                                            <input type="number" name="pricetill" min="0" max="2147483647">
-                                        </label></td>
-                                </tr>
-                                <tr>
-                                    <td class="label-column"><label for="priceof">Price of:</label> </td>
-                                    <td><label>
-                                            <input type="number" name="priceof" min="0" max="2147483647">
-                                        </label></td>
-                                </tr>
-                                <tr>
-                                    <td><button type="reset">Reset</button></td>
-                                    <td><button type="submit">Filter</button></td>
-                                </tr>
-                            </table>
-                        </form>
-                    </div>
-                    <section>
-            </div>
-        </aside>
+           
+<nav class="filter-nav">
 
+  <label for="touch"><span class="shop-filter">Filter</span></label>   
+  <form id="filterform" action="#" method="POST">             
+  <input type="checkbox" id="touch">
+  <ul class="slide">
+    <li><label for="namefilter" class="filter-label">Name:</label><input type="text" name="namefilter"></li> 
+    <li><label for="pricetill" class="filter-label">Price till:</label><br><input type="number" name="pricetill" min="0" max="2147483647"></li>
+    <li><label for="priceof" class="filter-label">Price of:</label><br><input type="number" name="priceof" min="0" max="2147483647"></li>
+    <li><button type="reset" class="btn btn-outline-dark mt-auto">Reset</button></li>
+    <li><button type="submit" class="btn btn-outline-dark mt-auto">Filter</button></li>
+  </ul>
+  <form>
+</nav> 
+  	</div>
+        </aside>
+ 
 
         <section class='py-5'>
             <div class="container px-4 px-lg-5 mt-5">

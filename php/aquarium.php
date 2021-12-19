@@ -31,9 +31,12 @@ $link_user_id = $params['user'];
 <?php
 // query if this IP has already visited the aquarium in the last hour
 $ip_num = ip2long($ip);
+echo $ip_num;
 $query = "SELECT * FROM users_visitors WHERE user_id = $link_user_id AND ip = $ip_num";
 $result = mysqli_query($db_connect, $query);
-
+if (!$result) {
+    die(mysqli_error($db_connect));
+}
 // if IP hasn't visited in the last hour, add money to the user and log the visit
 if (mysqli_num_rows($result) < 1)
 {
