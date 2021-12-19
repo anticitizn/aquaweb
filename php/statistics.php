@@ -41,8 +41,8 @@ $indexphp = '';
                     <form class="sql_sort" method="post" action="<?= $_SERVER['PHP_SELF'] ?>" id="filterform" action="#">
                         <input type="checkbox" id="touch">
                         <ul class="slideStatistic">
-                            <li><label for="sortByName" class="filter-label">Name:</label><br><input type="radio" name="sortingOption" value="sortByName" id="sort1"></li>
-                            <li><label for="sortByPrice" class="filter-label">Price till:</label><br><input type="radio" id="sort2" name="sortingOption" value="sortByPrice"></li>
+                            <li><label class="filter-label">Name:</label><br><input type="radio" name="sortingOption" value="sortByName" id="sort1"></li>
+                            <li><label class="filter-label">Price:</label><br><input type="radio" id="sort2" name="sortingOption" value="sortByPrice"></li>
                             <li><button type="submit" class="btn btn-outline-dark mt-auto">Filter</button></li>
                         </ul>
                     </form>

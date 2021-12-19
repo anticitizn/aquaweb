@@ -9,7 +9,7 @@ $indexphp = '';
 
 <head>
     <title>AquaWeb</title>
-    <meta http-equiv="content-type" content="text/html;charset=utd-8" />
+    <meta http-equiv="content-type" content="text/html;charset=utf-8" />
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
     <link rel="stylesheet" href="../css/style.css">
     <link rel="stylesheet" href="../css/shop.css">
@@ -77,9 +77,9 @@ $indexphp = '';
                 <form id="filterform" action="#" method="POST">
                     <input type="checkbox" id="touch">
                     <ul class="slide">
-                        <li><label for="namefilter" class="filter-label">Name:</label><input type="text" name="namefilter"></li>
-                        <li><label for="pricetill" class="filter-label">Price till:</label><br><input type="number" name="pricetill" min="0" max="2147483647"></li>
-                        <li><label for="priceof" class="filter-label">Price of:</label><br><input type="number" name="priceof" min="0" max="2147483647"></li>
+                        <li><label class="filter-label">Name:</label><input type="text" name="namefilter"></li>
+                        <li><label class="filter-label">Price till:</label><br><input type="number" name="pricetill" min="0" max="2147483647"></li>
+                        <li><label class="filter-label">Price of:</label><br><input type="number" name="priceof" min="0" max="2147483647"></li>
                         <li><button type="reset" class="btn btn-outline-dark mt-auto">Reset</button></li>
                         <li><button type="submit" class="btn btn-outline-dark mt-auto">Filter</button></li>
                     </ul>
@@ -94,8 +94,8 @@ $indexphp = '';
                     <form id="formaddfisharticle" action="?add=1" method="post">
                         <input type="checkbox" id="touchAdd">
                         <ul class="slide">
-                            <li><label for="addname" class="filter-label">Name:</label><input type="name" id="addname" name="addname"></li>
-                            <li><label for="addprice" class="filter-label">Price:</label> <input type="number" id="addprice" name="addprice"></li>
+                            <li><label class="filter-label">Name:</label><input type="text" id="addname" name="addname"></li>
+                            <li><label class="filter-label">Price:</label> <input type="number" id="addprice" name="addprice"></li>
                             <li><button type="submit" id="add" class="btn btn-outline-dark mt-auto">Add</button>></li>
                         </ul>
                         <form>
@@ -127,9 +127,9 @@ $indexphp = '';
                                         <div class="card-body p-4 text-secondary">
                                             <div class="text-center">
                                                 <form id=<?php echo $row["id"] . "formupdatefisharticle"; ?> action="?<?php echo $row['id']; ?>update=1" method="post">
-                                                    <input type="id" id=<?php echo $row["id"] . "-id-article"; ?> name="<?php echo $row['id']; ?>id" value=<?php echo $row["id"] ?> readonly hidden>
+                                                    <input type="number" id=<?php echo $row["id"] . "-id-article"; ?> name="<?php echo $row['id']; ?>id" value=<?php echo $row["id"] ?> readonly hidden>
                                                     <!-- Product name-->
-                                                    <h5 class="fw-bolder"><input type="name" class="name-form" id=<?php echo $row["id"] . "-name"; ?> name="<?php echo $row['id']; ?>name" value=<?php echo $row["name"] ?>></h5>
+                                                    <h5 class="fw-bolder"><input type="text" class="name-form" id=<?php echo $row["id"] . "-name"; ?> name="<?php echo $row['id']; ?>name" value=<?php echo $row["name"] ?>></h5>
                                                     <!-- Product price-->
                                                     <input type="number" class="number-buy-form" id=<?php echo $row["id"] . "-price"; ?> name="<?php echo $row['id']; ?>price" value=<?php echo $row["price"] ?>>
                                             </div>
@@ -140,8 +140,8 @@ $indexphp = '';
 
                                                 </form>
                                                 <form id=<?php echo $row["id"] . "formdeletefisharticle"; ?> action="?<?php echo $row['id']; ?>delete=1" method="post">
-                                                    <label for="id" hidden>ID:</label>
-                                                    <input type="id" id=<?php echo $row["id"] . "-id"; ?> name="<?php echo $row['id']; ?>id" value=<?php echo $row["id"] ?> readonly hidden>
+                                                    <label hidden>ID:</label>
+                                                    <input type="number" id=<?php echo $row["id"] . "-id"; ?> name="<?php echo $row['id']; ?>id" value=<?php echo $row["id"] ?> readonly hidden>
                                                     <button type="submit" id=<?php echo $row["id"] . "-delete"; ?> class="btn btn-outline-dark mt-2">Delete</button>
                                                 </form>
                                             </div>
