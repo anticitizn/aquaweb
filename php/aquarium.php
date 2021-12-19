@@ -38,10 +38,10 @@ echo $ip;
         {
             $query = "SELECT * FROM users_fish WHERE users_id = $link_user_id";
             $result = mysqli_query($db_connect, $query);
-            echo "it worked";
             while ($row = mysqli_fetch_assoc($result)) {
                 $imgurl = '../assets/images/' . $row['fish_id'] . '.png';
-                echo `<div class="fish" style="background-image: url('$imgurl');>`;
+                echo '<div class="fish">';
+                echo '<img src="$imgurl">';
                 echo '</div>';
             }
         }
