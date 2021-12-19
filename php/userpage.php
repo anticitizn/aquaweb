@@ -73,33 +73,50 @@
         </header>
 
         <main>
-           
-
-            <!-- form to update user password -->
-            <form id="formupdatepassword" action="?update=1" method="post">
-                <table>
-                    <tr>
-                        <td class="label-column"><label for="passwordold">Verify with old password:</label></td>
-                        <td><input type="password" id="passwordold" name ="passwordold" value=""></td>
-                    </tr>
-                    <tr>
-                        <td class="label-column"><label for="password">New password:</label></td>
-                        <td><input type="password" id="password" name ="password" value=""></td>
-                    </tr>
-                    <tr>
-                        <td class="label-column"><label for="password2">Verify new password:</label></td>
-                        <td><input type="password" id="password2" name ="password2" value=""></td>
-                    </tr>
-                    <tr>
-                        <td class="label-column"></td>
-                        <td><button type="submit" id="add" class="add-button">Set new password!</button> 
-                    </tr>
-                </table>
-            </form>
             <!-- form to to delete user -->
             <form id="formdeletefisharticle" action="?delete=1" method="post">
                 <button type="submit" id="delete" class="delete-button">Delete!</button> 
             </form>
+
+            <div class="container-fluid vh-100" style="margin-top:300px">
+                <div class="" style="margin-top:200px">
+                    <div class="rounded d-flex justify-content-center">
+                        <div class="col-md-4 col-sm-12 shadow-lg p-5 bg-light">
+                            <div class="text-center">
+                                <h3 class="text-primary">Register In</h3>
+                            </div>
+                            <!-- form to update user password -->
+                            <form id="formupdatepassword" action="?update=1" method="post">
+                                <div class="p-4">
+                                    <div class="input-group mb-3">
+                                    <span class="input-group-text bg-primary"><i
+                                                class="bi bi-person-plus-fill text-white"></i></span>
+                                        <input id="passwordold" name="passwordold" type="password" class="form-control" placeholder="Old Password">
+                                    </div>
+                                    <div class="input-group mb-3">
+                                    <span class="input-group-text bg-primary"><i
+                                                class="bi bi-key-fill text-white"></i></span>
+                                        <input id="password" placeholder="New Password" type="password" id="password" name ="password" class="form-control">
+                                    </div>
+                                    <div class="input-group mb-3">
+                                    <span class="input-group-text bg-primary"><i
+                                                class="bi bi-key-fill text-white"></i></span>
+                                        <input name="password2" type="password" class="form-control" placeholder="Repeat password">
+                                    </div>
+                                    <button class="btn btn-primary text-center mt-2" type="submit" id="add">
+                                        Set new Password
+                                    </button>
+                                    <form id="formdeletefisharticle" action="?delete=1" method="post">
+                                        <button class="btn btn-primary text-center mt-2" type="submit" id="delete" class="delete-button">
+                                            Delete
+                                        </button>
+                                    </form>
+                                </div>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+            </div>
 
          
         </main>
