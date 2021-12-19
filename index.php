@@ -41,7 +41,7 @@ $indexphp = 'php/';
                     <p>Sie können ihre Fische füttern und sie dadurch wachsen lassen</p>
                 </div>
             </div>
-            <div class="carousel-item" id="aquariumContainer" style="width: 100%; overflow: hidden; margin: 0px;">
+            <div class="carousel-item" id="aquariumContainer" style="width: 100%; height: 94vh; overflow: hidden; margin: 0px;">
                 <div class="carousel-caption">
                     <h2>Kaufen sie neue Fische</h2>
                     <p>Im Shop können sie neue und größere Fische kaufen</p>
