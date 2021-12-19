@@ -33,7 +33,9 @@ $link_user_id = $params['user'];
 $ip_bin = inet_pton($ip);
 $query = "SELECT * FROM users_visitors WHERE user_id = $link_user_id AND ip = $ip_bin";
 $result = mysqli_query($db_connect, $query);
-echo $result;
+if (!$result) {
+    die(mysqli_error($db_connect));
+}
 
 // if IP hasn't visited in the last hour, add money to the user and log the visit
 if (true)
