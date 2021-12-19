@@ -1,5 +1,4 @@
 <?php
-// starts session
 session_start();
 $indexphp = 'php/';
 ?>
@@ -18,10 +17,9 @@ $indexphp = 'php/';
 </head>
 
 <body>
-    <?php
-    // imports footer
-    include('php/templates/header.php');
-    ?>
+    <header>
+        <?php include('php/templates/header.php');?>
+    </header>
 
 <main>
 <div id="carouselExampleCaptions" class="carousel slide" data-bs-ride="carousel">
@@ -33,20 +31,14 @@ $indexphp = 'php/';
         <div class="carousel-inner">
             <div class="carousel-item active" style="background-image: url('https://cdn.pixabay.com/photo/2014/06/27/12/36/fish-378286_960_720.jpg')">
                 <div class="carousel-caption">
-                    <h2>Welcome to AquaWeb</h2>
-                    <p>Here you can maintain your own online aquarium</p>
+                    <h2>Willkommen zu AquaWeb</h2>
+                    <p>Hier können sie ihre eigenes Online-Aquarium pflegen</p>
                 </div>
             </div>
             <div class="carousel-item" style="background-image: url('https://cdn.pixabay.com/photo/2016/11/29/09/43/koi-fish-1868779_960_720.jpg')">
                 <div class="carousel-caption">
-                    <h2>Feed your fish</h2>
-                    <p>You can feed your fish and thereby make them grow</p>
-                </div>
-            </div>
-            <div class="carousel-item" style="background-image: url('https://cdn.pixabay.com/photo/2012/03/03/23/54/animal-21668_960_720.jpg')">
-                <div class="carousel-caption">
-                    <h2>Buy new fish</h2>
-                    <p>In the store you can buy new and bigger fish</p>
+                    <h2>Füttern sie ihre Fische</h2>
+                    <p>Sie können ihre Fische füttern und sie dadurch wachsen lassen</p>
                 </div>
             </div>
             <div class="carousel-item" id="aquariumContainer">
@@ -87,11 +79,8 @@ $indexphp = 'php/';
     </div>
 </main>
 
-    <?php
-    // imports footer
-    include('php/templates/footer.php');
-    ?>
-    
+    <?php include('php/templates/footer.php');?>
+
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p" crossorigin="anonymous"></script>
 <script src="js/aquariumAnimation.js"></script>
 
