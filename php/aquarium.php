@@ -1,6 +1,11 @@
 <?php
 session_start();
 $indexphp = '';
+$ip = $_SERVER['REMOTE_ADDR'];
+echo $ip;
+$url_components = parse_url($url);
+parse_str($url_components['query'], $params);
+$userid = $params['userid'];
 ?>
 
 <!DOCTYPE html>
@@ -20,28 +25,28 @@ $indexphp = '';
 <body>
 
 <?php include('templates/header.php');?>
-
+<button class="btn btn-primary" type="button">Feed!</button>
 <main>
 <div id="aquariumContainer">
-    <div class="fish">
-        <?php include('../assets/images/fish.svg');?>
-    </div>
-
-    <div class="fish">
-        <?php include('../assets/images/fish.svg');?>
-    </div>
+    <?php
+        if (isset($userid) && $userid !== "")
+        {
+            $query = "SELECT * FROM users_fish WHERE users_id = $userid";
+            $result = mysqli_query($db_connect, $query);
+            while ($row = mysqli_fetch_assoc($result)) {
+                echo '<div class="fish">';
+                include('../assets/images/' + $row['fish_id'] + '.png');
+                echo '</div>';
+            }
+        }
+        else
+        {
+            echo '<div class="fish">';
+            include('../assets/images/fish.svg');
+            echo '</div>';
+        }
+    ?>
     
-    <div class="fish">
-        <?php include('../assets/images/fish.svg');?>
-    </div>
-
-    <div class="fish">
-        <?php include('../assets/images/fish.svg');?>
-    </div>
-
-    <div class="fish">
-        <?php include('../assets/images/fish.svg');?>
-    </div>
 </div>
 </main>
 
