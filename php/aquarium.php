@@ -1,8 +1,21 @@
 <?php
 session_start();
 $indexphp = '';
+// log ip 
 $ip = $_SERVER['REMOTE_ADDR'];
 
+// check if IPv4, IPv6 or invalid
+if (filter_var($ip, FILTER_VALIDATE_IP, FILTER_FLAG_IPV4)) {
+    $ip_num = ip2long($ip);
+}
+else if (filter_var($ip, FILTER_VALIDATE_IP, FILTER_FLAG_IPV6)) {
+    $ip_num = ip2long_v6($ip);
+}
+else {
+    $ip_num = 0;
+}
+
+// get user ID from link
 $url = 'http://' . $_SERVER['HTTP_HOST'] . $_SERVER['REQUEST_URI'];
 $url_components = parse_url($url);
 parse_str($url_components['query'], $params);
@@ -29,24 +42,27 @@ $link_user_id = $params['user'];
 <?php include('templates/header.php');?>
 
 <?php
-// query if this IP has already visited the aquarium in the last hour
-$ip_num = ip2long($ip);
-echo $ip_num;
-$query = "SELECT * FROM users_visitors WHERE user_id = $link_user_id AND ip = $ip_num";
-$result = mysqli_query($db_connect, $query);
-if (!$result) {
-    die(mysqli_error($db_connect));
-}
-// if IP hasn't visited in the last hour, add money to the user and log the visit
-if (mysqli_num_rows($result) < 1)
-{
-    $request = "UPDATE users SET balance = balance + 100 WHERE id=$link_user_id";
-    $result = mysqli_query($db_connect, $request);
-    $query = "INSERT INTO users_visitors (user_id, ip) VALUES ($link_user_id, $ip_num)";
+// if IP is valid, query if it has already visited this aquarium in the last hour
+if ($ip_num !== 0) {
+    $query = "SELECT * FROM users_visitors WHERE user_id = $link_user_id AND ip = $ip_num";
     $result = mysqli_query($db_connect, $query);
 
+    // if query results in mysql error, print it
     if (!$result) {
         die(mysqli_error($db_connect));
+    }
+    // if IP hasn't visited in the last hour, add money to the user and log the visit
+    if (mysqli_num_rows($result) < 1)
+    {
+        $request = "UPDATE users SET balance = balance + 100 WHERE id=$link_user_id";
+        $result = mysqli_query($db_connect, $request);
+        $query = "INSERT INTO users_visitors (user_id, ip) VALUES ($link_user_id, $ip_num)";
+        $result = mysqli_query($db_connect, $query);
+
+        // if query results in mysql error, print it
+        if (!$result) {
+            die(mysqli_error($db_connect));
+        }
     }
 }
 ?>
@@ -54,6 +70,7 @@ if (mysqli_num_rows($result) < 1)
 <main>
 <div id="aquariumContainer">
     <?php
+        // if user ID is alright, 
         if (isset($link_user_id) && $link_user_id !== "")
         {
             $query = "SELECT * FROM users_fish WHERE users_id = $link_user_id";
