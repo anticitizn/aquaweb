@@ -8,7 +8,7 @@ $indexphp = '';
 
 <head>
     <title>AquaWeb</title>
-    <meta http-equiv="content-type" content="text/html;charset=utd-8" />
+    <meta http-equiv="content-type" content="text/html;charset=utf-8" />
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
     <link rel="stylesheet" href="../css/shop2.css">
     <link rel="stylesheet" href="../css/style.css">
@@ -136,9 +136,9 @@ $indexphp = '';
                                         <div class="card-body p-4 text-secondary">
                                             <div class="text-center">
                                                 <form class="buy-form" id=<?php echo $row["id"] . "formbuyfisharticle"; ?> action="?<?php echo $row['id']; ?>buy=<?php echo ${"buy" . $row["id"]} ?>" method="post">
-                                                    <input type="id" id=<?php echo $row["id"] . "-id-article"; ?> name="<?php echo $row['id']; ?>id" value=<?php echo $row["id"] ?> readonly hidden>
+                                                    <input type="number" id=<?php echo $row["id"] . "-id-article"; ?> name="<?php echo $row['id']; ?>id" value=<?php echo $row["id"] ?> readonly hidden>
                                                     <!-- Product name-->
-                                                    <h5 class="fw-bolder"><input type="name" class="name-form" id=<?php echo $row["id"] . "-name-article"; ?> name="name" value=<?php echo $row["name"] ?> readonly></h5>
+                                                    <h5 class="fw-bolder"><input type="text" class="name-form" id=<?php echo $row["id"] . "-name-article"; ?> name="name" value=<?php echo $row["name"] ?> readonly></h5>
                                                     <!-- Product price-->
                                                     <input type="number" class="number-buy-form" id=<?php echo $row["id"] . "-price-article"; ?> name="<?php echo $row['id']; ?>price" value=<?php echo $row["price"] ?> readonly>
                                             </div>

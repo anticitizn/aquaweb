@@ -5,11 +5,11 @@ $indexphp = '';
 ?>
 
 <!DOCTYPE html>
-<html xml:lang="en" lang="en" xmlns="http://www.w3.org/1999/html">
+<html>
 
 <head>
     <title>AquaWeb</title>
-    <meta http-equiv="content-type" content="text/html;charset=utd-8" />
+    <meta http-equiv="content-type" content="text/html;charset=utf-8" />
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
     <link rel="stylesheet" href="../css/style_adminuser.css">
     <link rel="stylesheet" href="../css/shop.css">
@@ -18,7 +18,6 @@ $indexphp = '';
     <!--Favicon wird aktuell von Daniels Test-Server gezogen-->
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto|Varela+Round">
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css">
     <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
@@ -92,7 +91,7 @@ $indexphp = '';
                                 <h2>Manage <b>users</b></h2>
                             </div>
                             <div class="col-sm-6">
-                                <a href="#addEmployeeModal" class="btn btn-success" data-toggle="modal"><i class="material-icons">&#xE147;</i> <span>Add New Fisher</span></a>
+                                <a href="#addFisherModal" class="btn btn-success" data-toggle="modal"><i class="material-icons">&#xE147;</i> <span>Add New Fisher</span></a>
                             </div>
                         </div>
                     </div>
@@ -121,20 +120,20 @@ $indexphp = '';
                                         </form>
                                     </div>
                                     <td>
-                                        <a href="#editEmployeeModal<?php echo $row["id"];?>" class="edit" data-toggle="modal"><i class="material-icons" data-toggle="tooltip" title="Edit">&#xE254;</i></a>
+                                        <a href="#editFisherModal<?php echo $row["id"];?>" class="edit" data-toggle="modal"><i class="material-icons" data-toggle="tooltip" title="Edit">&#xE254;</i></a>
                                         <!-- Edit Modal HTML -->
-                                        <div id="editEmployeeModal<?php echo $row["id"];?>" class="modal fade text-primary">
+                                        <div id="editFisherModal<?php echo $row["id"];?>" class="modal fade text-primary">
                                             <div class="modal-dialog">
                                                 <div class="modal-content">
                                                     <form  id=<?php echo $row["id"] . "formupdatefisharticle"; ?> action="?<?php echo $row['id'];?>update=1" method="post">
                                                         <div class="modal-header">
-                                                            <h4 class="modal-title">Edit Employee</h4>
+                                                            <h4 class="modal-title">Edit Fisher</h4>
                                                             <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
                                                         </div>
                                                         <div class="modal-body">
                                                             <div class="form-group">
                                                                 <label>Username</label>
-                                                                <input type="name" id=<?php echo $row["id"] . "username"; ?> name ="<?php echo $row['id'];?>username" value=<?php echo $row["username"]?>>
+                                                                <input type="text" id=<?php echo $row["id"] . "username"; ?> name ="<?php echo $row['id'];?>username" value=<?php echo $row["username"]?>>
                                                             </div>
                                                             <div class="form-group">
                                                                 <label>Password</label>
@@ -146,7 +145,7 @@ $indexphp = '';
                                                             </div>
                                                         </div>
                                                         <div class="modal-footer">
-                                                            <input type="id" id=<?php echo $row["id"] . "-id"; ?> name ="<?php echo $row['id'];?>id" value=<?php echo $row["id"]?> readonly hidden>
+                                                            <input type="number" id=<?php echo $row["id"] . "-id"; ?> name ="<?php echo $row['id'];?>id" value=<?php echo $row["id"]?> readonly hidden>
                                                             <input type="button" class="btn btn-default" data-dismiss="modal" value="Cancel">
                                                             <input type="submit" id=<?php echo $row["id"] . "update"; ?> class="btn btn-info" value="Save">
                                                         </div>
@@ -169,7 +168,7 @@ $indexphp = '';
                                                             <p class="text-warning"><small>This action cannot be undone.</small></p>
                                                         </div>
                                                         <div class="modal-footer text-primary">
-                                                            <input type="id" id=<?php echo $row["id"] . "-id"; ?> name ="<?php echo $row['id'];?>id" value=<?php echo $row["id"]?> readonly hidden>
+                                                            <input type="number" id=<?php echo $row["id"] . "-id"; ?> name ="<?php echo $row['id'];?>id" value=<?php echo $row["id"]?> readonly hidden>
                                                             <input type="button" class="btn btn-default" data-dismiss="modal" value="Cancel">
                                                             <input type="submit" id=<?php echo $row["id"] . "-delete"; ?> class="btn btn-danger" value="Delete">
                                                         </div>
@@ -190,7 +189,7 @@ $indexphp = '';
             </div>
         </div>
         <!-- AddUser Modal HTML -->
-        <div id="addEmployeeModal" class="modal fade text-primary">
+        <div id="addFisherModal" class="modal fade text-primary">
             <div class="modal-dialog">
                 <div class="modal-content">
                     <form  id="formaddfisharticle" action="?add=1" method="post">
