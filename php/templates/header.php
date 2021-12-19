@@ -45,7 +45,7 @@ error_reporting(E_ALL);
                     </li>
                     <?php } else { ?>
                         <li class="nav-item">
-                        <a class="nav-link" href="/tinf20-aquaweb/php/aquarium.php">My aquarium</a>
+                        <a class="nav-link" href="/tinf20-aquaweb/php/aquarium.php?user=<?php echo $_SESSION['userid'];?>">My aquarium</a>
                     </li>
                     <li class="nav-item">
                         <a class="nav-link" href="/tinf20-aquaweb/php/statistics.php">Statistics</a>
