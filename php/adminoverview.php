@@ -22,6 +22,8 @@ $indexphp = '';
     <?php // imports header
         include('templates/header.php');
     ?>
+
+    
 <main>
 <div class="headline">
     <a href="/tinf20-aquaweb/php/adminoverview.php"><h1>Administration</h1></a>

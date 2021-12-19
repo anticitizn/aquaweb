@@ -75,9 +75,14 @@ $indexphp = '';
         }
     }
     ?>
-    
+    <header class="bg-dark py-5">
+            <div class="container px-4 px-lg-5 my-5">
+                <div class="text-center text-white">
+                    <h1 class="display-4 fw-bolder">User administration</h1>
+                </div>
+            </div>
+        </header>
     <main>
-        <h1><a href="/tinf20-aquaweb/php/adminuser.php">User administration</h1></a>
         <div class="container-xl">
             <div class="table-responsive">
                 <div class="table-wrapper">

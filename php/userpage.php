@@ -64,8 +64,16 @@
             }
         ?>
 
+<header class="bg-dark py-5">
+            <div class="container px-4 px-lg-5 my-5">
+                <div class="text-center text-white">
+                    <h1 class="display-4 fw-bolder">User administration</h1>
+                </div>
+            </div>
+        </header>
+
         <main>
-            <h1><a href="/tinf20-aquaweb/php/userpage.php">User administration</a></h1>
+           
 
             <!-- form to update user password -->
             <form id="formupdatepassword" action="?update=1" method="post">
@@ -92,6 +100,8 @@
             <form id="formdeletefisharticle" action="?delete=1" method="post">
                 <button type="submit" id="delete" class="delete-button">Delete!</button> 
             </form>
+
+         
         </main>
         <?php // imports footer
             include('../templates/footer.php');

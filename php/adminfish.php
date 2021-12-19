@@ -61,9 +61,14 @@ $indexphp = '';
         }
         $priceof = $_POST["priceof"] ?? 0;
     ?>
-    
+    <header class="bg-dark py-5">
+            <div class="container px-4 px-lg-5 my-5">
+                <div class="text-center text-white">
+                    <h1 class="display-4 fw-bolder">Fish administration</h1>
+                </div>
+            </div>
+        </header>
     <main>
-        <h1><a href="/tinf20-aquaweb/php/adminfish.php">Fish administration</h1></a>
         <aside class="filterside">
             <div class="filter">
                 <p>Filter</p>
