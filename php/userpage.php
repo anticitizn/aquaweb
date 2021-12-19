@@ -73,17 +73,13 @@
         </header>
 
         <main>
-            <!-- form to to delete user -->
-            <form id="formdeletefisharticle" action="?delete=1" method="post">
-                <button type="submit" id="delete" class="delete-button">Delete!</button> 
-            </form>
-
+            <!-- form to delete user -->
             <div class="container-fluid vh-100" style="margin-top:300px">
                 <div class="" style="margin-top:200px">
                     <div class="rounded d-flex justify-content-center">
                         <div class="col-md-4 col-sm-12 shadow-lg p-5 bg-light">
                             <div class="text-center">
-                                <h3 class="text-primary">Register In</h3>
+                                <h3 class="text-primary">Change Password</h3>
                             </div>
                             <!-- form to update user password -->
                             <form id="formupdatepassword" action="?update=1" method="post">
@@ -121,7 +117,7 @@
          
         </main>
         <?php // imports footer
-            include('../templates/footer.php');
+            include('templates/footer.php');
         ?>
 
         <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p" crossorigin="anonymous"></script>
