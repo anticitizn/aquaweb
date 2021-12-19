@@ -4,7 +4,7 @@ $indexphp = '';
 $ip = $_SERVER['REMOTE_ADDR'];
 $url_components = parse_url($url);
 parse_str($url_components['query'], $params);
-$userid = $params['userid'];
+$link_user_id = $params['user'];
 ?>
 
 <!DOCTYPE html>
@@ -27,14 +27,14 @@ $userid = $params['userid'];
 <button class="btn btn-primary" type="button">Feed!</button>
 <main>
 <?php
-echo $userid;
+echo $link_user_id + "\n";
 echo $ip;
 ?>
 <div id="aquariumContainer">
     <?php
-        if (isset($userid) && $userid !== "")
+        if (isset($link_user_id) && $link_user_id !== "")
         {
-            $query = "SELECT * FROM users_fish WHERE users_id = $userid";
+            $query = "SELECT * FROM users_fish WHERE users_id = $link_user_id";
             $result = mysqli_query($db_connect, $query);
             echo "it worked";
             while ($row = mysqli_fetch_assoc($result)) {
