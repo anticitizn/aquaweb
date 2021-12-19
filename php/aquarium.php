@@ -7,19 +7,8 @@ $url = 'http://' . $_SERVER['HTTP_HOST'] . $_SERVER['REQUEST_URI'];
 $url_components = parse_url($url);
 parse_str($url_components['query'], $params);
 $link_user_id = $params['user'];
-
-// check if this IP has already visited the aquarium in the last hour
-$ip_bin = inet_pton($ip);
-$query = "SELECT * FROM users_visitors WHERE user_id = $link_user_id AND ip = $ip_bin";
-$result = mysqli_query($db_connect, $query);
-echo mysqli_num_rows($result);
-// if IP hasn't visited in the last hour, add money to the user and log the visit
-if (mysqli_num_rows($result) < 1)
-{
-    $request = "UPDATE users SET balance = balance + 100 WHERE id=$link_user_id";
-    $result = mysqli_query($db_connect, $request);
-}
 ?>
+
 
 <!DOCTYPE html>
 <html xml:lang="en" lang="en">
@@ -38,6 +27,22 @@ if (mysqli_num_rows($result) < 1)
 <body>
 
 <?php include('templates/header.php');?>
+
+<?php
+// check if this IP has already visited the aquarium in the last hour
+$ip_bin = inet_pton($ip);
+$query = "SELECT * FROM users_visitors WHERE user_id = $link_user_id AND ip = $ip_bin";
+$result = mysqli_query($db_connect, $query);
+echo mysqli_num_rows($result);
+
+// if IP hasn't visited in the last hour, add money to the user and log the visit
+if (mysqli_num_rows($result) < 1)
+{
+    $request = "UPDATE users SET balance = balance + 100 WHERE id=$link_user_id";
+    $result = mysqli_query($db_connect, $request);
+}
+?>
+
 <button class="btn btn-primary" type="button">Feed!</button>
 <main>
 <?php
