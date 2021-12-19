@@ -132,7 +132,7 @@ $indexphp = '';
 
 
                         while ($row = mysqli_fetch_assoc($result)) {
-                            if ((strpos($row["name"], $namefilter) !== false) && ($row["price"] <= $pricetill) && ($row["price"] >= $priceof)) { ?>
+                            if (str_contains($row["name"], $namefilter) && ($row["price"] <= $pricetill) && ($row["price"] >= $priceof)) { ?>
 
                                 <!--<div class="fishdescription">-->
                                 <?php
