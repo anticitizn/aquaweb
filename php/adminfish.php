@@ -11,14 +11,21 @@ $indexphp = '';
     <title>AquaWeb</title>
     <meta http-equiv="content-type" content="text/html;charset=utd-8" />
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
-    <link rel="stylesheet" href="../css/style.css">
-    <link rel="stylesheet" href="../css/shop.css">
-    <link rel="stylesheet" href="../css/dropdown-filter.css">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.5.0/font/bootstrap-icons.css">
     <link rel="icon" type="image/vnd.microsoft.icon" href="http://test.anticitizen.space/favicon.ico">
     <!--Favicon wird aktuell von Daniels Test-Server gezogen-->
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
     <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+    <script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js"></script>
+    <link rel="stylesheet" href="../css/style_adminuser.css">
+    <link rel="stylesheet" href="../css/style.css">
+    <link rel="stylesheet" href="../css/shop.css">
+    <link rel="stylesheet" href="../css/dropdown-filter.css">
 </head>
 
 <body>
@@ -87,21 +94,46 @@ $indexphp = '';
             </nav>
         </aside>
 
-        <aside class="aside-right">
-                <nav class="filter-nav">
+        <form id="formaddfisharticle" action="?add=1" method="post">
 
-                    <label for="touchAdd"><span class="shop-filter">Add</span></label>
+            <ul>
+                <li><input type="name" id="addname" name="addname"hidden></li>
+                <li><input type="number" id="addprice" name="addprice" hidden></li>
+                <li><button type="submit" id="add" class="btn btn-outline-dark mt-auto" hidden>Add</button></li>
+            </ul>
+        </form>
+
+        <div class="col-sm-6">
+            <a href="#addEmployeeModal" class="btn btn-success" data-toggle="modal"><i class="material-icons">&#xE147;</i> <span>Add New Fish</span></a>
+        </div>
+        <!-- AddUser Modal HTML -->
+        <div id="addEmployeeModal" class="modal fade text-primary right-side">
+            <div class="modal-dialog">
+                <div class="modal-content">
                     <form id="formaddfisharticle" action="?add=1" method="post">
-                        <input type="checkbox" id="touchAdd">
-                        <ul class="slide">
-                            <li><label for="addname" class="filter-label">Name:</label><input type="name" id="addname" name="addname"></li>
-                            <li><label for="addprice" class="filter-label">Price:</label> <input type="number" id="addprice" name="addprice"></li>
-                            <li><button type="submit" id="add" class="btn btn-outline-dark mt-auto">Add</button>></li>
-                        </ul>
-                        <form>
-                </nav>
-         
-        </aside>
+                        <div class="modal-header">
+                            <h4 class="modal-title text-primary">Add Fish</h4>
+                            <button type="button" class="close" data-dismiss="modal" aria-hidden="false">&times;</button>
+                        </div>
+                        <div class="modal-body">
+                            <div class="form-group text-primary">
+                            <label for="addname" class="filter-label">Name</label>
+                            <input type="name" id="addname" name="addname">
+                            </div>
+                            <div class="form-group text-primary">
+                            <label for="addprice" class="filter-label">Price</label>
+                            <input type="number" id="addprice" name="addprice">
+                            </div>
+                        </div>
+                        <div class="modal-footer">
+                            <input type="button" class="btn btn-default" data-dismiss="modal" value="Cancel">
+
+                            <button type="submit" id="add" class="btn btn-success">Add</button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
 
 
 

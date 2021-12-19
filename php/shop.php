@@ -75,9 +75,7 @@ $indexphp = '';
     }
     $priceof = $_POST["priceof"] ?? 0;
     ?>
-
-    <main>
-        <header class="bg-dark py-5">
+<header class="bg-dark py-5">
             <div class="container px-4 px-lg-5 my-5">
                 <div class="text-center text-white">
                     <h1 class="display-4 fw-bolder">Buy your favourite fish!</h1>
@@ -85,24 +83,26 @@ $indexphp = '';
                 </div>
             </div>
         </header>
-        <aside class="filterside">
-           
-<nav class="filter-nav">
+    <main>
+        
+      
 
-  <label for="touch"><span class="shop-filter">Filter</span></label>   
-  <form id="filterform" action="#" method="POST">             
-  <input type="checkbox" id="touch">
-  <ul class="slide">
-    <li><label for="namefilter" class="filter-label">Name:</label><input type="text" name="namefilter"></li> 
-    <li><label for="pricetill" class="filter-label">Price till:</label><br><input type="number" name="pricetill" min="0" max="2147483647"></li>
-    <li><label for="priceof" class="filter-label">Price of:</label><br><input type="number" name="priceof" min="0" max="2147483647"></li>
-    <li><button type="reset" class="btn btn-outline-dark mt-auto">Reset</button></li>
-    <li><button type="submit" class="btn btn-outline-dark mt-auto">Filter</button></li>
-  </ul>
-  <form>
-</nav>
-        </aside>
- 
+            <nav class="filter-nav">
+
+                <label for="touch"><span class="shop-filter">Filter</span></label>
+                <form id="filterform" action="#" method="POST">
+                    <input type="checkbox" id="touch">
+                    <ul class="slide">
+                        <li><label for="namefilter" class="filter-label">Name:</label><input type="text" name="namefilter"></li>
+                        <li><label for="pricetill" class="filter-label">Price till:</label><br><input type="number" name="pricetill" min="0" max="2147483647"></li>
+                        <li><label for="priceof" class="filter-label">Price of:</label><br><input type="number" name="priceof" min="0" max="2147483647"></li>
+                        <li><button type="reset" class="btn btn-outline-dark mt-auto">Reset</button></li>
+                        <li><button type="submit" class="btn btn-outline-dark mt-auto">Filter</button></li>
+                    </ul>
+                    <form>
+            </nav>
+       
+
 
         <section class='py-5'>
             <div class="container px-4 px-lg-5 mt-5">
