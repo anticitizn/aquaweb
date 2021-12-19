@@ -43,10 +43,10 @@ if (mysqli_num_rows($result) < 1)
 {
     $request = "UPDATE users SET balance = balance + 100 WHERE id=$link_user_id";
     $result = mysqli_query($db_connect, $request);
-    $query = "INSERT INTO users_visitors (user_id, ip, last_visit)
-              VALUES ($link_user_id, $ip_num, NOW()";
+    $query = "INSERT INTO users_visitors (user_id, ip)
+              VALUES ($link_user_id, $ip_num";
     $result = mysqli_query($db_connect, $query);
-    
+
     if (!$result) {
         die(mysqli_error($db_connect));
     }
