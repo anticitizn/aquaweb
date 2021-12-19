@@ -2,7 +2,6 @@
 session_start();
 $indexphp = '';
 $ip = $_SERVER['REMOTE_ADDR'];
-echo $ip;
 $url_components = parse_url($url);
 parse_str($url_components['query'], $params);
 $userid = $params['userid'];
