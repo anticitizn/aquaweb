@@ -22,12 +22,12 @@ $indexphp = '';
 
 <body>
     <?php // imports header
-        include('templates/header.php');
+    include('templates/header.php');
     ?>
 
     <?php
     // adds ne fish if add button was hit
-    if(isset($_GET["add"]) && $_GET["add"] == 1) {
+    if (isset($_GET["add"]) && $_GET["add"] == 1) {
         $request = "INSERT INTO fish (name, price) VALUE ('" . $_POST["addname"] . "', " . $_POST["addprice"] . ")";
         $result = mysqli_query($db_connect, $request);
     }
@@ -42,32 +42,32 @@ $indexphp = '';
         $id = $row["id"] . "id";
         $name = $row["id"] . "name";
         // updates the correct fish with the new values
-        if(isset($_GET[$update]) && $_GET[$update] == 1) {
-            $request = "UPDATE fish SET name='". $_POST[$name] ."', price=". $_POST[$price] ." WHERE id=". $_POST[$id] ."";
+        if (isset($_GET[$update]) && $_GET[$update] == 1) {
+            $request = "UPDATE fish SET name='" . $_POST[$name] . "', price=" . $_POST[$price] . " WHERE id=" . $_POST[$id] . "";
             $result = mysqli_query($db_connect, $request);
         }
         //deletes the correct fish
-        if(isset($_GET[$delete]) && $_GET[$delete] == 1) {
-            $request = "DELETE FROM fish WHERE id=". $_POST[$id] ."";
+        if (isset($_GET[$delete]) && $_GET[$delete] == 1) {
+            $request = "DELETE FROM fish WHERE id=" . $_POST[$id] . "";
             $result = mysqli_query($db_connect, $request);
         }
     }
-        // fillters the shown fishes
-        $namefilter = $_POST["namefilter"] ?? "";
-        if(isset($_POST["pricetill"]) && $_POST["pricetill"] != ""){
-            $pricetill = $_POST["pricetill"];
-        } else {
-            $pricetill = 2147483647;
-        }
-        $priceof = $_POST["priceof"] ?? 0;
+    // fillters the shown fishes
+    $namefilter = $_POST["namefilter"] ?? "";
+    if (isset($_POST["pricetill"]) && $_POST["pricetill"] != "") {
+        $pricetill = $_POST["pricetill"];
+    } else {
+        $pricetill = 2147483647;
+    }
+    $priceof = $_POST["priceof"] ?? 0;
     ?>
     <header class="bg-dark py-5">
-            <div class="container px-4 px-lg-5 my-5">
-                <div class="text-center text-white">
-                    <h1 class="display-4 fw-bolder">Fish administration</h1>
-                </div>
+        <div class="container px-4 px-lg-5 my-5">
+            <div class="text-center text-white">
+                <h1 class="display-4 fw-bolder">Fish administration</h1>
             </div>
-        </header>
+        </div>
+    </header>
     <main>
         <aside class="filterside">
             <div class="filter">
@@ -75,16 +75,16 @@ $indexphp = '';
                 <form id="filterform" action="#" method="POST">
                     <table>
                         <tr>
-                            <td class="label-column"><label for="namefilter">Name:</label</td>
-                            <td><input type="text" name ="namefilter"></td>
+                            <td class="label-column"><label for="namefilter">Name:</label< /td>
+                            <td><input type="text" name="namefilter"></td>
                         </tr>
                         <tr>
-                            <td class="label-column"><label for="pricetill">Price till:</label</td>
-                            <td><input type="number" name ="pricetill" min="0" max="2147483647"></td>
+                            <td class="label-column"><label for="pricetill">Price till:</label< /td>
+                            <td><input type="number" name="pricetill" min="0" max="2147483647"></td>
                         </tr>
                         <tr>
-                            <td class="label-column"><label for="priceof">Price of:</label</td>
-                            <td><input type="number" name ="priceof" min="0" max="2147483647"></td>
+                            <td class="label-column"><label for="priceof">Price of:</label< /td>
+                            <td><input type="number" name="priceof" min="0" max="2147483647"></td>
                         </tr>
                         <tr>
                             <td><button type="reset">Reset</button></td>
@@ -93,7 +93,7 @@ $indexphp = '';
                     </table>
                 </form>
             </div>
-    </aside>
+        </aside>
 
         <div class="articles">
             <table>
@@ -104,77 +104,84 @@ $indexphp = '';
                             <table>
                                 <tr>
                                     <td class="label-column"><label for="addname">Name:</label></td>
-                                    <td><input type="name" id="addname" name ="addname"></td>
+                                    <td><input type="name" id="addname" name="addname"></td>
                                 </tr>
                                 <tr>
                                     <td class="label-column"><label for="addprice">Price:</label></td>
-                                    <td><input type="number" id="addprice"name ="addprice"></td>
+                                    <td><input type="number" id="addprice" name="addprice"></td>
                                 </tr>
                                 <tr>
                                     <td class="label-column"></td>
-                                    <td><button type="submit" id="add" class="add-button">Add!</button> 
+                                    <td><button type="submit" id="add" class="add-button">Add!</button>
                                 </tr>
                             </table>
                         </form>
                     </td>
                 </tr>
-                <?php
-                    // generates the filtered fishforms
-                    if ($db_connect) {
-                    $request = "SELECT * FROM fish";
-                    $result = mysqli_query($db_connect, $request);
-                    while ($row = mysqli_fetch_assoc($result)) {
-                        if ((str_contains($row["name"], $namefilter)) && ($row["price"] <= $pricetill) && ($row["price"] >= $priceof)) {?>
-                        <tr>
-                            <td>
-                                <div class="fishimg">
-                                <img class="card-img-top" src='../assets/images/<?php echo $row["id"] ?>.png' alt="..." />
-                                </div>
-                                <div class="fishdescription">
-                                    <form id=<?php echo $row["id"] . "formupdatefisharticle"; ?> action="?<?php echo $row['id'];?>update=1" method="post">
-                                        <table>
-                                            <tr >
-                                                <td class="label-column" ><label for="id" >ID:</label></td>
-                                                <td><input type="id" id=<?php echo $row["id"] . "-id"; ?> name ="<?php echo $row['id'];?>id" value=<?php echo $row["id"]?> readonly ></td>
-                                            </tr>
-                                            <tr>
-                                                <td class="label-column"><label for="name">Name:</label></td>
-                                                <td><input type="name" id=<?php echo $row["id"] . "-name"; ?> name ="<?php echo $row['id'];?>name" value=<?php echo $row["name"]?>></td>
-                                            </tr>
-                                            <tr>
-                                                <td class="label-column"><label for="price">Price:</label></td>
-                                                <td><input type="number" id=<?php echo $row["id"] . "-price"; ?> name ="<?php echo $row['id'];?>price" value=<?php echo $row["price"]?>></td>
-                                            </tr>
-                                            <tr>
-                                                <td class="label-column"></td>
-                                                <td><button type="submit" id=<?php echo $row["id"] . "-update"; ?> class="update-button">Update!</button> 
-                                            </tr>
-                                        </table>
-                                    </form>
-                                </div>
-                            </td>
-                            <td>
-                                <form id=<?php echo $row["id"] . "formdeletefisharticle"; ?> action="?<?php echo $row['id'];?>delete=1" method="post">
-                                    <label for="id" hidden>ID:</label>
-                                    <input type="id" id=<?php echo $row["id"] . "-id"; ?> name ="<?php echo $row['id'];?>id" value=<?php echo $row["id"]?> readonly hidden>
-                                    <button type="submit" id=<?php echo $row["id"] . "-delete"; ?> class="delete-button">Delete!</button> 
-                                </form>
-                            </td>
-                        </tr>
-                    <?php }
-                    }
-                }
-                ?>
+               
             </table>
         </div>
+
+        <section class='py-5'>
+            <div class="container px-4 px-lg-5 mt-5">
+                <div class="row gx-4 gx-lg-5 row-cols-2 row-cols-md-3 row-cols-xl-4 justify-content-center">
+                    <?php
+                    //generates buy form for filtered fishes
+                    if ($db_connect) {
+                        $request = "SELECT * FROM fish";
+                        $result = mysqli_query($db_connect, $request);
+
+
+                        while ($row = mysqli_fetch_assoc($result)) {
+                            if (str_contains($row["name"], $namefilter) && ($row["price"] <= $pricetill) && ($row["price"] >= $priceof)) { ?>
+
+
+                                <div class="col mb-5">
+                                    <div class="card h-100">
+                                        <!-- Product image-->
+                                        <img class="card-img-top" src='../assets/images/<?php echo $row["id"] ?>.png' alt="..." />
+                                        <!-- Product details-->
+                                        <div class="card-body p-4 text-secondary">
+                                            <div class="text-center">
+                                                <form id=<?php echo $row["id"] . "formupdatefisharticle"; ?> action="?<?php echo $row['id']; ?>update=1" method="post">
+                                                    <input type="id" id=<?php echo $row["id"] . "-id-article"; ?> name="<?php echo $row['id']; ?>id" value=<?php echo $row["id"] ?> readonly hidden>
+                                                    <!-- Product name-->
+                                                    <h5 class="fw-bolder"><input type="name" class="name-form" id=<?php echo $row["id"] . "-name"; ?> name="<?php echo $row['id']; ?>name" value=<?php echo $row["name"] ?>></h5>
+                                                    <!-- Product price-->
+                                                    <input type="number" class="number-buy-form" id=<?php echo $row["id"] . "-price"; ?> name="<?php echo $row['id']; ?>price" value=<?php echo $row["price"] ?>>
+                                            </div>
+                                        </div>
+                                        <!-- Product actions-->
+                                        <div class="card-footer p-4 pt-0 border-top-0 bg-transparent">
+                                            <div class="text-center"><button type="submit" id=<?php echo $row["id"] . "-update"; ?> class="btn btn-outline-dark mt-auto">Update</button>
+                                        
+                                        </form>
+                                        <form id=<?php echo $row["id"] . "formdeletefisharticle"; ?> action="?<?php echo $row['id']; ?>delete=1" method="post">
+                                            <label for="id" hidden>ID:</label>
+                                            <input type="id" id=<?php echo $row["id"] . "-id"; ?> name="<?php echo $row['id']; ?>id" value=<?php echo $row["id"] ?> readonly hidden>
+                                            <button type="submit" id=<?php echo $row["id"] . "-delete"; ?> class="btn btn-outline-dark mt-2">Delete</button>
+                                        </form>
+                                        </div>
+                            </div>
+                                    </div>
+                                </div>
+
+
+                    <?php }
+                        }
+                    }
+                    ?>
+                </div>
+            </div>
+        </section>
 
     </main>
 
     <?php // imports footer
     include('templates/footer.php');
     ?>
-    
-<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p" crossorigin="anonymous"></script>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p" crossorigin="anonymous"></script>
 
 </body>
 

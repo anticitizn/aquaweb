@@ -22,14 +22,19 @@ $indexphp = '';
     <?php // imports header
         include('templates/header.php');
     ?>
-
+<header class="bg-dark py-5">
+            <div class="container px-4 px-lg-5 my-5">
+                <div class="text-center text-white">
+                    <h1 class="display-4 fw-bolder">Administration</h1>
+                    
+                </div>
+            </div>
+        </header>
     
 <main>
-<div class="headline">
-    <a href="/tinf20-aquaweb/php/adminoverview.php"><h1>Administration</h1></a>
-</div>
 
-    <div class="container h-50">
+
+    <div class="container h-75">
         <div class="row align-middle">
             <div class="col-md-6 col-lg-4 column">
                 <div class="card gr-1">

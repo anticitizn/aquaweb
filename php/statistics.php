@@ -42,10 +42,10 @@ $indexphp = '';
             <label for="sort1">Sort by Name</label><br>
             <label for="sort2"></label><input type="radio" id="sort2" name="sortingOption" value="sortByPrice">
             <label for="sort1">Sort by Price</label><br>
-            <label for="sort3"></label><input type="radio" id="sort3" name="sortingOption" value="sortByAmount">
-            <label for="sort1">Sort by Amount</label><br>
             <input type="submit" value="sort">
         </form>
+
+        
 
         <?php
 
@@ -73,13 +73,6 @@ $indexphp = '';
             WHERE users_fish.users_id = $userid
             ORDER BY fish.price";
                 break;
-            case "sortByAmount":
-                $abfrage = "SELECT fish.id, fish.name, fish.price, users_fish.amount, users_fish.day_of_Purchase, users_fish.lastFed 
-            FROM users_fish
-            INNER JOIN fish ON fish.id = users_fish.fish_id
-            WHERE users_fish.users_id = $userid
-            ORDER BY users_fish.amount";
-                break;
             default:
                 $abfrage = "SELECT fish.id, fish.name, fish.price, users_fish.amount, users_fish.day_of_Purchase, users_fish.lastFed 
             FROM users_fish
@@ -102,7 +95,6 @@ $indexphp = '';
             <th>id</th>
             <th>name</th>
             <th>price</th>
-            <th>amount</th>
             <th>day_of_Purchase</th>
             <th>lastFed</th>
             </thead>";
@@ -115,7 +107,6 @@ $indexphp = '';
             echo "<td>" . $row["id"] . "</td>";
             echo "<td>" . $row["name"] . "</td>";
             echo "<td>" . $row["price"] . "</td>";
-            echo "<td>" . $row["amount"] . "</td>";
             echo "<td>" . $row["day_of_Purchase"] . "</td>";
             echo "<td>" . $row["lastFed"] . "</td>";
             echo "</tr>";
