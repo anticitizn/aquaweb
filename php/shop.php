@@ -101,7 +101,7 @@ $indexphp = '';
   </ul>
   <form>
 </nav> 
-  	</div>
+
         </aside>
  
 

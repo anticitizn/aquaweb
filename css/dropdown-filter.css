@@ -14,7 +14,6 @@ nav.filter-nav{
   }
   
   
-  
   .slide {
     clear:both;
     width:100%;
@@ -28,12 +27,20 @@ nav.filter-nav{
       padding : 20px;
       marker:none;
   }
+
   
   label.filter-label {
       color: black;
   }
+
+  
   
   #touch {position: absolute; opacity: 0; height: 0px;}     
   
   #touch:checked + .slide {height: 425px;} 
+
+  #touchAdd {position: absolute; opacity: 0; height: 0px;}     
+  
+  #touchAdd:checked + .slide {height: 250px;} 
+  
   

@@ -13,6 +13,7 @@ $indexphp = '';
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
     <link rel="stylesheet" href="../css/style.css">
     <link rel="stylesheet" href="../css/shop.css">
+    <link rel="stylesheet" href="../css/dropdown-filter.css">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.5.0/font/bootstrap-icons.css">
     <link rel="icon" type="image/vnd.microsoft.icon" href="http://test.anticitizen.space/favicon.ico">
     <!--Favicon wird aktuell von Daniels Test-Server gezogen-->
@@ -70,57 +71,39 @@ $indexphp = '';
     </header>
     <main>
         <aside class="filterside">
-            <div class="filter">
-                <p>Filter</p>
+            <nav class="filter-nav">
+
+                <label for="touch"><span class="shop-filter">Filter</span></label>
                 <form id="filterform" action="#" method="POST">
-                    <table>
-                        <tr>
-                            <td class="label-column"><label for="namefilter">Name:</label< /td>
-                            <td><input type="text" name="namefilter"></td>
-                        </tr>
-                        <tr>
-                            <td class="label-column"><label for="pricetill">Price till:</label< /td>
-                            <td><input type="number" name="pricetill" min="0" max="2147483647"></td>
-                        </tr>
-                        <tr>
-                            <td class="label-column"><label for="priceof">Price of:</label< /td>
-                            <td><input type="number" name="priceof" min="0" max="2147483647"></td>
-                        </tr>
-                        <tr>
-                            <td><button type="reset">Reset</button></td>
-                            <td><button type="submit">Filter</button></td>
-                        </tr>
-                    </table>
-                </form>
-            </div>
+                    <input type="checkbox" id="touch">
+                    <ul class="slide">
+                        <li><label for="namefilter" class="filter-label">Name:</label><input type="text" name="namefilter"></li>
+                        <li><label for="pricetill" class="filter-label">Price till:</label><br><input type="number" name="pricetill" min="0" max="2147483647"></li>
+                        <li><label for="priceof" class="filter-label">Price of:</label><br><input type="number" name="priceof" min="0" max="2147483647"></li>
+                        <li><button type="reset" class="btn btn-outline-dark mt-auto">Reset</button></li>
+                        <li><button type="submit" class="btn btn-outline-dark mt-auto">Filter</button></li>
+                    </ul>
+                    <form>
+            </nav>
         </aside>
 
-        <div class="articles">
-            <table>
-                <tr>
-                    <td>
-                        <!-- form to add a new fish -->
-                        <form id="formaddfisharticle" action="?add=1" method="post">
-                            <table>
-                                <tr>
-                                    <td class="label-column"><label for="addname">Name:</label></td>
-                                    <td><input type="name" id="addname" name="addname"></td>
-                                </tr>
-                                <tr>
-                                    <td class="label-column"><label for="addprice">Price:</label></td>
-                                    <td><input type="number" id="addprice" name="addprice"></td>
-                                </tr>
-                                <tr>
-                                    <td class="label-column"></td>
-                                    <td><button type="submit" id="add" class="add-button">Add!</button>
-                                </tr>
-                            </table>
-                        </form>
-                    </td>
-                </tr>
-               
-            </table>
-        </div>
+        <aside class="aside-right">
+                <nav class="filter-nav">
+
+                    <label for="touchAdd"><span class="shop-filter">Add</span></label>
+                    <form id="formaddfisharticle" action="?add=1" method="post">
+                        <input type="checkbox" id="touchAdd">
+                        <ul class="slide">
+                            <li><label for="addname" class="filter-label">Name:</label><input type="name" id="addname" name="addname"></li>
+                            <li><label for="addprice" class="filter-label">Price:</label> <input type="number" id="addprice" name="addprice"></li>
+                            <li><button type="submit" id="add" class="btn btn-outline-dark mt-auto">Add</button>></li>
+                        </ul>
+                        <form>
+                </nav>
+         
+        </aside>
+
+
 
         <section class='py-5'>
             <div class="container px-4 px-lg-5 mt-5">
@@ -154,15 +137,15 @@ $indexphp = '';
                                         <!-- Product actions-->
                                         <div class="card-footer p-4 pt-0 border-top-0 bg-transparent">
                                             <div class="text-center"><button type="submit" id=<?php echo $row["id"] . "-update"; ?> class="btn btn-outline-dark mt-auto">Update</button>
-                                        
-                                        </form>
-                                        <form id=<?php echo $row["id"] . "formdeletefisharticle"; ?> action="?<?php echo $row['id']; ?>delete=1" method="post">
-                                            <label for="id" hidden>ID:</label>
-                                            <input type="id" id=<?php echo $row["id"] . "-id"; ?> name="<?php echo $row['id']; ?>id" value=<?php echo $row["id"] ?> readonly hidden>
-                                            <button type="submit" id=<?php echo $row["id"] . "-delete"; ?> class="btn btn-outline-dark mt-2">Delete</button>
-                                        </form>
+
+                                                </form>
+                                                <form id=<?php echo $row["id"] . "formdeletefisharticle"; ?> action="?<?php echo $row['id']; ?>delete=1" method="post">
+                                                    <label for="id" hidden>ID:</label>
+                                                    <input type="id" id=<?php echo $row["id"] . "-id"; ?> name="<?php echo $row['id']; ?>id" value=<?php echo $row["id"] ?> readonly hidden>
+                                                    <button type="submit" id=<?php echo $row["id"] . "-delete"; ?> class="btn btn-outline-dark mt-2">Delete</button>
+                                                </form>
+                                            </div>
                                         </div>
-                            </div>
                                     </div>
                                 </div>
 
@@ -174,7 +157,6 @@ $indexphp = '';
                 </div>
             </div>
         </section>
-
     </main>
 
     <?php // imports footer
