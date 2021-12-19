@@ -41,7 +41,7 @@ echo $ip;
             echo "it worked";
             while ($row = mysqli_fetch_assoc($result)) {
                 echo '<div class="fish">';
-                include('../assets/images/' + $row['fish_id'] + '.png');
+                include('../assets/images/' . $row['fish_id'] . '.png');
                 echo '</div>';
             }
         }
