@@ -26,12 +26,17 @@ $userid = $params['userid'];
 <?php include('templates/header.php');?>
 <button class="btn btn-primary" type="button">Feed!</button>
 <main>
+<?php
+echo $userid;
+echo $ip;
+?>
 <div id="aquariumContainer">
     <?php
         if (isset($userid) && $userid !== "")
         {
             $query = "SELECT * FROM users_fish WHERE users_id = $userid";
             $result = mysqli_query($db_connect, $query);
+            echo "it worked";
             while ($row = mysqli_fetch_assoc($result)) {
                 echo '<div class="fish">';
                 include('../assets/images/' + $row['fish_id'] + '.png');
