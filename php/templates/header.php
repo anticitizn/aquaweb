@@ -8,6 +8,9 @@ if ($db_connect && (isset($_SESSION['userid']))) {
     $displayedusername = $row['username'];
     $userid = $row['id'];
 }
+ini_set('display_errors', 1);
+ini_set('display_startup_errors', 1);
+error_reporting(E_ALL);
 ?>
 
 <!--Header-->
