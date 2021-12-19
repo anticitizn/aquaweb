@@ -1,0 +1,39 @@
+nav.filter-nav{
+    width : 300px; 
+    background: #d9d9d9;
+    margin : 40px auto; 
+  }
+  
+  span.shop-filter {
+    padding : 30px;
+    background : #2d2f31; 
+    color : white;
+    font-size : 1.2em;
+    cursor : pointer;
+    display: block;
+  }
+  
+  
+  
+  .slide {
+    clear:both;
+    width:100%;
+    height:0px;
+    overflow: hidden;
+    text-align: center;
+    transition: height .4s ease;
+  }
+  
+  .slide li {
+      padding : 20px;
+      marker:none;
+  }
+  
+  label.filter-label {
+      color: black;
+  }
+  
+  #touch {position: absolute; opacity: 0; height: 0px;}     
+  
+  #touch:checked + .slide {height: 425px;} 
+  

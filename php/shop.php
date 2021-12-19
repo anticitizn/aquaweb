@@ -13,6 +13,7 @@ $indexphp = '';
     <link rel="stylesheet" href="../css/shop2.css">
     <link rel="stylesheet" href="../css/style.css">
     <link rel="stylesheet" href="../css/shop.css">
+    <link rel="stylesheet" href="../css/dropdown-filter.css">
     <link rel="icon" type="image/vnd.microsoft.icon" href="http://test.anticitizen.space/favicon.ico">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.5.0/font/bootstrap-icons.css">
     <!--Favicon wird aktuell von Daniels Test-Server gezogen-->
