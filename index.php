@@ -29,22 +29,22 @@ $indexphp = 'php/';
             <button type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide-to="2" aria-label="Slide 3"></button>
         </div>
         <div class="carousel-inner">
-            <div class="carousel-item active" style="background-image: url('https://cdn.pixabay.com/photo/2014/06/27/12/36/fish-378286_960_720.jpg')">
+            <div class="carousel-item active" style="background-image: url('https://cdn.pixabay.com/photo/2016/11/29/09/43/koi-fish-1868779_960_720.jpg')">
                 <div class="carousel-caption">
-                    <h2>Willkommen zu AquaWeb</h2>
-                    <p>Hier können sie ihre eigenes Online-Aquarium pflegen</p>
+                    <h2>Welcome to AquaWeb!</h2>
+                    <p>Here you can grow and care for your online aquarium</p>
                 </div>
             </div>
-            <div class="carousel-item" style="background-image: url('https://cdn.pixabay.com/photo/2016/11/29/09/43/koi-fish-1868779_960_720.jpg')">
+            <div class="carousel-item" style="background-image: url('https://cdn.pixabay.com/photo/2014/06/27/12/36/fish-378286_960_720.jpg')">
                 <div class="carousel-caption">
-                    <h2>Füttern sie ihre Fische</h2>
-                    <p>Sie können ihre Fische füttern und sie dadurch wachsen lassen</p>
+                    <h2>Grow your aquarium</h2>
+                    <p>You can feed your fish and earn money from visitors</p>
                 </div>
             </div>
             <div class="carousel-item" id="aquariumContainer" style="width: 100%; height: 94vh; overflow: hidden; margin: 0px; background-color: #6DD6C1;">
                 <div class="carousel-caption">
-                    <h2>Kaufen sie neue Fische</h2>
-                    <p>Im Shop können sie neue und größere Fische kaufen</p>
+                    <h2>Buy new fishes</h2>
+                    <p>In the shop, you can buy new fish to make your aquarium even more attractive</p>
                 </div>
                 <div class="fish"> <?php include('assets/images/fish.svg');?> </div>
                 <div class="fish"> <?php include('assets/images/fish.svg');?> </div>
@@ -53,6 +53,7 @@ $indexphp = 'php/';
                 <div class="fish"> <?php include('assets/images/fish.svg');?> </div>
                 <div class="fish"> <?php include('assets/images/fish.svg');?> </div>
             </div>
+            
         </div>
         <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide="prev">
             <span class="carousel-control-prev-icon" aria-hidden="true"></span>

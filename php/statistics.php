@@ -11,6 +11,7 @@ $indexphp = '';
     <meta http-equiv="content-type" content="text/html;charset=utf-8" />
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
     <link rel="stylesheet" href="../css/style.css">
+    <link rel="stylesheet" href="../css/dropdown-filter.css">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.5.0/font/bootstrap-icons.css">
     <link rel="icon" type="image/vnd.microsoft.icon" href="http://test.anticitizen.space/favicon.ico">
     <!--Favicon wird aktuell von Daniels Test-Server gezogen-->
@@ -33,18 +34,20 @@ $indexphp = '';
         </header>
 
     <main>
-
-        
-        <!--Form-element with radioButtons for sorting the fishes in your aquarium-->
-        <form class="sql_sort" method="post" action="<?= $_SERVER['PHP_SELF'] ?>">
-            <input type="radio" id="sort1" name="sortingOption" value="sortByName">
-            <label for="sort1">Sort by Name</label><br>
-            <label for="sort2"></label><input type="radio" id="sort2" name="sortingOption" value="sortByPrice">
-            <label for="sort1">Sort by Price</label><br>
-            <input type="submit" value="sort">
-        </form>
-
-        
+            <aside class="filterside">
+                <nav class="filter-nav">
+                    <label for="touch"><span class="statistic-filter">Sort</span></label>
+                    <!--Form-element with radioButtons for sorting the fishes in your aquarium-->
+                    <form class="sql_sort" method="post" action="<?= $_SERVER['PHP_SELF'] ?>" id="filterform" action="#">
+                        <input type="checkbox" id="touch">
+                        <ul class="slideStatistic">
+                            <li><label for="sortByName" class="filter-label">Name:</label><br><input type="radio" name="sortingOption" value="sortByName" id="sort1"></li>
+                            <li><label for="sortByPrice" class="filter-label">Price till:</label><br><input type="radio" id="sort2" name="sortingOption" value="sortByPrice"></li>
+                            <li><button type="submit" class="btn btn-outline-dark mt-auto">Filter</button></li>
+                        </ul>
+                    </form>
+                </nav>
+            </aside>
 
         <?php
 
@@ -84,6 +87,7 @@ $indexphp = '';
         $result = mysqli_query($db_connect, $abfrage);
 
         //generates on output-table for the sql-query
+        echo "<section>";
         echo "<div class='container'>";
         echo "<div class='row'>";
         echo "<div class='col-md-offset-1 col-md-10'>";
