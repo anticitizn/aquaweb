@@ -8,8 +8,8 @@ $(document).ready(function() {
 });
 
 function getNewPos() {
-    var h = $('#aquariumContainer').height() - 50;
-    var w = $('#aquariumContainer').width() - 50;
+    var h = $('#aquariumContainer').height() - 90;
+    var w = $('#aquariumContainer').width() - 90;
     
     console.log($('#aquariumContainer').offset().top);
 
