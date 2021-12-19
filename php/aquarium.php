@@ -41,7 +41,12 @@ if (mysqli_num_rows($result) < 1)
     $result = mysqli_query($db_connect, $request);
     $query = "INSERT INTO users_visitors (user_id, ip)
               VALUES ($link_user_id, $ip_num";
+    echo "<script>console.log('" . $query . "')</script>";
     $result = mysqli_query($db_connect, $query);
+
+    if (!$result) {
+        die(mysqli_error($db_connect));
+    }
 }
 ?>
 
