@@ -42,6 +42,10 @@ $indexphp = 'php/';
                 </div>
             </div>
             <div class="carousel-item" id="aquariumContainer">
+                <div class="carousel-caption">
+                    <h2>Kaufen sie neue Fische</h2>
+                    <p>Im Shop können sie neue und größere Fische kaufen</p>
+                </div>
                 <div class="fish"> <?php include('assets/images/fish.svg');?> </div>
                 <div class="fish"> <?php include('assets/images/fish.svg');?> </div>
             </div>
