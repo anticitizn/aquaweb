@@ -50,11 +50,8 @@ span.statistic-filter {
   #touchAdd {position: absolute; opacity: 0; height: 0px;}     
   
   #touchAdd:checked + .slide {height: 250px;} 
-  
-  
-  #touch:checked + .slide {height: 425px;}
 
-#touch:checked + .slideStatistic {height: 200px;}
+#touch:checked + .slideStatistic {height: 225px;}
 .slideStatistic {
     clear:both;
     width:100%;

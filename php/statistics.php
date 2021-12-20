@@ -43,7 +43,8 @@ $indexphp = '';
                         <ul class="slideStatistic">
                             <li><label class="filter-label">Name:</label><br><input type="radio" name="sortingOption" value="sortByName" id="sort1"></li>
                             <li><label class="filter-label">Price:</label><br><input type="radio" id="sort2" name="sortingOption" value="sortByPrice"></li>
-                            <li><button type="submit" class="btn btn-outline-dark mt-auto">Filter</button></li>
+                            <li><label class="filter-label">ID:</label><br><input type="radio" id="sort3" name="sortingOption" value="sortByID"></li>
+                            <li><button type="submit" class="btn btn-outline-dark mt-auto">Sort</button></li>
                         </ul>
                     </form>
                 </nav>
@@ -74,6 +75,13 @@ $indexphp = '';
             INNER JOIN fish ON fish.id = users_fish.fish_id
             WHERE users_fish.users_id = $userid
             ORDER BY fish.price";
+                break;
+            case "sortByID":
+                $abfrage = "SELECT fish.id, fish.name, fish.price, users_fish.amount, users_fish.day_of_Purchase, users_fish.lastFed 
+            FROM users_fish
+            INNER JOIN fish ON fish.id = users_fish.fish_id
+            WHERE users_fish.users_id = $userid
+            ORDER BY fish.id";
                 break;
             default:
                 $abfrage = "SELECT fish.id, fish.name, fish.price, users_fish.amount, users_fish.day_of_Purchase, users_fish.lastFed 
