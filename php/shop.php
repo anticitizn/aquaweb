@@ -45,7 +45,6 @@ $indexphp = '';
             } else {
                 $position = 0;
             }
-
             $request = "INSERT INTO users_fish (users_id, position, fish_id, amount, day_of_Purchase, lastFed) VALUE (" . $_SESSION['userid'] . "," . $position . "," . $_POST[$id] . ",1, NOW(), NOW());";
             $result = mysqli_query($db_connect, $request);
 
