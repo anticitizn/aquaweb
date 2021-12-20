@@ -73,7 +73,7 @@ $indexphp = '';
     </header>
 
     <main>
-        <!-- form to delete user -->
+        <!--change password-->
         <div class="container-fluid vh-100" style="margin-top:300px">
             <div class="" style="margin-top:200px">
                 <div class="rounded d-flex justify-content-center">
@@ -99,7 +99,8 @@ $indexphp = '';
                                 <button class="btn btn-primary text-center mt-2" type="submit" id="add">
                                     Set new Password
                                 </button>
-                                <form id="formdeletefisharticle" action="?delete=1" method="post">
+                                <!-- form to delete user -->
+                                <form id="formdeleteuserarticle" action="?delete=1" method="post">
                                     <button class="btn btn-primary text-center mt-2" type="submit" id="delete" class="delete-button">
                                         Delete
                                     </button>
