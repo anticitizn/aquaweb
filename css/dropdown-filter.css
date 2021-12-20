@@ -25,7 +25,7 @@ span.statistic-filter {
   .slide {
     clear:both;
     width:100%;
-    height:0px;
+    height:0;
     overflow: hidden;
     text-align: center;
     transition: height .4s ease;
@@ -43,11 +43,11 @@ span.statistic-filter {
 
   
   
-  #touch {position: absolute; opacity: 0; height: 0px;}     
+  #touch {position: absolute; opacity: 0; height: 0;}
   
   #touch:checked + .slide {height: 425px;} 
 
-  #touchAdd {position: absolute; opacity: 0; height: 0px;}     
+  #touchAdd {position: absolute; opacity: 0; height: 0;}
   
   #touchAdd:checked + .slide {height: 250px;} 
 
@@ -55,7 +55,7 @@ span.statistic-filter {
 .slideStatistic {
     clear:both;
     width:100%;
-    height:0px;
+    height:0;
     overflow: hidden;
     text-align: center;
     transition: height .4s ease;
@@ -69,6 +69,6 @@ span.statistic-filter {
 ul
 {
     list-style-type:none;
-    padding:0px;
-    margin:0px;
+    padding:0;
+    margin:0;
 }

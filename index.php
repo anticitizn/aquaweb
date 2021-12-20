@@ -45,7 +45,7 @@ $indexphp = 'php/';
                 </div>
             </div>
             <!--Third Item-->
-            <div class="carousel-item" id="aquariumContainer" style="width: 100%; height: 94vh; overflow: hidden; margin: 0px; background-color: #6DD6C1;">
+            <div class="carousel-item" id="aquariumContainer" style="width: 100%; height: 94vh; overflow: hidden; margin: 0; background-color: #6DD6C1;">
                 <div class="carousel-caption">
                     <h2>Buy new fishes</h2>
                     <p>In the shop, you can buy new fish to make your aquarium even more attractive</p>

@@ -11,7 +11,7 @@
         </section>
         <!-- Section for our GitHub -->
 
-        <!-- Section for some text -->
+        <!-- Section for h text -->
         <section class="mb-4">
             <h1>AquaWeb</h1>
         </section>
