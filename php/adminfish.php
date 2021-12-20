@@ -86,9 +86,15 @@ $indexphp = '';
                 <form id="filterform" action="#" method="POST">
                     <input type="checkbox" id="touch">
                     <ul class="slide">
-                        <li><label class="filter-label">Name:</label><input type="text" name="namefilter"></li>
-                        <li><label class="filter-label">Price till:</label><br><input type="number" name="pricetill" min="0" max="2147483647"></li>
-                        <li><label class="filter-label">Price of:</label><br><input type="number" name="priceof" min="0" max="2147483647"></li>
+                        <li><label class="filter-label">Name:</label><label>
+                                <input type="text" name="namefilter">
+                            </label></li>
+                        <li><label class="filter-label">Price till:</label><br><label>
+                                <input type="number" name="pricetill" min="0" max="2147483647">
+                            </label></li>
+                        <li><label class="filter-label">Price of:</label><br><label>
+                                <input type="number" name="priceof" min="0" max="2147483647">
+                            </label></li>
                         <li><button type="reset" class="btn btn-outline-dark mt-auto">Reset</button></li>
                         <li><button type="submit" class="btn btn-outline-dark mt-auto">Filter</button></li>
                     </ul>
@@ -164,11 +170,12 @@ $indexphp = '';
                                         <div class="card-body p-4 text-secondary">
                                             <div class="text-center">
                                                 <form id=<?php echo $row["id"] . "formupdatefisharticle"; ?> action="?<?php echo $row['id']; ?>update=1" method="post">
-                                                    <input type="number" id=<?php echo $row["id"] . "-id-article"; ?> name="<?php echo $row['id']; ?>id" value=<?php echo $row["id"] ?> readonly hidden>
+                                                    <label for=name="<?php echo $row['id']; ?>id"></label><input type="number" id=<?php echo $row["id"] . "-id-article"; ?> name="<?php echo $row['id']; ?>id" value=<?php echo $row["id"] ?> readonly hidden>
                                                     <!-- Product name-->
-                                                    <h5 class="fw-bolder"><input type="text" class="name-form" id=<?php echo $row["id"] . "-name"; ?> name="<?php echo $row['id']; ?>name" value=<?php echo $row["name"] ?>></h5>
+                                                    <h5 class="fw-bolder"><label
+                                                                for=name="<?php echo $row['id']; ?>name"></label><input type="text" class="name-form" id=<?php echo $row["id"] . "-name"; ?> name="<?php echo $row['id']; ?>name" value=<?php echo $row["name"] ?>></h5>
                                                     <!-- Product price-->
-                                                    <input type="number" class="number-buy-form" id=<?php echo $row["id"] . "-price"; ?> name="<?php echo $row['id']; ?>price" value=<?php echo $row["price"] ?>>
+                                                    <label for=name="<?php echo $row['id']; ?>price"></label><input type="number" class="number-buy-form" id=<?php echo $row["id"] . "-price"; ?> name="<?php echo $row['id']; ?>price" value=<?php echo $row["price"] ?>>
                                             </div>
                                         </div>
                                         <!-- Product actions-->
@@ -178,7 +185,7 @@ $indexphp = '';
                                                 </form>
                                                 <form id=<?php echo $row["id"] . "formdeletefisharticle"; ?> action="?<?php echo $row['id']; ?>delete=1" method="post">
                                                     <label hidden>ID:</label>
-                                                    <input type="number" id=<?php echo $row["id"] . "-id"; ?> name="<?php echo $row['id']; ?>id" value=<?php echo $row["id"] ?> readonly hidden>
+                                                    <label for=name="<?php echo $row['id']; ?>id"></label><input type="number" id=<?php echo $row["id"] . "-id"; ?> name="<?php echo $row['id']; ?>id" value=<?php echo $row["id"] ?> readonly hidden>
                                                     <button type="submit" id=<?php echo $row["id"] . "-delete"; ?> class="btn btn-outline-dark mt-2">Delete</button>
                                                 </form>
                                             </div>

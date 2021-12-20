@@ -43,9 +43,9 @@ $indexphp = '';
                     <form class="sql_sort" method="post" action="<?= $_SERVER['PHP_SELF'] ?>" id="filterform" action="#">
                         <input type="checkbox" id="touch">
                         <ul class="slideStatistic">
-                            <li><label class="filter-label">Name:</label><br><input type="radio" name="sortingOption" value="sortByName" id="sort1"></li>
-                            <li><label class="filter-label">Price:</label><br><input type="radio" id="sort2" name="sortingOption" value="sortByPrice"></li>
-                            <li><label class="filter-label">ID:</label><br><input type="radio" id="sort3" name="sortingOption" value="sortByID"></li>
+                            <li><label class="filter-label">Name:</label><br><label for="sort1"></label><input type="radio" name="sortingOption" value="sortByName" id="sort1"></li>
+                            <li><label class="filter-label">Price:</label><br><label for="sort2"></label><input type="radio" id="sort2" name="sortingOption" value="sortByPrice"></li>
+                            <li><label class="filter-label">ID:</label><br><label for="sort3"></label><input type="radio" id="sort3" name="sortingOption" value="sortByID"></li>
                             <li><button type="submit" class="btn btn-outline-dark mt-auto">Sort</button></li>
                         </ul>
                     </form>

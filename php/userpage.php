@@ -86,15 +86,17 @@ $indexphp = '';
                             <div class="p-4">
                                 <div class="input-group mb-3">
                                     <span class="input-group-text bg-primary"><i class="bi bi-person-plus-fill text-white"></i></span>
-                                    <input id="passwordold" name="passwordold" type="password" class="form-control" placeholder="Old Password">
+                                    <label for="passwordold"></label><input id="passwordold" name="passwordold" type="password" class="form-control" placeholder="Old Password">
                                 </div>
                                 <div class="input-group mb-3">
                                     <span class="input-group-text bg-primary"><i class="bi bi-key-fill text-white"></i></span>
-                                    <input id="password" placeholder="New Password" type="password" id="password" name="password" class="form-control">
+                                    <label for="password"></label><input id="password" placeholder="New Password" type="password" id="password" name="password" class="form-control">
                                 </div>
                                 <div class="input-group mb-3">
                                     <span class="input-group-text bg-primary"><i class="bi bi-key-fill text-white"></i></span>
-                                    <input name="password2" type="password" class="form-control" placeholder="Repeat password">
+                                    <label>
+                                        <input name="password2" type="password" class="form-control" placeholder="Repeat password">
+                                    </label>
                                 </div>
                                 <button class="btn btn-primary text-center mt-2" type="submit" id="add">
                                     Set new Password

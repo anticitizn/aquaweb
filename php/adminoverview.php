@@ -39,7 +39,7 @@ $indexphp = '';
         <div class="row align-middle">
             <div class="col-md-6 col-lg-4 column">
                 <div class="card gr-1">
-                    <div class="txt">
+                    <div class="txt text-center">
                         <h1>Edit </br>
                             the fishes</h1>
                         <p>You can edit existing fishes or add new ones here</p>
@@ -52,7 +52,7 @@ $indexphp = '';
             </div>
             <div class="col-md-6 col-lg-4 column">
                 <div class="card gr-2">
-                    <div class="txt">
+                    <div class="txt text-center">
                         <h1>Edit </br>
                             the users</h1>
                         <p>You can edit existing users or add new ones here</p>

@@ -94,9 +94,15 @@ $indexphp = '';
             <form id="filterform" action="#" method="POST">
                 <input type="checkbox" id="touch">
                 <ul class="slide">
-                    <li><label for="namefilter" class="filter-label">Name:</label><input type="text" name="namefilter"></li>
-                    <li><label for="pricetill" class="filter-label">Price till:</label><br><input type="number" name="pricetill" min="0" max="2147483647"></li>
-                    <li><label for="priceof" class="filter-label">Price of:</label><br><input type="number" name="priceof" min="0" max="2147483647"></li>
+                    <li><label for="namefilter" class="filter-label">Name:</label><label>
+                            <input type="text" name="namefilter">
+                        </label></li>
+                    <li><label for="pricetill" class="filter-label">Price till:</label><br><label>
+                            <input type="number" name="pricetill" min="0" max="2147483647">
+                        </label></li>
+                    <li><label for="priceof" class="filter-label">Price of:</label><br><label>
+                            <input type="number" name="priceof" min="0" max="2147483647">
+                        </label></li>
                     <li><button type="reset" class="btn btn-outline-dark mt-auto">Reset</button></li>
                     <li><button type="submit" class="btn btn-outline-dark mt-auto">Filter</button></li>
                 </ul>
@@ -137,11 +143,11 @@ $indexphp = '';
                                         <div class="card-body p-4 text-secondary">
                                             <div class="text-center">
                                                 <form class="buy-form" id=<?php echo $row["id"] . "formbuyfisharticle"; ?> action="?<?php echo $row['id']; ?>buy=<?php echo ${"buy" . $row["id"]} ?>" method="post">
-                                                    <input type="number" id=<?php echo $row["id"] . "-id-article"; ?> name="<?php echo $row['id']; ?>id" value=<?php echo $row["id"] ?> readonly hidden>
+                                                    <label for=name="<?php echo $row['id']; ?>id"></label><input type="number" id=<?php echo $row["id"] . "-id-article"; ?> name="<?php echo $row['id']; ?>id" value=<?php echo $row["id"] ?> readonly hidden>
                                                     <!-- Product name-->
-                                                    <h5 class="fw-bolder"><input type="text" class="name-form" id=<?php echo $row["id"] . "-name-article"; ?> name="name" value=<?php echo $row["name"] ?> readonly></h5>
+                                                    <h5 class="fw-bolder"><label for=name="name"></label><input type="text" class="name-form" id=<?php echo $row["id"] . "-name-article"; ?> name="name" value=<?php echo $row["name"] ?> readonly></h5>
                                                     <!-- Product price-->
-                                                    <input type="number" class="number-buy-form" id=<?php echo $row["id"] . "-price-article"; ?> name="<?php echo $row['id']; ?>price" value=<?php echo $row["price"] ?> readonly>
+                                                    <label for=name="<?php echo $row['id']; ?>price"></label><input type="number" class="number-buy-form" id=<?php echo $row["id"] . "-price-article"; ?> name="<?php echo $row['id']; ?>price" value=<?php echo $row["price"] ?> readonly>
                                             </div>
                                         </div>
                                         <!-- Product actions-->

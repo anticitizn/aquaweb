@@ -5,11 +5,11 @@ $indexphp = '';
 ?>
 
 <!DOCTYPE html>
-<html>
+<html lang="en">
 
 <head>
     <title>AquaWeb</title>
-    <meta http-equiv="content-type" content="text/html;charset=utf-8" />
+    <meta http-equiv="content-type" content="text/html;charset=utf-8"/>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
     <link rel="stylesheet" href="../css/style_adminuser.css">
     <link rel="stylesheet" href="../css/shop.css">
@@ -134,19 +134,19 @@ $indexphp = '';
                                                         <div class="modal-body">
                                                             <div class="form-group">
                                                                 <label>Username</label>
-                                                                <input type="text" id=<?php echo $row["id"] . "username"; ?> name ="<?php echo $row['id'];?>username" value=<?php echo $row["username"]?>>
+                                                                <label for=name></label><input type="text" id=<?php echo $row["id"] . "username"; ?> name ="<?php echo $row['id'];?>username" value=<?php echo $row["username"]?>>
                                                             </div>
                                                             <div class="form-group">
                                                                 <label>Password</label>
-                                                                <input type="password" id=<?php echo $row["id"] . "password"; ?> name ="<?php echo $row['id'];?>password" value="">
+                                                                <label for=name></label><input type="password" id=<?php echo $row["id"] . "password"; ?> name ="<?php echo $row['id'];?>password" value="">
                                                             </div>
                                                             <div class="form-group">
                                                                 <label>Balance</label>
-                                                                <input type="number" min="0" max="9999999999" id=<?php echo $row["id"] . "balance"; ?> name ="<?php echo $row['id'];?>balance" value=<?php echo $row["balance"]?>>
+                                                                <label for=name></label><input type="number" min="0" max="9999999999" id=<?php echo $row["id"] . "balance"; ?> name ="<?php echo $row['id'];?>balance" value=<?php echo $row["balance"]?>>
                                                             </div>
                                                         </div>
                                                         <div class="modal-footer">
-                                                            <input type="number" id=<?php echo $row["id"] . "-id"; ?> name ="<?php echo $row['id'];?>id" value=<?php echo $row["id"]?> readonly hidden>
+                                                            <label for=name></label><input type="number" id=<?php echo $row["id"] . "-id"; ?> name ="<?php echo $row['id'];?>id" value=<?php echo $row["id"]?> readonly hidden>
                                                             <input type="button" class="btn btn-default" data-dismiss="modal" value="Cancel">
                                                             <input type="submit" id=<?php echo $row["id"] . "update"; ?> class="btn btn-info" value="Save">
                                                         </div>
@@ -169,7 +169,7 @@ $indexphp = '';
                                                             <p class="text-warning"><small>This action cannot be undone.</small></p>
                                                         </div>
                                                         <div class="modal-footer text-primary">
-                                                            <input type="number" id=<?php echo $row["id"] . "-id"; ?> name ="<?php echo $row['id'];?>id" value=<?php echo $row["id"]?> readonly hidden>
+                                                            <label for=name></label><input type="number" id=<?php echo $row["id"] . "-id"; ?> name ="<?php echo $row['id'];?>id" value=<?php echo $row["id"]?> readonly hidden>
                                                             <input type="button" class="btn btn-default" data-dismiss="modal" value="Cancel">
                                                             <input type="submit" id=<?php echo $row["id"] . "-delete"; ?> class="btn btn-danger" value="Delete">
                                                         </div>
@@ -201,15 +201,15 @@ $indexphp = '';
                         <div class="modal-body">
                             <div class="form-group text-primary">
                                 <label>Username</label>
-                                <input id="addusername" name ="addusername" type="text" class="form-control" required>
+                                <label for="addusername"></label><input id="addusername" name ="addusername" type="text" class="form-control" required>
                             </div>
                             <div class="form-group text-primary">
                                 <label>Password</label>
-                                <input id="addpassword" name ="addpassword" type="password" class="form-control" required>
+                                <label for="addpassword"></label><input id="addpassword" name ="addpassword" type="password" class="form-control" required>
                             </div>
                             <div class="form-group text-primary">
                                 <label>Balance</label>
-                                <input id="addbalance"name ="addbalance" type="number" class="form-control" required/>
+                                <label for="addbalance"></label><input id="addbalance" name ="addbalance" type="number" class="form-control" required/>
                             </div>
                         </div>
                         <div class="modal-footer">

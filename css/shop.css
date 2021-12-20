@@ -3,12 +3,6 @@ main {
     width: 100vw;
 }
 
-div.fishimg {
-    max-width: 400px;
-    max-height: 400px;
-    display: inline-block;
-}
-
 div.fishimg svg {
     width: 80%;
     margin: 0 auto;
@@ -30,18 +24,6 @@ aside.filterside {
     width: 15%;
     float: left;
 }
-
-div.articles {
-    margin: 0 1vw 0 1vw;
-    width: 65%;
-    float: left;
-    display: table-row;
-}
-
-td.label-column{
-    width: 5rem;
-}
-
 
 
 input.name-form{

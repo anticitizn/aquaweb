@@ -75,12 +75,16 @@ if(isset($_GET['login'])) {
                                     <div class="input-group mb-3">
                                     <span class="input-group-text bg-primary"><i
                                                 class="bi bi-person-plus-fill text-white"></i></span>
-                                        <input name="username" type="text" class="form-control" placeholder="Username">
+                                        <label>
+                                            <input name="username" type="text" class="form-control" placeholder="Username">
+                                        </label>
                                     </div>
                                     <div class="input-group mb-3">
                                     <span class="input-group-text bg-primary"><i
                                                 class="bi bi-key-fill text-white"></i></span>
-                                        <input name="password" type="password" class="form-control" placeholder="password">
+                                        <label>
+                                            <input name="password" type="password" class="form-control" placeholder="password">
+                                        </label>
                                     </div>
                                     <button class="btn btn-primary text-center mt-2" type="submit">
                                         Login
