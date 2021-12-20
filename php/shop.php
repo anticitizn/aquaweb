@@ -100,7 +100,7 @@ $indexphp = '';
                     <li><button type="reset" class="btn btn-outline-dark mt-auto">Reset</button></li>
                     <li><button type="submit" class="btn btn-outline-dark mt-auto">Filter</button></li>
                 </ul>
-                <form>
+</form>
         </nav>
 
 
