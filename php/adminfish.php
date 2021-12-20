@@ -80,7 +80,7 @@ $indexphp = '';
 
     <main>
         <!--Addes the Filter-Dropdown-->
-        <aside class="filterside">
+    
             <nav class="filter-nav">
                 <label for="touch"><span class="shop-filter">Filter</span></label>
                 <form id="filterform" action="#" method="POST">
@@ -94,7 +94,7 @@ $indexphp = '';
                     </ul>
                     <form>
             </nav>
-        </aside>
+       
 
         <!--Form for add new fish-->
         <form id="formaddfisharticle" action="?add=1" method="post">
@@ -106,9 +106,10 @@ $indexphp = '';
         </form>
 
         <!--Addes the "Add New Fish Button"-->
-        <div class="col-sm-6">
+        <div class="col-sm-6 newFish">
             <a href="#addEmployeeModal" class="btn btn-success" data-toggle="modal"><i class="material-icons">&#xE147;</i> <span>Add New Fish</span></a>
         </div>
+
 
         <!-- AddFishModal HTML -->
         <div id="addEmployeeModal" class="modal fade text-primary right-side">

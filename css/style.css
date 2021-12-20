@@ -148,3 +148,9 @@ header, footer {
     }
 }
 
+div.newFish{
+    position: relative;
+    margin : 40px auto; 
+}
+
+

@@ -135,6 +135,8 @@ $indexphp = '';
 
     </main>
 
+    <br>
+
     <?php // imports footer
     include('templates/footer.php');
     ?>
