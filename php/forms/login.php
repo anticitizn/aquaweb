@@ -54,7 +54,7 @@ if(isset($_GET['login'])) {
                 // verifies data and sets usersession
                 if ($user !== false && password_verify($password, $user['password'])) {
                     $_SESSION['userid'] = $user['id'];
-                    header("/tinf20-aquaweb/php/aquarium.php?user=" . $_SESSION['userid']);
+                    header('Location: /tinf20-aquaweb/php/aquarium.php?user=' . $_SESSION['userid']);
                 }
             }
         ?>
