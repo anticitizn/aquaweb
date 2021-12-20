@@ -69,6 +69,7 @@ $indexphp = '';
     }
     $priceof = $_POST["priceof"] ?? 0;
     ?>
+    <!--headline for the side with help of CSS-->
     <header class="bg-dark py-5">
         <div class="container px-4 px-lg-5 my-5">
             <div class="text-center text-white">
@@ -76,10 +77,11 @@ $indexphp = '';
             </div>
         </div>
     </header>
+
     <main>
+        <!--Addes the Filter-Dropdown-->
         <aside class="filterside">
             <nav class="filter-nav">
-
                 <label for="touch"><span class="shop-filter">Filter</span></label>
                 <form id="filterform" action="#" method="POST">
                     <input type="checkbox" id="touch">
@@ -94,8 +96,8 @@ $indexphp = '';
             </nav>
         </aside>
 
+        <!--Form for add new fish-->
         <form id="formaddfisharticle" action="?add=1" method="post">
-
             <ul>
                 <li><input type="name" id="addname" name="addname"hidden></li>
                 <li><input type="number" id="addprice" name="addprice" hidden></li>
@@ -103,10 +105,12 @@ $indexphp = '';
             </ul>
         </form>
 
+        <!--Addes the "Add New Fish Button"-->
         <div class="col-sm-6">
             <a href="#addEmployeeModal" class="btn btn-success" data-toggle="modal"><i class="material-icons">&#xE147;</i> <span>Add New Fish</span></a>
         </div>
-        <!-- AddUser Modal HTML -->
+
+        <!-- AddFishModal HTML -->
         <div id="addEmployeeModal" class="modal fade text-primary right-side">
             <div class="modal-dialog">
                 <div class="modal-content">
@@ -136,7 +140,7 @@ $indexphp = '';
         </div>
 
 
-
+         <!--addes CSS code, so all the fishes appear in boxes-->
         <section class='py-5'>
             <div class="container px-4 px-lg-5 mt-5">
                 <div class="row gx-4 gx-lg-5 row-cols-2 row-cols-md-3 row-cols-xl-4 justify-content-center">

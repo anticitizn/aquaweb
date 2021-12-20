@@ -22,6 +22,8 @@ $indexphp = '';
     <?php // imports header
         include('templates/header.php');
     ?>
+
+<!--headline for the side with help of CSS-->
 <header class="bg-dark py-5">
             <div class="container px-4 px-lg-5 my-5">
                 <div class="text-center text-white">
@@ -32,7 +34,7 @@ $indexphp = '';
 </header>
 <main>
 
-
+    <!--select either the adminfish-page or the adminuser-page-->
     <div class="container h-75">
         <div class="row align-middle">
             <div class="col-md-6 col-lg-4 column">

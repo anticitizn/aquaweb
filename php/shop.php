@@ -75,35 +75,37 @@ $indexphp = '';
     }
     $priceof = $_POST["priceof"] ?? 0;
     ?>
-<header class="bg-dark py-5">
-            <div class="container px-4 px-lg-5 my-5">
-                <div class="text-center text-white">
-                    <h1 class="display-4 fw-bolder">Buy your favourite fish!</h1>
-                    <p class="lead fw-normal text-white-50 mb-0">Your account balance:<?php echo $balance; ?> $</p>
-                </div>
+
+    <!--headline for the side with help of CSS-->
+    <header class="bg-dark py-5">
+        <div class="container px-4 px-lg-5 my-5">
+            <div class="text-center text-white">
+                <h1 class="display-4 fw-bolder">Buy your favourite fish!</h1>
+                <p class="lead fw-normal text-white-50 mb-0">Your account balance:<?php echo $balance; ?> $</p>
             </div>
-        </header>
+        </div>
+    </header>
     <main>
-        
-      
-
-            <nav class="filter-nav">
-
-                <label for="touch"><span class="shop-filter">Filter</span></label>
-                <form id="filterform" action="#" method="POST">
-                    <input type="checkbox" id="touch">
-                    <ul class="slide">
-                        <li><label for="namefilter" class="filter-label">Name:</label><input type="text" name="namefilter"></li>
-                        <li><label for="pricetill" class="filter-label">Price till:</label><br><input type="number" name="pricetill" min="0" max="2147483647"></li>
-                        <li><label for="priceof" class="filter-label">Price of:</label><br><input type="number" name="priceof" min="0" max="2147483647"></li>
-                        <li><button type="reset" class="btn btn-outline-dark mt-auto">Reset</button></li>
-                        <li><button type="submit" class="btn btn-outline-dark mt-auto">Filter</button></li>
-                    </ul>
-                    <form>
-            </nav>
-       
 
 
+        <!--Addes the Filter-Dropdown-->
+        <nav class="filter-nav">
+
+            <label for="touch"><span class="shop-filter">Filter</span></label>
+            <form id="filterform" action="#" method="POST">
+                <input type="checkbox" id="touch">
+                <ul class="slide">
+                    <li><label for="namefilter" class="filter-label">Name:</label><input type="text" name="namefilter"></li>
+                    <li><label for="pricetill" class="filter-label">Price till:</label><br><input type="number" name="pricetill" min="0" max="2147483647"></li>
+                    <li><label for="priceof" class="filter-label">Price of:</label><br><input type="number" name="priceof" min="0" max="2147483647"></li>
+                    <li><button type="reset" class="btn btn-outline-dark mt-auto">Reset</button></li>
+                    <li><button type="submit" class="btn btn-outline-dark mt-auto">Filter</button></li>
+                </ul>
+                <form>
+        </nav>
+
+
+        <!--addes CSS code, so all the fishes appear in boxes-->
         <section class='py-5'>
             <div class="container px-4 px-lg-5 mt-5">
                 <div class="row gx-4 gx-lg-5 row-cols-2 row-cols-md-3 row-cols-xl-4 justify-content-center">
