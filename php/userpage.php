@@ -59,7 +59,7 @@ $indexphp = '';
         $result = mysqli_query($db_connect, $request);
         $request = "DELETE FROM users_fish WHERE users_id=" . $_SESSION['userid'] . "";
         $result = mysqli_query($db_connect, $request);
-        header('Location: /tinf20-aquaweb/php/forms/logout.php');
+        header('Location: /dhbw/tinf20-aquaweb/php/forms/logout.php');
     }
     ?>
     <!--headline for the side with help of CSS-->

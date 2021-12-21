@@ -26,7 +26,7 @@
         <?php
         // ends session, user have to login again and loads main page
         session_destroy();  
-        header('Location: /tinf20-aquaweb/');
+        header('Location: /dhbw/tinf20-aquaweb/');
         ?>
     </main>
 
