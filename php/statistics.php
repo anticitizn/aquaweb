@@ -24,7 +24,7 @@ $indexphp = '';
     <?php // imports header
         include('templates/header.php');
     ?>
-    <!--headline for the side with help of CSS-->
+    <!--headline for the side with help of Bootstrap CSS-->
      <header class="bg-dark py-5">
             <div class="container px-4 px-lg-5 my-5">
                 <div class="text-center text-white">

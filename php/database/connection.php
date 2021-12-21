@@ -5,7 +5,7 @@ error_reporting(E_ALL);
 
 // connection to database
 
-// we created a local database on the ip-address '51.15.100.196'
+// we created a database on the ip-address '51.15.100.196'
 // thats because we had trouble importing the php-Myadmin database
 define ( 'MYSQL_HOST',      '51.15.100.196' );
 

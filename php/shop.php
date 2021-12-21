@@ -74,7 +74,7 @@ $indexphp = '';
     $priceof = $_POST["priceof"] ?? 0;
     ?>
 
-    <!--headline for the side with help of CSS-->
+    <!--headline for the side with help of Bootstrap CSS-->
     <header class="bg-dark py-5">
         <div class="container px-4 px-lg-5 my-5">
             <div class="text-center text-white">
@@ -105,7 +105,7 @@ $indexphp = '';
                     <li><button type="reset" class="btn btn-outline-dark mt-auto">Reset</button></li>
                     <li><button type="submit" class="btn btn-outline-dark mt-auto">Filter</button></li>
                 </ul>
-</form>
+            </form>
         </nav>
 
 
