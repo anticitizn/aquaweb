@@ -82,6 +82,7 @@ $indexphp = '';
             </div>
         </header>
     <main>
+        <!--Responsive Table with Bootstrap-->
         <div class="container-xl">
             <div class="table-responsive">
                 <div class="table-wrapper">
@@ -90,6 +91,7 @@ $indexphp = '';
                             <div class="col-sm-6">
                                 <h2>Manage <b>users</b></h2>
                             </div>
+                            <!--Modal for adding a new User-->
                             <div class="col-sm-6">
                                 <a href="#addFisherModal" class="btn btn-success" data-toggle="modal"><i class="material-icons">&#xE147;</i> <span>Add New Fisher</span></a>
                             </div>
