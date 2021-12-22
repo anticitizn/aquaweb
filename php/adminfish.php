@@ -112,12 +112,12 @@ $indexphp = '';
 
         <!--Addes the "Add New Fish Button"-->
         <div class="col-sm-6 newFish">
-            <a href="#addEmployeeModal" class="btn btn-success" data-toggle="modal"><i class="material-icons">&#xE147;</i> <span>Add New Fish</span></a>
+            <a href="#addFishModal" class="btn btn-success" data-toggle="modal"><i class="material-icons">&#xE147;</i> <span>Add New Fish</span></a>
         </div>
 
 
         <!-- AddFishModal HTML -->
-        <div id="addEmployeeModal" class="modal fade text-primary right-side">
+        <div id="addFishModal" class="modal fade text-primary right-side">
             <div class="modal-dialog">
                 <div class="modal-content">
                     <form id="formaddfisharticle" action="?add=1" method="post">
@@ -200,6 +200,7 @@ $indexphp = '';
                 </div>
             </div>
         </section>
+        <input type="button" onclick="location.href='adminoverview.php'" class="btn btn-info" data-dismiss="modal" value="Return">
     </main>
 
     <?php // imports footer
