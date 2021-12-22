@@ -39,7 +39,7 @@ $indexphp = '';
         $result = mysqli_query($db_connect, $request);
     }
 
-    // itterates through all fishes
+    // iterates through all fishes
     $statement = "SELECT * FROM fish";
     $response = mysqli_query($db_connect, $statement);
     while ($row = mysqli_fetch_assoc($response)) {
@@ -59,7 +59,7 @@ $indexphp = '';
             $result = mysqli_query($db_connect, $request);
         }
     }
-    // fillters the shown fishes
+    // filters the shown fishes
     $namefilter = $_POST["namefilter"] ?? "";
     if (isset($_POST["pricetill"]) && $_POST["pricetill"] != "") {
         $pricetill = $_POST["pricetill"];

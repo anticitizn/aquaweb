@@ -1,4 +1,5 @@
 <?php
+//Checks Username and shows it on the right of the header
 $connectionpath = $indexphp . 'database/connection.php';
 include($connectionpath); 
 if ($db_connect && (isset($_SESSION['userid']))) {

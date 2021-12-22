@@ -32,14 +32,14 @@ $indexphp = '';
     ?>
 
     <?php
-    // adds ne user if add button was hit
+    // adds new user if add button was hit
     if(isset($_GET["add"]) && $_GET["add"] == 1) {
         $password_hash = password_hash($_POST["addpassword"], PASSWORD_DEFAULT);
         $request = "INSERT INTO users (username, password, creation_date, balance) VALUE ('". $_POST["addusername"] ."', '". $password_hash ."', now(), " . $_POST["addbalance"] . ")";
         $result = mysqli_query($db_connect, $request);
     }
 
-    // itterates through all users
+    // iterates through all users
     $statement = "SELECT * FROM users";
     $response = mysqli_query($db_connect, $statement);
     while ($row = mysqli_fetch_assoc($response)) {
