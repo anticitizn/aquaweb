@@ -2,10 +2,6 @@
     // starts session
     session_start();
     $indexphp = '../';
-    $showform = true;
-    if(isset($_GET['login'])){
-        $showform = false;
-    }
 ?>
 <!DOCTYPE html>
 <html xml:lang="en" lang="en">
