@@ -221,7 +221,7 @@ $indexphp = '';
                 </div>
             </div>
         </div>
-        <input type="button" onclick="location.href='/tinf20-aquaweb/php/adminoverview.php'" class="btn btn-info" data-dismiss="modal" value="Return">
+        <input type="button" onclick="location.href='adminoverview.php'" class="btn btn-info" data-dismiss="modal" value="Return">
     </main>
 
     <?php // imports footer
