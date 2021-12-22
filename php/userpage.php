@@ -93,9 +93,7 @@ $indexphp = '';
                                 </div>
                                 <div class="input-group mb-3">
                                     <span class="input-group-text bg-primary"><i class="bi bi-key-fill text-white"></i></span>
-                                    <label>
-                                        <input name="password2" type="password" class="form-control" placeholder="Repeat password">
-                                    </label>
+                                    <label for="password2"></label><input id="password2" name="password2" type="password" class="form-control" placeholder="Repeat password">
                                 </div>
                                 <button class="btn btn-primary text-center mt-2" type="submit" id="add">
                                     Set new Password
