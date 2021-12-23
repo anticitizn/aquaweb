@@ -26,6 +26,15 @@ error_reporting(E_ALL);
             <div class="collapse navbar-collapse" id="navbarResponsive">
                 <ul class="navbar-nav ms-auto">
                     <?php
+                    $url = 'http://' . $_SERVER['SERVER_NAME'] . $_SERVER['REQUEST_URI'];
+                    if (strpos($url, "aquarium.php") !== false) { ?>
+                    <li class="nav-item">
+                        <form action="#" method="POST">
+                            <button type="submit" class="btn btn-secondary" name="feed-button" value="Feed">Feed</button>
+                        </form>
+                    </li>
+                    <?php } ?>
+                    <?php
                     if(isset($_SESSION['userid']) && $_SESSION['userid'] == 1) { ?>
                     <li class="nav-item active">
                         <a class="nav-link" href="/dhbw/tinf20-aquaweb/php/adminoverview.php">Administration</a>

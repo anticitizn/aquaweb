@@ -1,8 +1,10 @@
 $(document).ready(function() {
     
-    $('.fish svg').each(function() {
-        var randomColor = "#" + Math.floor(Math.random()*16777215).toString(16); // sweet mother of god
-        $(this).css('fill', randomColor);
+    $('.fish').each(function() {
+        var pos = getNewPos();
+        
+        $(this).css('left', pos[1]);
+        $(this).css('top', pos[0]);
     })
     animateFish();
 });
@@ -10,9 +12,6 @@ $(document).ready(function() {
 function getNewPos() {
     var h = $('#aquariumContainer').height() - 90;
     var w = $('#aquariumContainer').width() - 90;
-    
-    console.log($('#aquariumContainer').offset().top);
-
     nh = Math.floor(Math.random() * h);
     nw = Math.floor(Math.random() * w);
     

@@ -64,6 +64,13 @@ $link_user_id = $params['user'];
 <?php include('templates/header.php');?>
 
 <?php
+if(array_key_exists('feed-button', $_POST)) {
+    $query = "UPDATE users SET balance = balance - 10 WHERE id=$link_user_id";
+    $result = mysqli_query($db_connect, $query);
+    $query = "UPDATE users_fish SET lastFed = NOW() WHERE users_fish.users_id = $link_user_id";
+    $result = mysqli_query($db_connect, $query);
+}
+
 // if IP is valid, query if it has already visited this aquarium in the last hour
 if ($ip_num !== 0) {
     $query = "SELECT * FROM users_visitors WHERE user_id = $link_user_id AND ip = $ip_num";
