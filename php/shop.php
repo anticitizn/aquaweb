@@ -96,10 +96,10 @@ $indexphp = '';
                     <li><label for="namefilter" class="filter-label">Name:</label><label>
                             <input type="text" name="namefilter">
                         </label></li>
-                    <li><label for="pricetill" class="filter-label">Price till:</label><br><label>
+                    <li><label for="pricetill" class="filter-label">Max price:</label><br><label>
                             <input type="number" name="pricetill" min="0" max="2147483647">
                         </label></li>
-                    <li><label for="priceof" class="filter-label">Price of:</label><br><label>
+                    <li><label for="priceof" class="filter-label">Min price:</label><br><label>
                             <input type="number" name="priceof" min="0" max="2147483647">
                         </label></li>
                     <li><button type="reset" class="btn btn-outline-dark mt-auto">Reset</button></li>

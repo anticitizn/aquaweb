@@ -107,8 +107,8 @@ $indexphp = '';
             <th>id</th>
             <th>name</th>
             <th>price</th>
-            <th>day_of_Purchase</th>
-            <th>lastFed</th>
+            <th>purchased at</th>
+            <th>last fed at</th>
             </thead>";
 
         echo "<tbody>";
