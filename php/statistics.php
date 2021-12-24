@@ -64,28 +64,28 @@ $indexphp = '';
         //switch case block with different sql-queries depending on your sortingOption
         switch ($sortingOption) {
             case "sortByName":
-                $abfrage = "SELECT fish.id, fish.name, fish.price, users_fish.amount, users_fish.day_of_Purchase, users_fish.lastFed 
+                $abfrage = "SELECT fish.name, fish.price, users_fish.amount, users_fish.day_of_Purchase, users_fish.lastFed 
             FROM users_fish
             INNER JOIN fish ON fish.id = users_fish.fish_id
             WHERE users_fish.users_id = $userid
             ORDER BY fish.name";
                 break;
             case "sortByPrice":
-                $abfrage = "SELECT fish.id, fish.name, fish.price, users_fish.amount, users_fish.day_of_Purchase, users_fish.lastFed 
+                $abfrage = "SELECT fish.name, fish.price, users_fish.amount, users_fish.day_of_Purchase, users_fish.lastFed 
             FROM users_fish
             INNER JOIN fish ON fish.id = users_fish.fish_id
             WHERE users_fish.users_id = $userid
             ORDER BY fish.price";
                 break;
             case "sortByPurchaseTime":
-                $abfrage = "SELECT fish.id, fish.name, fish.price, users_fish.amount, users_fish.day_of_Purchase, users_fish.lastFed 
+                $abfrage = "SELECT fish.name, fish.price, users_fish.amount, users_fish.day_of_Purchase, users_fish.lastFed 
             FROM users_fish
             INNER JOIN fish ON fish.id = users_fish.fish_id
             WHERE users_fish.users_id = $userid
             ORDER BY users_fish.day_of_Purchase";
                 break;
             default:
-                $abfrage = "SELECT fish.id, fish.name, fish.price, users_fish.amount, users_fish.day_of_Purchase, users_fish.lastFed 
+                $abfrage = "SELECT fish.name, fish.price, users_fish.amount, users_fish.day_of_Purchase, users_fish.lastFed 
             FROM users_fish
             INNER JOIN fish ON fish.id = users_fish.fish_id
             WHERE users_fish.users_id = $userid";
@@ -104,7 +104,6 @@ $indexphp = '';
         echo "<div class='panel-body table-responsive'>";
         echo "<table class='table'>
             <thead>
-            <th>id</th>
             <th>name</th>
             <th>price</th>
             <th>purchased at</th>
@@ -116,7 +115,6 @@ $indexphp = '';
         //insert the result-variable into the table
         while ($row = mysqli_fetch_assoc($result)) {
             echo "<tr>";
-            echo "<td>" . $row["id"] . "</td>";
             echo "<td>" . $row["name"] . "</td>";
             echo "<td>" . $row["price"] . "</td>";
             echo "<td>" . $row["day_of_Purchase"] . "</td>";
