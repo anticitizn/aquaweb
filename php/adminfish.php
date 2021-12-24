@@ -81,17 +81,17 @@ $indexphp = '';
         <!--Addes the Filter-Dropdown-->
     
             <nav class="filter-nav">
-                <label for="touch"><span class="shop-filter">Filter</span></label>
+                <label for="touch" style="margin: 0px;"><span class="shop-filter">Filter</span></label>
                 <form id="filterform" action="#" method="POST">
                     <input type="checkbox" id="touch">
                     <ul class="slide">
-                        <li><label class="filter-label">Name:</label><label>
+                        <li><label class="filter-label">Name:</label><br><label>
                                 <input type="text" name="namefilter">
                             </label></li>
-                        <li><label class="filter-label">Price till:</label><br><label>
+                        <li><label class="filter-label">Max price:</label><br><label>
                                 <input type="number" name="pricetill" min="0" max="2147483647">
                             </label></li>
-                        <li><label class="filter-label">Price of:</label><br><label>
+                        <li><label class="filter-label">Min price:</label><br><label>
                                 <input type="number" name="priceof" min="0" max="2147483647">
                             </label></li>
                         <li><button type="reset" class="btn btn-outline-dark mt-auto">Reset</button></li>
