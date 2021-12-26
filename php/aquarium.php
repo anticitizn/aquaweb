@@ -83,7 +83,7 @@ if ($ip_num !== 0) {
     // if IP hasn't visited in the last hour, add money to the user and log the visit
     if (mysqli_num_rows($result) < 1)
     {
-        $request = "UPDATE users SET balance = balance + 100 WHERE id=$link_user_id";
+        $request = "UPDATE users SET balance = balance + 50 WHERE id=$link_user_id";
         $result = mysqli_query($db_connect, $request);
         $query = "INSERT INTO users_visitors (user_id, ip) VALUES ($link_user_id, $ip_num)";
         $result = mysqli_query($db_connect, $query);
