@@ -78,6 +78,12 @@ $indexphp = '';
     </header>
 
     <main>
+        <!--Addes the "Add New Fish Button"-->
+        <a href="#addFishModal" class="btn btn-success newFish" style="display: block; width: 160px; margin: 40px auto;" data-toggle="modal">
+            <i class="material-icons">&#xE147;</i>
+            <span>Add New Fish</span>
+        </a>
+
         <!--Addes the Filter-Dropdown-->
     
             <nav class="filter-nav">
@@ -108,13 +114,7 @@ $indexphp = '';
                 <li><input type="number" id="addprice" name="addprice" hidden></li>
                 <li><button type="submit" id="add" class="btn btn-outline-dark mt-auto" hidden>Add</button></li>
             </ul>
-        </form>
-
-        <!--Addes the "Add New Fish Button"-->
-        <div class="col-sm-6 newFish">
-            <a href="#addFishModal" class="btn btn-success" data-toggle="modal"><i class="material-icons">&#xE147;</i> <span>Add New Fish</span></a>
-        </div>
-
+        </form> 
 
         <!-- AddFishModal HTML -->
         <div id="addFishModal" class="modal fade text-primary right-side">
