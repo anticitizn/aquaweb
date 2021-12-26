@@ -33,7 +33,6 @@ function getAngleBetweenPoints(p1, p2) {
     var dx = p2[0] - p1[0];
     var dy = p2[1] - p1[1];
     var angle = Math.floor(Math.atan2(dy, dx) * (180 / Math.PI));
-    console.log("angle: " + (((angle + 180) % 360) - 180));
     return ((angle + 180) % 360) - 180;
 }
 
