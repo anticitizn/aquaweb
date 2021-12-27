@@ -63,7 +63,8 @@ function animateFish(fish) {
             transitionDelay: (delay / 2000 + "s"),
             transform:  "rotate(" + angle + "deg)" + flipTransform
         });
-
+        
+        // apply the movement animation with a delay
         fish.delay(delay)
         .animate(
             { top: newPos[1], left: newPos[0] }, 
