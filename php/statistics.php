@@ -13,7 +13,7 @@ $indexphp = '';
     <link rel="stylesheet" href="../css/style.css">
     <link rel="stylesheet" href="../css/dropdown-filter.css">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.5.0/font/bootstrap-icons.css">
-    <link rel="icon" type="x-icon" href="../favicon.ico">
+    <link rel="icon" type="./x-icon" href="../favicon.ico">
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
     <meta name="viewport" content="width=device-width, initial-scale=1">
 </head>
@@ -39,7 +39,7 @@ $indexphp = '';
                 <nav class="filter-nav">
                     <label for="touch"><span class="statistic-filter">Sort</span></label>
                     <!--Form-element with radioButtons for sorting the fishes in your aquarium-->
-                    <form class="sql_sort" method="post" action="<?= $_SERVER['PHP_SELF'] ?>" id="filterform" action="#">
+                    <form class="sql_sort" method="post" id="filterform" action="#">
                         <input type="checkbox" id="touch">
                         <ul class="slideStatistic">
                             <li><label class="filter-label">Name:</label><br><label for="sort1"></label><input type="radio" name="sortingOption" value="sortByName" id="sort1"></li>
@@ -128,6 +128,7 @@ $indexphp = '';
         echo "</div>";
         echo "</div>";
         echo "</div>";
+        echo "</section>";
         ?>
 
     </main>

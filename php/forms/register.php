@@ -15,7 +15,7 @@ $pdo = new PDO('mysql:host=51.15.100.196;dbname=aquaweb', 'aquaweb', 'webaqua123
           integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.5.0/font/bootstrap-icons.css">
     <link rel="stylesheet" href="../../css/style.css">
-    <link rel="icon" type="x-icon" href="../../favicon.ico">
+    <link rel="icon" type="./x-icon" href="../../favicon.ico">
     <meta name="viewport" content="width=device-width, initial-scale=1">
 </head>
 

@@ -15,7 +15,7 @@ $indexphp = '';
     <link rel="stylesheet" href="../css/shop.css">
     <link rel="stylesheet" href="../css/dropdown-filter.css">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.5.0/font/bootstrap-icons.css">
-    <link rel="icon" type="x-icon" href="../favicon.ico">
+    <link rel="icon" type="./x-icon" href="../favicon.ico">
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
     <meta name="viewport" content="width=device-width, initial-scale=1">
 </head>
@@ -94,13 +94,13 @@ $indexphp = '';
                 <input type="checkbox" id="touch">
                 <ul class="slide">
                     <li><label for="namefilter" class="filter-label">Name:</label><label>
-                            <input type="text" name="namefilter">
+                            <input type="text" name="namefilter" id="namefilter">
                         </label></li>
                     <li><label for="pricetill" class="filter-label">Max price:</label><br><label>
-                            <input type="number" name="pricetill" min="0" max="2147483647">
+                            <input type="number" name="pricetill" min="0" max="2147483647" id="pricetill">
                         </label></li>
                     <li><label for="priceof" class="filter-label">Min price:</label><br><label>
-                            <input type="number" name="priceof" min="0" max="2147483647">
+                            <input type="number" name="priceof" min="0" max="2147483647" id="priceof">
                         </label></li>
                     <li><button type="reset" class="btn btn-outline-dark mt-auto">Reset</button></li>
                     <li><button type="submit" class="btn btn-outline-dark mt-auto">Filter</button></li>
@@ -142,18 +142,21 @@ $indexphp = '';
                                         <div class="card-body p-4 text-secondary">
                                             <div class="text-center">
                                                 <form class="buy-form" id=<?php echo $row["id"] . "formbuyfisharticle"; ?> action="?<?php echo $row['id']; ?>buy=<?php echo ${"buy" . $row["id"]} ?>" method="post">
-                                                    <label for=name="<?php echo $row['id']; ?>id"></label><input type="number" id=<?php echo $row["id"] . "-id-article"; ?> name="<?php echo $row['id']; ?>id" value=<?php echo $row["id"] ?> readonly hidden>
+                                                    <input type="number" id=<?php echo $row["id"] . "-id-article"; ?> name="<?php echo $row['id']; ?>id" value=<?php echo $row["id"] ?> readonly hidden>
                                                     <!-- Product name-->
-                                                    <h5 class="fw-bolder"><label for=name="name"></label><input type="text" class="name-form" id=<?php echo $row["id"] . "-name-article"; ?> name="name" value=<?php echo $row["name"] ?> readonly></h5>
+                                                    <input type="text" class="name-form" id=<?php echo $row["id"] . "-name-article"; ?> name="name" value=<?php echo $row["name"] ?> readonly>
                                                     <!-- Product price-->
-                                                    <label for=name="<?php echo $row['id']; ?>price"></label><input type="number" class="number-buy-form" id=<?php echo $row["id"] . "-price-article"; ?> name="<?php echo $row['id']; ?>price" value=<?php echo $row["price"] ?> readonly>
+                                                    <input type="number" class="number-buy-form" id=<?php echo $row["id"] . "-price-article"; ?> name="<?php echo $row['id']; ?>price" value=<?php echo $row["price"] ?> readonly>
+
+                                                    <!-- Product actions-->
+                                                    <div class="card-footer p-4 pt-0 border-top-0 bg-transparent">
+
+                                                        <div class="text-center"><button type="submit" id=<?php echo $row["id"] . "-buy-article"; ?> class="btn btn-outline-dark mt-auto">Buy</button></div>
+                                                    </div>
+                                                </form>
+
                                             </div>
                                         </div>
-                                        <!-- Product actions-->
-                                        <div class="card-footer p-4 pt-0 border-top-0 bg-transparent">
-                                            <div class="text-center"><button type="submit" id=<?php echo $row["id"] . "-buy-article"; ?> class="btn btn-outline-dark mt-auto">Buy</button></div>
-                                        </div>
-                                        </form>
                                     </div>
                                 </div>
 
