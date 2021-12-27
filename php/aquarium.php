@@ -2,6 +2,7 @@
 session_start();
 $indexphp = '';
 
+// a function to convert IPv6 to integers to store in the DB
 function ip2long_v6($ip) {
     $ip_n = inet_pton($ip);
     $bin = '';
@@ -23,10 +24,10 @@ function ip2long_v6($ip) {
     }
 }
 
-// log ip 
+// get the visitor's IP
 $ip = $_SERVER['REMOTE_ADDR'];
 
-// check if IPv4, IPv6 or invalid
+// check if it's IPv4, IPv6 or invalid
 if (filter_var($ip, FILTER_VALIDATE_IP, FILTER_FLAG_IPV4)) {
     $ip_num = ip2long($ip);
 }
@@ -37,7 +38,7 @@ else {
     $ip_num = 0;
 }
 
-// get user ID from link
+// parse user ID from link
 $url = 'http://' . $_SERVER['HTTP_HOST'] . $_SERVER['REQUEST_URI'];
 $url_components = parse_url($url);
 parse_str($url_components['query'], $params);
@@ -64,6 +65,7 @@ $link_user_id = $params['user'];
 <?php include('templates/header.php');?>
 
 <?php
+// upon pressing the Feed button, all fish are fed and 10 money is substracted from user balance
 if(array_key_exists('feed-button', $_POST)) {
     $query = "UPDATE users SET balance = balance - 10 WHERE id=$link_user_id";
     $result = mysqli_query($db_connect, $query);
@@ -99,7 +101,7 @@ if ($ip_num !== 0) {
 <main>
 <div id="aquariumContainer">
     <?php
-        // if user ID is alright, 
+        // if user ID is alright, load the fish for that user
         if (isset($link_user_id) && $link_user_id !== "")
         {
             $query = "SELECT * FROM users_fish WHERE users_id = $link_user_id";
@@ -113,6 +115,7 @@ if ($ip_num !== 0) {
         }
         else
         {
+            // if user ID is wrong or doesn't exist, load a single .svg fish
             echo '<div class="fish">';
             include('../assets/images/fish.svg');
             echo '</div>';
