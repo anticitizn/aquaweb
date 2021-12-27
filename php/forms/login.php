@@ -43,12 +43,12 @@ if(isset($_GET['login'])) {
     ?>
     
     <main>
+    <div class="form">
         <?php 
             // throws error message
             if(isset($errorMessage)) {
                 echo $errorMessage;
             }
-            echo '<div class="form">';
             // check if data is given
             if(isset($user) && isset($password)){
                 // verifies data and sets usersession
@@ -103,6 +103,7 @@ if(isset($_GET['login'])) {
             <?php
         }
         ?>
+    </div>
     </main>
 
     <?php // imports footer
