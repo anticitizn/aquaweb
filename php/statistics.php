@@ -104,10 +104,12 @@ $indexphp = '';
         echo "<div class='panel-body table-responsive'>";
         echo "<table class='table'>
             <thead>
-            <th>name</th>
-            <th>price</th>
-            <th>purchased at</th>
-            <th>last fed at</th>
+            <tr>
+                <th>name</th>
+                <th>price</th>
+                <th>purchased at</th>
+                <th>last fed at</th>
+            </tr>
             </thead>";
 
         echo "<tbody>";
