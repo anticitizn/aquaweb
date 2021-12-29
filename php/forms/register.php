@@ -36,13 +36,13 @@ $pdo = new PDO('mysql:host=51.15.100.196;dbname=aquaweb', 'aquaweb', 'webaqua123
 
                 // checks password length
                 if (strlen($password) == 0) {
-                    echo '<p>Please enter password</p>';
+                    echo '<p>Please enter password</p><br>';
                     $error = true;
                 }
 
                 // checks passwords are equal
                 if ($password != $password2){
-                    echo 'Passwords musst be euqals.<br>';
+                    echo '<p>Passwords do not match</p><br>';
                     $error = true;
                 }
 
@@ -55,7 +55,7 @@ $pdo = new PDO('mysql:host=51.15.100.196;dbname=aquaweb', 'aquaweb', 'webaqua123
                     // popup message if username is already used
                     if ($user != null) {
                         echo '
-                        <script> alert("Username is allreadey in use."); </script>
+                        <script> alert("Username is already in use."); </script>
                         ';
                         $error = true;
                     }
@@ -70,11 +70,11 @@ $pdo = new PDO('mysql:host=51.15.100.196;dbname=aquaweb', 'aquaweb', 'webaqua123
 
                     // shows register was succsessful message
                     if($result) {        
-                        echo '<p>Your registry was succsessful. <a href="login.php">Please login.</a></p>';
+                        echo '<p>Your registration was succsessful. <a href="login.php"> Please login.</a></p>';
                         $showFormular = false;
                     } else {
                         // allerts register faild mmessage
-                        echo '<script> alert("Somthing went wrong. Please try again later."); </script>';
+                        echo '<script> alert("Something went wrong. Please try again later."); </script>';
                     }
                 } 
             }
