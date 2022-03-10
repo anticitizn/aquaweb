@@ -7,7 +7,7 @@ error_reporting(E_ALL);
 
 // we created a database on the ip-address '51.15.100.196'
 // thats because we had trouble importing the php-Myadmin database
-define ( 'MYSQL_HOST',      '51.15.100.196' );
+define ( 'MYSQL_HOST',      'aquaweb-db' );
 
 // username = aquaweb
 //password = webaqua123
