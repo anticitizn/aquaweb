@@ -1,23 +1,9 @@
 <?php 
 // starts session
 session_start();
-$pdo = new PDO('mysql:host=51.15.100.196;dbname=aquaweb', 'aquaweb', 'webaqua123');
 $indexphp = '../';
 $user = null;
 $password = null;
-
-// checks if login is triggerd
-if(isset($_GET['login'])) {
-    $username = $_POST['username'];
-    $password = $_POST['password'];
-    
-    // ecxecutes query
-    $statement = $pdo->prepare("SELECT * FROM users WHERE username = :username");
-    $result = $statement->execute(array('username' => $username));
-    $user = $statement->fetch();
-}
-
-//<p>https://www.php-einfach.de/experte/php-codebeispiele/loginscript/</p>
 ?>
 
 
@@ -40,6 +26,17 @@ if(isset($_GET['login'])) {
 <body>
     <?php // imports header
         include('../templates/header.php');
+
+        // checks if login is triggerd
+        if(isset($_GET['login'])) {
+        $username = $_POST['username'];
+        $password = $_POST['password'];
+    
+        // ecxecutes query
+        $statement = "SELECT * FROM users WHERE username = " . $username;
+        $result = mysqli_query($db_connect, $statement);
+        $user = mysqli_fetch_assoc($result))
+}
     ?>
     
     <main>

@@ -2,7 +2,6 @@
 // starts session
 session_start();
 $indexphp = '../';
-$pdo = new PDO('mysql:host=51.15.100.196;dbname=aquaweb', 'aquaweb', 'webaqua123');
 ?>
 
 <!DOCTYPE html>
@@ -48,9 +47,9 @@ $pdo = new PDO('mysql:host=51.15.100.196;dbname=aquaweb', 'aquaweb', 'webaqua123
 
                 //check if username is allready registered
                 if (!$error) { 
-                    $statement = $pdo->prepare("SELECT * FROM users WHERE username = :username");
-                    $result = $statement->execute(array('username' => $username));
-                    $user = $statement->fetch();
+                    $statement = "SELECT * FROM users WHERE username = " . $username;
+                    $result = mysqli_query($db_connect, $statement);
+                    $user = mysqli_fetch_assoc($result))
 
                     // popup message if username is already used
                     if ($user != null) {
@@ -144,11 +143,13 @@ $pdo = new PDO('mysql:host=51.15.100.196;dbname=aquaweb', 'aquaweb', 'webaqua123
 /*
 session_start();
 if(!isset($_SESSION['userid'])) {
-    die('Bitte zuerst <a href="login.php">einloggen</a>');
+    echo '<p>Bitte zuerst <a href="login.php">einloggen</a></p>';
 }
  
 //Abfrage der Nutzer ID vom Login
 $userid = $_SESSION['userid'];
  
 ?>
+
+//muss ich noch machen für die adminseiten, userseite, shop und statistik
 -->
