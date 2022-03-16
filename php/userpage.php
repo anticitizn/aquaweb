@@ -13,6 +13,8 @@ if (isset($_GET["delete"]) && $_GET["delete"] == 1) {
     $result = mysqli_query($db_connect, $request);
     header('Location: /php/forms/logout.php');
 }
+
+
 ?>
 
 <!DOCTYPE html>
@@ -37,7 +39,7 @@ if (isset($_GET["delete"]) && $_GET["delete"] == 1) {
 
     <?php
     // gets userinformation for password validation (passwordold)
-    $statement = "SELECT * FROM users WHERE username = '" . $username . "'";
+    $statement = "SELECT * FROM users WHERE id = $userid";
     $result = mysqli_query($db_connect, $statement);
     $user = mysqli_fetch_assoc($result);
 

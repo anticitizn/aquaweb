@@ -7,6 +7,19 @@ if ($db_connect && (isset($_SESSION['userid']))) {
     $displayedusername = $row['username'];
     $userid = $row['id'];
 }
+
+$url = 'http://' . $_SERVER['SERVER_NAME'] . $_SERVER['REQUEST_URI'];
+$url_components = parse_url($url);
+if (strpos($url, "aquarium.php") !== false) {
+    parse_str($url_components['query'], $params);
+    $link_user_id = $params['user'];
+    $statment = "SELECT * FROM users WHERE id = $link_user_id";
+    $result = mysqli_query($db_connect, $statment);
+    $row = mysqli_fetch_assoc($result);
+    $link_user_name = $row['username'];
+}
+$userid ?? 0;
+
 ini_set('display_errors', 1);
 ini_set('display_startup_errors', 1);
 error_reporting(E_ALL);
@@ -24,8 +37,12 @@ error_reporting(E_ALL);
             <div class="collapse navbar-collapse" id="navbarResponsive">
                 <ul class="navbar-nav ms-auto">
                     <?php
-                    $url = 'http://' . $_SERVER['SERVER_NAME'] . $_SERVER['REQUEST_URI'];
-                    if (strpos($url, "aquarium.php") !== false) { ?>
+                    if (isset($link_user_id) && $link_user_id != $userid) { ?>
+                    <li class="nav-item">
+                        <p class="btn btn-secondary">Aquarium from: <?php echo $link_user_name; ?></p>
+                    </li>
+                    <?php }
+                    if (strpos($url, "aquarium.php") !== false && $link_user_id == $userid) { ?>
                     <li class="nav-item">
                         <form action="#" method="POST">
                             <button type="submit" class="btn btn-secondary" name="feed-button" value="Feed">Feed</button>
