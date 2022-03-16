@@ -2,6 +2,8 @@
 // starts session
 session_start();
 $indexphp = '../';
+$connectionpath = $indexphp . 'database/connection.php';
+include($connectionpath); 
 ?>
 
 <!DOCTYPE html>
@@ -47,9 +49,9 @@ $indexphp = '../';
 
                 //check if username is allready registered
                 if (!$error) { 
-                    $statement = "SELECT * FROM users WHERE username = " . $username;
+                    $statement = "SELECT * FROM users WHERE username = '" . $username . "'";
                     $result = mysqli_query($db_connect, $statement);
-                    $user = mysqli_fetch_assoc($result))
+                    $user = mysqli_fetch_assoc($result);
 
                     // popup message if username is already used
                     if ($user != null) {
@@ -61,11 +63,11 @@ $indexphp = '../';
                 }
 
                 //no errors -> user will be registered
-                if(!$error) {    
+                if(!$error) {
                     $password_hash = password_hash($password, PASSWORD_DEFAULT);
 
-                    $statement = $pdo->prepare("INSERT INTO users (username, password) VALUES (:username, :password)");
-                    $result = $statement->execute(array('username' => $username, 'password' => $password_hash));
+                    $statement = "INSERT INTO users (username, password) VALUES ('" . $username . "', '" . $password_hash . "')";
+                    $result = mysqli_query($db_connect, $statement);
 
                     // shows register was succsessful message
                     if($result) {        

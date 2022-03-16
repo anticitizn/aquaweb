@@ -1,6 +1,8 @@
 <?php
 session_start();
 $indexphp = '';
+$connectionpath = $indexphp . 'database/connection.php';
+include($connectionpath); 
 
 // a function to convert IPv6 to integers to store in the DB
 function ip2long_v6($ip) {

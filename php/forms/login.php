@@ -2,8 +2,36 @@
 // starts session
 session_start();
 $indexphp = '../';
+$connectionpath = $indexphp . 'database/connection.php';
+include($connectionpath); 
 $user = null;
 $password = null;
+
+// checks if login is triggerd
+if(isset($_GET['login'])) {
+    $username = $_POST['username'];
+    $password = $_POST['password'];
+
+    // ecxecutes query
+    $statement = "SELECT * FROM users WHERE username = '" . $username . "'";
+    $result = mysqli_query($db_connect, $statement);
+    $user = mysqli_fetch_assoc($result);
+    
+}
+
+// throws error message
+if(isset($errorMessage)) {
+    echo $errorMessage;
+}
+// check if data is given
+if(isset($user) && isset($password)){
+    // verifies data and sets usersession
+    if ($user !== false && password_verify($password, $user['password'])) {
+        $_SESSION['userid'] = $user['id'];
+        header('Location: /php/aquarium.php?user=' . $_SESSION['userid'],TRUE,301);
+        exit();
+    }
+}
 ?>
 
 
@@ -26,35 +54,10 @@ $password = null;
 <body>
     <?php // imports header
         include('../templates/header.php');
-
-        // checks if login is triggerd
-        if(isset($_GET['login'])) {
-        $username = $_POST['username'];
-        $password = $_POST['password'];
-    
-        // ecxecutes query
-        $statement = "SELECT * FROM users WHERE username = " . $username;
-        $result = mysqli_query($db_connect, $statement);
-        $user = mysqli_fetch_assoc($result))
-}
     ?>
     
     <main>
     <div class="form">
-        <?php 
-            // throws error message
-            if(isset($errorMessage)) {
-                echo $errorMessage;
-            }
-            // check if data is given
-            if(isset($user) && isset($password)){
-                // verifies data and sets usersession
-                if ($user !== false && password_verify($password, $user['password'])) {
-                    $_SESSION['userid'] = $user['id'];
-                    header('Location: /dhbw/tinf20-aquaweb/php/aquarium.php?user=' . $_SESSION['userid']);
-                }
-            }
-        ?>
         <?php
         $showFormular = true; // Variable to check if login is shown
 

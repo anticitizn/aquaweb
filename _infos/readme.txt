@@ -14,7 +14,7 @@ Matrikelnummern:
 * 2458151
 
 Programm starten:
-* http://localhost/dhbw/tinf20-aquaweb
+* http://localhost
 
 Login:
 * Admin: admin / admin
