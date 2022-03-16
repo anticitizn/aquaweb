@@ -1,6 +1,8 @@
 <?php
 session_start();
 $indexphp = '';
+$connectionpath = $indexphp . 'database/connection.php';
+include($connectionpath); 
 ?>
 
 <!DOCTYPE html>

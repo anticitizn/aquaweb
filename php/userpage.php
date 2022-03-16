@@ -2,6 +2,17 @@
 // starts session
 session_start();
 $indexphp = '';
+$connectionpath = $indexphp . 'database/connection.php';
+include($connectionpath);
+
+//deletes the correct users
+if (isset($_GET["delete"]) && $_GET["delete"] == 1) {
+    $request = "DELETE FROM users WHERE id=" . $_SESSION['userid'] . "";
+    $result = mysqli_query($db_connect, $request);
+    $request = "DELETE FROM users_fish WHERE users_id=" . $_SESSION['userid'] . "";
+    $result = mysqli_query($db_connect, $request);
+    header('Location: /php/forms/logout.php');
+}
 ?>
 
 <!DOCTYPE html>
@@ -26,10 +37,9 @@ $indexphp = '';
 
     <?php
     // gets userinformation for password validation (passwordold)
-    $pdo = new PDO('mysql:host=51.15.100.196;dbname=aquaweb', 'aquaweb', 'webaqua123');
-    $statement = $pdo->prepare("SELECT * FROM users WHERE id = :id");
-    $result = $statement->execute(array('id' => $_SESSION['userid']));
-    $user = $statement->fetch();
+    $statement = "SELECT * FROM users WHERE username = '" . $username . "'";
+    $result = mysqli_query($db_connect, $statement);
+    $user = mysqli_fetch_assoc($result);
 
     // if new password is entered correctly and old password is verified, the users password gets updated
     if (isset($_GET["update"]) && $_GET["update"] == 1) {
@@ -53,14 +63,6 @@ $indexphp = '';
         }
     }
 
-    //deletes the correct users
-    if (isset($_GET["delete"]) && $_GET["delete"] == 1) {
-        $request = "DELETE FROM users WHERE id=" . $_SESSION['userid'] . "";
-        $result = mysqli_query($db_connect, $request);
-        $request = "DELETE FROM users_fish WHERE users_id=" . $_SESSION['userid'] . "";
-        $result = mysqli_query($db_connect, $request);
-        header('Location: /dhbw/tinf20-aquaweb/php/forms/logout.php');
-    }
     ?>
     <!--headline for the side with help of Bootstrap CSS-->
     <header class="bg-dark py-5">

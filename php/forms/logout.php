@@ -2,6 +2,11 @@
     // starts session
     session_start();
     $indexphp = '../';
+    $connectionpath = $indexphp . 'database/connection.php';
+    include($connectionpath); 
+    // ends session, user have to login again and loads main page
+    session_destroy();  
+    header('Location: /');
 ?>
 <!DOCTYPE html>
 <html xml:lang="en" lang="en">
@@ -19,11 +24,6 @@
     <?php include('../templates/header.php');?>
 
     <main>
-        <?php
-        // ends session, user have to login again and loads main page
-        session_destroy();  
-        header('Location: /dhbw/tinf20-aquaweb/');
-        ?>
     </main>
 
 <?php include('../templates/footer.php');?>

@@ -2,6 +2,8 @@
 // starts session
 session_start();
 $indexphp = '';
+$connectionpath = $indexphp . 'database/connection.php';
+include($connectionpath); 
 ?>
 <!DOCTYPE html>
 <html xml:lang="en" lang="en">
