@@ -1,6 +1,6 @@
 name: ZAP Full Scan
 
-on: [push]
+on: [pull_request]
 
 jobs:
   zap_scan:
