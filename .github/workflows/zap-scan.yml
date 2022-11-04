@@ -14,5 +14,5 @@ jobs:
         with:
           token: ${{ secrets.GITHUB_TOKEN }}
           docker_name: 'owasp/zap2docker-stable'
-          target: 'https://www.anticitizen.space'
+          target: 'http://www.anticitizen.space'
           cmd_options: '-a'
